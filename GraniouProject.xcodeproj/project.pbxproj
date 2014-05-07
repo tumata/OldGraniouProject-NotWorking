@@ -15,24 +15,15 @@
 		90C765B61917FA5700FD58C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765B51917FA5700FD58C0 /* AppDelegate.m */; };
 		90C765B91917FA5700FD58C0 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90C765B71917FA5700FD58C0 /* Main_iPhone.storyboard */; };
 		90C765BC1917FA5700FD58C0 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90C765BA1917FA5700FD58C0 /* Main_iPad.storyboard */; };
-		90C765BF1917FA5700FD58C0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765BE1917FA5700FD58C0 /* ViewController.m */; };
 		90C765C11917FA5700FD58C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90C765C01917FA5700FD58C0 /* Images.xcassets */; };
-		90C765C81917FA5700FD58C0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C765C71917FA5700FD58C0 /* XCTest.framework */; };
-		90C765C91917FA5700FD58C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C765A51917FA5700FD58C0 /* Foundation.framework */; };
-		90C765CA1917FA5700FD58C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C765A91917FA5700FD58C0 /* UIKit.framework */; };
-		90C765D21917FA5700FD58C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90C765D01917FA5700FD58C0 /* InfoPlist.strings */; };
-		90C765D41917FA5700FD58C0 /* GraniouProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765D31917FA5700FD58C0 /* GraniouProjectTests.m */; };
+		90C765E41917FC2C00FD58C0 /* UILabel+dynamicSizeMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765E31917FC2C00FD58C0 /* UILabel+dynamicSizeMe.m */; };
+		90C765F11917FC7600FD58C0 /* APLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765EA1917FC7600FD58C0 /* APLViewController.m */; };
+		90C765F31917FC7600FD58C0 /* SaisieCommentaireViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765EE1917FC7600FD58C0 /* SaisieCommentaireViewController.m */; };
+		90C765F8191823BA00FD58C0 /* Tache.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765F7191823BA00FD58C0 /* Tache.m */; };
+		90CB2CBA191A2253006AA73A /* TacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB2CB9191A2253006AA73A /* TacheViewController.m */; };
+		90CB2CBE191A653E006AA73A /* fond-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90CB2CBC191A653E006AA73A /* fond-1.jpg */; };
+		90CB2CBF191A653E006AA73A /* LogoGraniou.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CB2CBD191A653E006AA73A /* LogoGraniou.png */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		90C765CB1917FA5700FD58C0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 90C7659A1917FA5700FD58C0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 90C765A11917FA5700FD58C0;
-			remoteInfo = GraniouProject;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		90C765A21917FA5700FD58C0 /* GraniouProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraniouProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,14 +38,20 @@
 		90C765B51917FA5700FD58C0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		90C765B81917FA5700FD58C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		90C765BB1917FA5700FD58C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		90C765BD1917FA5700FD58C0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		90C765BE1917FA5700FD58C0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		90C765C01917FA5700FD58C0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		90C765C61917FA5700FD58C0 /* GraniouProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GraniouProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90C765C71917FA5700FD58C0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		90C765CF1917FA5700FD58C0 /* GraniouProjectTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GraniouProjectTests-Info.plist"; sourceTree = "<group>"; };
-		90C765D11917FA5700FD58C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		90C765D31917FA5700FD58C0 /* GraniouProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraniouProjectTests.m; sourceTree = "<group>"; };
+		90C765E21917FC2C00FD58C0 /* UILabel+dynamicSizeMe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+dynamicSizeMe.h"; sourceTree = "<group>"; };
+		90C765E31917FC2C00FD58C0 /* UILabel+dynamicSizeMe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+dynamicSizeMe.m"; sourceTree = "<group>"; };
+		90C765E91917FC7600FD58C0 /* APLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLViewController.h; sourceTree = "<group>"; };
+		90C765EA1917FC7600FD58C0 /* APLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLViewController.m; sourceTree = "<group>"; };
+		90C765ED1917FC7600FD58C0 /* SaisieCommentaireViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaisieCommentaireViewController.h; sourceTree = "<group>"; };
+		90C765EE1917FC7600FD58C0 /* SaisieCommentaireViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaisieCommentaireViewController.m; sourceTree = "<group>"; };
+		90C765F6191823BA00FD58C0 /* Tache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tache.h; sourceTree = "<group>"; };
+		90C765F7191823BA00FD58C0 /* Tache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tache.m; sourceTree = "<group>"; };
+		90CB2CB8191A2253006AA73A /* TacheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TacheViewController.h; sourceTree = "<group>"; };
+		90CB2CB9191A2253006AA73A /* TacheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TacheViewController.m; sourceTree = "<group>"; };
+		90CB2CBC191A653E006AA73A /* fond-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fond-1.jpg"; sourceTree = "<group>"; };
+		90CB2CBD191A653E006AA73A /* LogoGraniou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoGraniou.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,16 +65,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		90C765C31917FA5700FD58C0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				90C765C81917FA5700FD58C0 /* XCTest.framework in Frameworks */,
-				90C765CA1917FA5700FD58C0 /* UIKit.framework in Frameworks */,
-				90C765C91917FA5700FD58C0 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -85,7 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				90C765AB1917FA5700FD58C0 /* GraniouProject */,
-				90C765CD1917FA5700FD58C0 /* GraniouProjectTests */,
 				90C765A41917FA5700FD58C0 /* Frameworks */,
 				90C765A31917FA5700FD58C0 /* Products */,
 			);
@@ -95,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				90C765A21917FA5700FD58C0 /* GraniouProject.app */,
-				90C765C61917FA5700FD58C0 /* GraniouProjectTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,12 +99,13 @@
 		90C765AB1917FA5700FD58C0 /* GraniouProject */ = {
 			isa = PBXGroup;
 			children = (
+				90CB2CBB191A64DC006AA73A /* Ressources */,
 				90C765B41917FA5700FD58C0 /* AppDelegate.h */,
 				90C765B51917FA5700FD58C0 /* AppDelegate.m */,
 				90C765B71917FA5700FD58C0 /* Main_iPhone.storyboard */,
 				90C765BA1917FA5700FD58C0 /* Main_iPad.storyboard */,
-				90C765BD1917FA5700FD58C0 /* ViewController.h */,
-				90C765BE1917FA5700FD58C0 /* ViewController.m */,
+				90C765F41918237D00FD58C0 /* Model */,
+				90C765E01917FB8900FD58C0 /* PhotoPicker */,
 				90C765C01917FA5700FD58C0 /* Images.xcassets */,
 				90C765AC1917FA5700FD58C0 /* Supporting Files */,
 			);
@@ -137,22 +123,45 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		90C765CD1917FA5700FD58C0 /* GraniouProjectTests */ = {
+		90C765E01917FB8900FD58C0 /* PhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
-				90C765D31917FA5700FD58C0 /* GraniouProjectTests.m */,
-				90C765CE1917FA5700FD58C0 /* Supporting Files */,
+				90CB2CB8191A2253006AA73A /* TacheViewController.h */,
+				90CB2CB9191A2253006AA73A /* TacheViewController.m */,
+				90C765E91917FC7600FD58C0 /* APLViewController.h */,
+				90C765EA1917FC7600FD58C0 /* APLViewController.m */,
+				90C765ED1917FC7600FD58C0 /* SaisieCommentaireViewController.h */,
+				90C765EE1917FC7600FD58C0 /* SaisieCommentaireViewController.m */,
+				90C765E11917FBEA00FD58C0 /* Interfaces */,
 			);
-			path = GraniouProjectTests;
+			name = PhotoPicker;
 			sourceTree = "<group>";
 		};
-		90C765CE1917FA5700FD58C0 /* Supporting Files */ = {
+		90C765E11917FBEA00FD58C0 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				90C765CF1917FA5700FD58C0 /* GraniouProjectTests-Info.plist */,
-				90C765D01917FA5700FD58C0 /* InfoPlist.strings */,
+				90C765E21917FC2C00FD58C0 /* UILabel+dynamicSizeMe.h */,
+				90C765E31917FC2C00FD58C0 /* UILabel+dynamicSizeMe.m */,
 			);
-			name = "Supporting Files";
+			name = Interfaces;
+			sourceTree = "<group>";
+		};
+		90C765F41918237D00FD58C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				90C765F6191823BA00FD58C0 /* Tache.h */,
+				90C765F7191823BA00FD58C0 /* Tache.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		90CB2CBB191A64DC006AA73A /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				90CB2CBC191A653E006AA73A /* fond-1.jpg */,
+				90CB2CBD191A653E006AA73A /* LogoGraniou.png */,
+			);
+			name = Ressources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,24 +184,6 @@
 			productReference = 90C765A21917FA5700FD58C0 /* GraniouProject.app */;
 			productType = "com.apple.product-type.application";
 		};
-		90C765C51917FA5700FD58C0 /* GraniouProjectTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 90C765DA1917FA5700FD58C0 /* Build configuration list for PBXNativeTarget "GraniouProjectTests" */;
-			buildPhases = (
-				90C765C21917FA5700FD58C0 /* Sources */,
-				90C765C31917FA5700FD58C0 /* Frameworks */,
-				90C765C41917FA5700FD58C0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				90C765CC1917FA5700FD58C0 /* PBXTargetDependency */,
-			);
-			name = GraniouProjectTests;
-			productName = GraniouProjectTests;
-			productReference = 90C765C61917FA5700FD58C0 /* GraniouProjectTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -202,8 +193,8 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = telecom;
 				TargetAttributes = {
-					90C765C51917FA5700FD58C0 = {
-						TestTargetID = 90C765A11917FA5700FD58C0;
+					90C765A11917FA5700FD58C0 = {
+						DevelopmentTeam = FX5DHFP49L;
 					};
 				};
 			};
@@ -214,6 +205,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 90C765991917FA5700FD58C0;
 			productRefGroup = 90C765A31917FA5700FD58C0 /* Products */;
@@ -221,7 +213,6 @@
 			projectRoot = "";
 			targets = (
 				90C765A11917FA5700FD58C0 /* GraniouProject */,
-				90C765C51917FA5700FD58C0 /* GraniouProjectTests */,
 			);
 		};
 /* End PBXProject section */
@@ -233,16 +224,10 @@
 			files = (
 				90C765BC1917FA5700FD58C0 /* Main_iPad.storyboard in Resources */,
 				90C765C11917FA5700FD58C0 /* Images.xcassets in Resources */,
+				90CB2CBF191A653E006AA73A /* LogoGraniou.png in Resources */,
 				90C765B91917FA5700FD58C0 /* Main_iPhone.storyboard in Resources */,
 				90C765B01917FA5700FD58C0 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		90C765C41917FA5700FD58C0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				90C765D21917FA5700FD58C0 /* InfoPlist.strings in Resources */,
+				90CB2CBE191A653E006AA73A /* fond-1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,29 +238,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90C765BF1917FA5700FD58C0 /* ViewController.m in Sources */,
+				90CB2CBA191A2253006AA73A /* TacheViewController.m in Sources */,
+				90C765E41917FC2C00FD58C0 /* UILabel+dynamicSizeMe.m in Sources */,
 				90C765B61917FA5700FD58C0 /* AppDelegate.m in Sources */,
+				90C765F8191823BA00FD58C0 /* Tache.m in Sources */,
+				90C765F11917FC7600FD58C0 /* APLViewController.m in Sources */,
 				90C765B21917FA5700FD58C0 /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		90C765C21917FA5700FD58C0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				90C765D41917FA5700FD58C0 /* GraniouProjectTests.m in Sources */,
+				90C765F31917FC7600FD58C0 /* SaisieCommentaireViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		90C765CC1917FA5700FD58C0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 90C765A11917FA5700FD58C0 /* GraniouProject */;
-			targetProxy = 90C765CB1917FA5700FD58C0 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		90C765AE1917FA5700FD58C0 /* InfoPlist.strings */ = {
@@ -300,14 +273,6 @@
 				90C765BB1917FA5700FD58C0 /* Base */,
 			);
 			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		90C765D01917FA5700FD58C0 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				90C765D11917FA5700FD58C0 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -345,7 +310,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -378,7 +343,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -390,10 +355,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GraniouProject/GraniouProject-Prefix.pch";
 				INFOPLIST_FILE = "GraniouProject/GraniouProject-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -403,51 +371,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GraniouProject/GraniouProject-Prefix.pch";
 				INFOPLIST_FILE = "GraniouProject/GraniouProject-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		90C765DB1917FA5700FD58C0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GraniouProject.app/GraniouProject";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GraniouProject/GraniouProject-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "GraniouProjectTests/GraniouProjectTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		90C765DC1917FA5700FD58C0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GraniouProject.app/GraniouProject";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GraniouProject/GraniouProject-Prefix.pch";
-				INFOPLIST_FILE = "GraniouProjectTests/GraniouProjectTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -470,14 +401,7 @@
 				90C765D91917FA5700FD58C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		90C765DA1917FA5700FD58C0 /* Build configuration list for PBXNativeTarget "GraniouProjectTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				90C765DB1917FA5700FD58C0 /* Debug */,
-				90C765DC1917FA5700FD58C0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
