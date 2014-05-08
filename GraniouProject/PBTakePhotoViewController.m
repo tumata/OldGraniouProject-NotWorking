@@ -1,7 +1,7 @@
-#import "APLViewController.h"
+#import "PBTakePhotoViewController.h"
 
 
-@interface APLViewController ()
+@interface PBTakePhotoViewController ()
 
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UIToolbar *toolBar;
@@ -18,7 +18,7 @@
 
 
 
-@implementation APLViewController
+@implementation PBTakePhotoViewController
 
 - (void)viewDidLoad
 {

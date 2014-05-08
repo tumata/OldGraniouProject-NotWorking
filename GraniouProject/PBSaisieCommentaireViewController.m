@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 Apple Inc. All rights reserved.
 //
 
-#import "SaisieCommentaireViewController.h"
+#import "PBSaisieCommentaireViewController.h"
 
-@interface SaisieCommentaireViewController ()
+@interface PBSaisieCommentaireViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextView *commentaireTextField;
 
 @end
 
-@implementation SaisieCommentaireViewController
+@implementation PBSaisieCommentaireViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

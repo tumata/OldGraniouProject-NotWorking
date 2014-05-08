@@ -7,7 +7,7 @@
         <!--Tache View Controller-->
         <scene sceneID="kkY-wj-tS9">
             <objects>
-                <viewController id="fPK-UP-bPv" customClass="TacheViewController" sceneMemberID="viewController">
+                <viewController id="fPK-UP-bPv" customClass="PBTacheViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4in-er-VoN"/>
                         <viewControllerLayoutGuide type="bottom" id="OYn-qU-AqF"/>
@@ -31,7 +31,7 @@
         <!--Saisie Commentaire View Controller-->
         <scene sceneID="8N7-PN-nra">
             <objects>
-                <viewController id="eDs-sJ-YN5" customClass="SaisieCommentaireViewController" sceneMemberID="viewController">
+                <viewController id="eDs-sJ-YN5" customClass="PBSaisieCommentaireViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dzL-mR-4uo"/>
                         <viewControllerLayoutGuide type="bottom" id="2cs-nf-hm2"/>
@@ -86,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="1337" y="701"/>
         </scene>
-        <!--View Controller-->
+        <!--Take Photo View Controller-->
         <scene sceneID="I9c-cR-UhR">
             <objects>
-                <viewController id="voD-EB-UEl" customClass="APLViewController" sceneMemberID="viewController">
+                <viewController id="voD-EB-UEl" customClass="PBTakePhotoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TuN-cu-ttt"/>
                         <viewControllerLayoutGuide type="bottom" id="ctm-bq-bPx"/>

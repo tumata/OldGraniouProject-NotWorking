@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Tache : NSObject
+@interface PBTache : NSObject
 
 @property (readonly, nonatomic) NSInteger           idChantier;
 @property (readonly, nonatomic) NSInteger           idTache;

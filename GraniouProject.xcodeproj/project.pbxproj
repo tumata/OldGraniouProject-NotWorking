@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90B94BF2191BD87C0062F7CA /* PBChantier.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B94BF1191BD87C0062F7CA /* PBChantier.m */; };
 		90C765A61917FA5700FD58C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C765A51917FA5700FD58C0 /* Foundation.framework */; };
 		90C765A81917FA5700FD58C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C765A71917FA5700FD58C0 /* CoreGraphics.framework */; };
 		90C765AA1917FA5700FD58C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C765A91917FA5700FD58C0 /* UIKit.framework */; };
@@ -17,15 +18,17 @@
 		90C765BC1917FA5700FD58C0 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90C765BA1917FA5700FD58C0 /* Main_iPad.storyboard */; };
 		90C765C11917FA5700FD58C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90C765C01917FA5700FD58C0 /* Images.xcassets */; };
 		90C765E41917FC2C00FD58C0 /* UILabel+dynamicSizeMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765E31917FC2C00FD58C0 /* UILabel+dynamicSizeMe.m */; };
-		90C765F11917FC7600FD58C0 /* APLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765EA1917FC7600FD58C0 /* APLViewController.m */; };
-		90C765F31917FC7600FD58C0 /* SaisieCommentaireViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765EE1917FC7600FD58C0 /* SaisieCommentaireViewController.m */; };
-		90C765F8191823BA00FD58C0 /* Tache.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765F7191823BA00FD58C0 /* Tache.m */; };
-		90CB2CBA191A2253006AA73A /* TacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB2CB9191A2253006AA73A /* TacheViewController.m */; };
+		90C765F11917FC7600FD58C0 /* PBTakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765EA1917FC7600FD58C0 /* PBTakePhotoViewController.m */; };
+		90C765F31917FC7600FD58C0 /* PBSaisieCommentaireViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765EE1917FC7600FD58C0 /* PBSaisieCommentaireViewController.m */; };
+		90C765F8191823BA00FD58C0 /* PBTache.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765F7191823BA00FD58C0 /* PBTache.m */; };
+		90CB2CBA191A2253006AA73A /* PBTacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB2CB9191A2253006AA73A /* PBTacheViewController.m */; };
 		90CB2CBE191A653E006AA73A /* fond-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90CB2CBC191A653E006AA73A /* fond-1.jpg */; };
 		90CB2CBF191A653E006AA73A /* LogoGraniou.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CB2CBD191A653E006AA73A /* LogoGraniou.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		90B94BF0191BD87C0062F7CA /* PBChantier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBChantier.h; sourceTree = "<group>"; };
+		90B94BF1191BD87C0062F7CA /* PBChantier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBChantier.m; sourceTree = "<group>"; };
 		90C765A21917FA5700FD58C0 /* GraniouProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraniouProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90C765A51917FA5700FD58C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		90C765A71917FA5700FD58C0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -42,14 +45,14 @@
 		90C765C71917FA5700FD58C0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		90C765E21917FC2C00FD58C0 /* UILabel+dynamicSizeMe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+dynamicSizeMe.h"; sourceTree = "<group>"; };
 		90C765E31917FC2C00FD58C0 /* UILabel+dynamicSizeMe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+dynamicSizeMe.m"; sourceTree = "<group>"; };
-		90C765E91917FC7600FD58C0 /* APLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLViewController.h; sourceTree = "<group>"; };
-		90C765EA1917FC7600FD58C0 /* APLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLViewController.m; sourceTree = "<group>"; };
-		90C765ED1917FC7600FD58C0 /* SaisieCommentaireViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaisieCommentaireViewController.h; sourceTree = "<group>"; };
-		90C765EE1917FC7600FD58C0 /* SaisieCommentaireViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaisieCommentaireViewController.m; sourceTree = "<group>"; };
-		90C765F6191823BA00FD58C0 /* Tache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tache.h; sourceTree = "<group>"; };
-		90C765F7191823BA00FD58C0 /* Tache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tache.m; sourceTree = "<group>"; };
-		90CB2CB8191A2253006AA73A /* TacheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TacheViewController.h; sourceTree = "<group>"; };
-		90CB2CB9191A2253006AA73A /* TacheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TacheViewController.m; sourceTree = "<group>"; };
+		90C765E91917FC7600FD58C0 /* PBTakePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTakePhotoViewController.h; sourceTree = "<group>"; };
+		90C765EA1917FC7600FD58C0 /* PBTakePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTakePhotoViewController.m; sourceTree = "<group>"; };
+		90C765ED1917FC7600FD58C0 /* PBSaisieCommentaireViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBSaisieCommentaireViewController.h; sourceTree = "<group>"; };
+		90C765EE1917FC7600FD58C0 /* PBSaisieCommentaireViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBSaisieCommentaireViewController.m; sourceTree = "<group>"; };
+		90C765F6191823BA00FD58C0 /* PBTache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTache.h; sourceTree = "<group>"; };
+		90C765F7191823BA00FD58C0 /* PBTache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTache.m; sourceTree = "<group>"; };
+		90CB2CB8191A2253006AA73A /* PBTacheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTacheViewController.h; sourceTree = "<group>"; };
+		90CB2CB9191A2253006AA73A /* PBTacheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTacheViewController.m; sourceTree = "<group>"; };
 		90CB2CBC191A653E006AA73A /* fond-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fond-1.jpg"; sourceTree = "<group>"; };
 		90CB2CBD191A653E006AA73A /* LogoGraniou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoGraniou.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,12 +129,12 @@
 		90C765E01917FB8900FD58C0 /* PhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
-				90CB2CB8191A2253006AA73A /* TacheViewController.h */,
-				90CB2CB9191A2253006AA73A /* TacheViewController.m */,
-				90C765E91917FC7600FD58C0 /* APLViewController.h */,
-				90C765EA1917FC7600FD58C0 /* APLViewController.m */,
-				90C765ED1917FC7600FD58C0 /* SaisieCommentaireViewController.h */,
-				90C765EE1917FC7600FD58C0 /* SaisieCommentaireViewController.m */,
+				90CB2CB8191A2253006AA73A /* PBTacheViewController.h */,
+				90CB2CB9191A2253006AA73A /* PBTacheViewController.m */,
+				90C765E91917FC7600FD58C0 /* PBTakePhotoViewController.h */,
+				90C765EA1917FC7600FD58C0 /* PBTakePhotoViewController.m */,
+				90C765ED1917FC7600FD58C0 /* PBSaisieCommentaireViewController.h */,
+				90C765EE1917FC7600FD58C0 /* PBSaisieCommentaireViewController.m */,
 				90C765E11917FBEA00FD58C0 /* Interfaces */,
 			);
 			name = PhotoPicker;
@@ -149,8 +152,10 @@
 		90C765F41918237D00FD58C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				90C765F6191823BA00FD58C0 /* Tache.h */,
-				90C765F7191823BA00FD58C0 /* Tache.m */,
+				90C765F6191823BA00FD58C0 /* PBTache.h */,
+				90C765F7191823BA00FD58C0 /* PBTache.m */,
+				90B94BF0191BD87C0062F7CA /* PBChantier.h */,
+				90B94BF1191BD87C0062F7CA /* PBChantier.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -238,13 +243,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90CB2CBA191A2253006AA73A /* TacheViewController.m in Sources */,
+				90CB2CBA191A2253006AA73A /* PBTacheViewController.m in Sources */,
 				90C765E41917FC2C00FD58C0 /* UILabel+dynamicSizeMe.m in Sources */,
 				90C765B61917FA5700FD58C0 /* AppDelegate.m in Sources */,
-				90C765F8191823BA00FD58C0 /* Tache.m in Sources */,
-				90C765F11917FC7600FD58C0 /* APLViewController.m in Sources */,
+				90C765F8191823BA00FD58C0 /* PBTache.m in Sources */,
+				90C765F11917FC7600FD58C0 /* PBTakePhotoViewController.m in Sources */,
 				90C765B21917FA5700FD58C0 /* main.m in Sources */,
-				90C765F31917FC7600FD58C0 /* SaisieCommentaireViewController.m in Sources */,
+				90C765F31917FC7600FD58C0 /* PBSaisieCommentaireViewController.m in Sources */,
+				90B94BF2191BD87C0062F7CA /* PBChantier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

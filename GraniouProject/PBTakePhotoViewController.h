@@ -3,7 +3,7 @@
 
 @protocol TakePictureDelegate;
 
-@interface APLViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface PBTakePhotoViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 // Déclaration de la propriété delegate,
 // qui est un objet devant implémenter le protocol AddTaskDelegate

@@ -17,10 +17,10 @@
 #define MY_SPACE_AFTER_TEXTVIEW 20
 #define MY_SPACE_FOR_SECTION 40
 
-#import "TacheViewController.h"
+#import "PBTacheViewController.h"
 
 
-@interface TacheViewController ()
+@interface PBTacheViewController ()
 
 @property (nonatomic) CGRect                frameScrollRect;
 @property (nonatomic) CGRect                lastFrameRect;
@@ -41,7 +41,7 @@
 
 @end
 
-@implementation TacheViewController
+@implementation PBTacheViewController
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -57,7 +57,7 @@
 {
     [super viewDidLoad];
     
-    _tache = [[Tache alloc]initWithIdChantier:1
+    _tache = [[PBTache alloc]initWithIdChantier:1
                                        idTache:1
                                          name:@"Tache 1"
                                   description:@"Voici la dercription de la tache et c'est plutot sympas de voir que ca marche très bien n'est pas ? Voila donc vous avez ça a faire et puis ça et puis aussi ça car quand on s'amuse on ne compte pas. N'est pas ? Allez, ciao"
@@ -352,13 +352,13 @@
 {
     if ([[segue identifier] isEqualToString:@"toGetPicture"])
     {
-        APLViewController *vc = [segue destinationViewController];
+        PBTakePhotoViewController *vc = [segue destinationViewController];
         vc.delegate = self;
     }
     
     if ([[segue identifier] isEqualToString:@"toSaisieCommentaire"])
     {
-        SaisieCommentaireViewController *vc = [segue destinationViewController];
+        PBSaisieCommentaireViewController *vc = [segue destinationViewController];
         vc.delegate = self;
         NSLog(@"ok");
         [vc setTache:_tache];

@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 telecom. All rights reserved.
 //
 
-#import "Tache.h"
+#import "PBTache.h"
 
 
-@interface Tache ()
+@interface PBTache ()
 
 @property (readwrite) NSString          *titre;
 @property (readwrite) NSString          *description;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation Tache
+@implementation PBTache
 
 // Constructeur
 -(id)initWithIdChantier:(NSInteger)idChantier idTache:(NSInteger)idTache name:(NSString *)name description:(NSString *)descr imageDescription:(UIImage *)imgDescr commentaire:(NSString *)comm imageCommentaire:(UIImage *)imgComm
