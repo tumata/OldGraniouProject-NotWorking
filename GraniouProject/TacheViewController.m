@@ -57,11 +57,13 @@
 {
     [super viewDidLoad];
     
-    _tache = [[Tache alloc] initWithName:@"Tache 1"
-                             description:@"Voici la dercription de la tache et c'est plutot sympas de voir que ca marche très bien n'est pas ? Voila donc vous avez ça a faire et puis ça et puis aussi ça car quand on s'amuse on ne compte pas. N'est pas ? Allez, ciao"
-                        imageDescription:[UIImage imageNamed:@"fond-1.jpg"]
-                             commentaire:@"Voici la dercription de la tache et c'est plutot sympas de voir que ca marche très bien n'est pas ? Voila donc vous avez ça a faire et puis ça et puis aussi ça car quand on s'amuse on ne compte pas. N'est pas ? Allez, ciao"
-                        imageCommentaire:[UIImage imageNamed:@"fond-1.jp"]];
+    _tache = [[Tache alloc]initWithIdChantier:1
+                                       idTache:1
+                                         name:@"Tache 1"
+                                  description:@"Voici la dercription de la tache et c'est plutot sympas de voir que ca marche très bien n'est pas ? Voila donc vous avez ça a faire et puis ça et puis aussi ça car quand on s'amuse on ne compte pas. N'est pas ? Allez, ciao"
+                              imageDescription:[UIImage imageNamed:@"fond-1.jp"]
+                                   commentaire:@"Voici la dercription de la tache et c'est plutot sympas de voir que ca marche très bien n'est pas ? Voila donc vous avez ça a faire et puis ça et puis aussi ça car quand on s'amuse on ne compte pas. N'est pas ? Allez, ciao"
+                              imageCommentaire:[UIImage imageNamed:@"fond-1.jpg"]];
     
     [self initialisationViews];
 }
@@ -222,7 +224,7 @@
         _commentaireImage = [[UIImageView alloc] initWithFrame:
                              [self getRectForElementWithHeight:MY_IMAGEVIEW_HEIGHT
                                        andSpaceWithLastElement:MY_SPACE_AFTER_TEXTVIEW]];
-        [_commentaireImage setImage:_tache.imageDescription];
+        [_commentaireImage setImage:_tache.imageCommentaire];
         _commentaireImage.contentMode = UIViewContentModeScaleAspectFit;
         [_insideView addSubview:_commentaireImage];
         
@@ -325,18 +327,20 @@
 
 - (void)userDidChooseImage:(UIImage *)imageChosen
 {
-    [_boutonAddImage setHighlighted:false];
-    [self dismissViewControllerAnimated:false completion:nil];
-    [self initialisationViews];
+    // Mise a jour modèle
+    _tache.imageCommentaire = imageChosen;
+    // Mise a jour vue
+    _commentaireImage.image = _tache.imageCommentaire;
 }
 
 #pragma mark - SaisirCommentaireDelegate
 
 - (void)userFinishedSaisie:(NSString *)saisie
 {
-    [_boutonAddCommentaire setHighlighted:false];
-    [_tache setCommentaire:saisie];
-    [_commentaireTextView setText:_tache.commentaire];
+    // Mise a jour modele
+    _tache.commentaire = saisie;
+    // Mise a jour vue
+    _commentaireTextView.text = _tache.commentaire;
 }
 
 
@@ -356,7 +360,9 @@
     {
         SaisieCommentaireViewController *vc = [segue destinationViewController];
         vc.delegate = self;
-        //[vc initialiserCommentaire:_tache.commentaire];
+        NSLog(@"ok");
+        [vc setTache:_tache];
+        NSLog(@"ok2");
     }
 }
 

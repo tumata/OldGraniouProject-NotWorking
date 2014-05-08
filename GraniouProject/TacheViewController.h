@@ -1,5 +1,5 @@
 //
-//  TacheTestViewController.h
+//  TacheViewController.h
 //  GraniouProject
 //
 //  Created by Philippe Tumata on 07/05/2014.
@@ -13,6 +13,7 @@
 
 @interface TacheViewController : UIViewController <TakePictureDelegate, SaisirCommentaireDelegate>
 
-@property (strong, nonatomic, readwrite) Tache *tache;
+@property (strong, nonatomic) Tache *tache;
 
 @end
+

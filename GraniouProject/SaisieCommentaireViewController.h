@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#include "Tache.h"
 
 @protocol SaisirCommentaireDelegate;
 
@@ -14,7 +15,7 @@
 @interface SaisieCommentaireViewController : UIViewController
 
 @property (nonatomic, assign) id<SaisirCommentaireDelegate> delegate;
-- (void) initialiserCommentaire:(NSString *)com;
+@property (strong, nonatomic) Tache *tache;
 
 @end
 

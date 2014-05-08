@@ -10,15 +10,11 @@
 
 @interface SaisieCommentaireViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextView *textField;
-@property (nonatomic, assign) NSString *commentaire;
+@property (weak, nonatomic) IBOutlet UITextView *commentaireTextField;
 
 @end
 
 @implementation SaisieCommentaireViewController
-
-@synthesize textField = _textField;
-@synthesize commentaire = _commentaire;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,19 +28,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _commentaireTextField.text = _tache.commentaire;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)initialiserCommentaire:(NSString *)com
-{
-    _commentaire = com;
-    [_textField setText: _commentaire];
-    NSLog(@"%@", _commentaire);
 }
 
 - (IBAction)didCancel:(id)sender
@@ -54,12 +44,12 @@
 
 - (IBAction)didSave:(id)sender
 {
-    if (_textField.text.length)
+    if (_commentaireTextField.text.length)
     {
-        [_delegate userFinishedSaisie:_textField.text];
+        _tache.commentaire = _commentaireTextField.text;
+        [_delegate userFinishedSaisie:_tache.commentaire];
         [self.navigationController popViewControllerAnimated:true];
     }
 }
-
 
 @end

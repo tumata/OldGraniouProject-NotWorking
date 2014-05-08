@@ -19,53 +19,24 @@
 
 @implementation Tache
 
-@synthesize titre = _titre;
-@synthesize description = _description;
-@synthesize imageDescription = _imageDescription;
-
-@synthesize commentaire = _commentaire;
-@synthesize imageCommentaire = _imageCommentaire;
-
-
 // Constructeur
--(id)initWithName:(NSString *)name description:(NSString *)descr imageDescription:(UIImage *)imgDescr commentaire:(NSString *)comm imageCommentaire:(UIImage *)imgComm
+-(id)initWithIdChantier:(NSInteger)idChantier idTache:(NSInteger)idTache name:(NSString *)name description:(NSString *)descr imageDescription:(UIImage *)imgDescr commentaire:(NSString *)comm imageCommentaire:(UIImage *)imgComm
 {
     
     self = [super init];
     if (self) {
-        _titre = [name copy];
-        _description = [descr copy];
-        _imageDescription = [imgDescr copy];
+        _idChantier = idChantier;
+        _idTache = idTache;
         
-        _commentaire = [comm copy];
-        _imageCommentaire = [imgComm copy];
+        _titre = name;
+        _description = descr;
+        _imageDescription = imgDescr;
+        
+        _commentaire = comm;
+        _imageCommentaire = imgComm;
         
     }
     return self;
 }
-
-- (id)init {
-    // Forward to the "designated" initialization method
-    return [self initWithName:@"Erreur" description:nil imageDescription:nil commentaire:nil imageCommentaire:nil];
-}
-
-
-
--(void) setImageCommentaire:(UIImage *)image
-{
-    if (_imageCommentaire)
-    {
-        ///// ICI MODIFIER
-        //[_imageCommentaire];
-    }
-    _imageCommentaire = image;
-}
-
--(void) setCommentaire:(NSString *) commentaire
-{
-    _commentaire = commentaire;
-}
-
-
 
 @end

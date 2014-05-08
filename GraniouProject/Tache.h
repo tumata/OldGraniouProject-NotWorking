@@ -10,18 +10,17 @@
 
 @interface Tache : NSObject
 
+@property (readonly, nonatomic) NSInteger           idChantier;
+@property (readonly, nonatomic) NSInteger           idTache;
+
 @property (readonly, copy, nonatomic) NSString      *titre;
-
 @property (readonly, copy, nonatomic) NSString      *description;
-@property (readonly, strong, nonatomic) UIImage     *imageDescription;
+@property (readonly, copy, nonatomic) UIImage     *imageDescription;
 
-@property (readonly, copy, nonatomic) NSString      *commentaire;
-@property (readonly, strong, nonatomic) UIImage     *imageCommentaire;
+@property (copy, nonatomic) NSString      *commentaire;
+@property (copy, nonatomic) UIImage     *imageCommentaire;
 
 
--(id)initWithName:(NSString *) name description:(NSString *)descr imageDescription:(UIImage *)imgDescr commentaire:(NSString *)comm imageCommentaire:(UIImage *)imgComm;
-
--(void) setImageCommentaire:(UIImage *) image;
--(void) setCommentaire:(NSString *) commentaire;
+-(id)initWithIdChantier:(NSInteger)idChantier idTache:(NSInteger)idTache name:(NSString *) name description:(NSString *)descr imageDescription:(UIImage *)imgDescr commentaire:(NSString *)comm imageCommentaire:(UIImage *)imgComm;
 
 @end

@@ -20,9 +20,6 @@
 
 @implementation APLViewController
 
-@synthesize delegate = _delegate;
-@synthesize saveButton = _saveButton;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -110,8 +107,6 @@
 }
 
 
-
-
 - (IBAction)didCancel:(id)sender
 {
     [self.navigationController popViewControllerAnimated:true];
@@ -121,8 +116,9 @@
 {
     if (self.capturedImage)
     {
-        [self.navigationController popViewControllerAnimated:true];
+        
         [_delegate userDidChooseImage:self.capturedImage];
+        [self.navigationController popViewControllerAnimated:true];
     }
 }
 @end
