@@ -10,28 +10,20 @@
 
 
 
-@implementation PBChantier{
-    NSMutableArray *_tachesArray;
-}
+@implementation PBChantier
 
 static PBChantier *_sharedInstance;
 
-+ (PBChantier*)getInstance{
-    if (_sharedInstance == nil) {
++ (void)initialize {
+    if (self == [PBChantier class]) {
         _sharedInstance = [[super alloc] init];
     }
+}
+
+
++ (PBChantier *)sharedChantier {
     return _sharedInstance;
 }
-
-
-- (NSArray *)taches
-{
-    return [_tachesArray copy];
-}
-
-
-
-
 
 
 

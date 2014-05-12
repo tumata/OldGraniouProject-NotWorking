@@ -14,9 +14,6 @@
     UITextField *textFieldPSW;
 }
 
-// recupere le fichier JSon
-- (void)fetchedData:(NSData *)responseData;
-
 - (void)registerForKeyboardNotifications;
 
 - (void)keyBoardSlide: (CGFloat) deltaY;

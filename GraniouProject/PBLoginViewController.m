@@ -25,9 +25,6 @@ UITextField *currentFieldSelected;
 
 @implementation PBLoginViewController
 
-#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-#define kLatestKivaLoansURL [NSURL URLWithString:@"http://api.kivaws.org/v1/loans/search.json?status=fundraising"]
-
 @synthesize textFieldID, textFieldPSW, viewCenterCoords;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -56,30 +53,6 @@ UITextField *currentFieldSelected;
 
     // On recupere les coordonnes de base de la vue
     self.viewCenterCoords = self.view.center;
-    
-    // On recupere les identifiants
-    dispatch_async(kBgQueue, ^{
-        NSData* data = [NSData dataWithContentsOfURL:
-                        kLatestKivaLoansURL];
-        [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
-    });
-}
-
-- (void)fetchedData:(NSData *)responseData {
-    //parse out the json data
-    NSError* error;
-    
-    // get an NSDictionary from the JSON data
-    NSDictionary* json = [NSJSONSerialization
-                          JSONObjectWithData:responseData
-                          options:NSJSONReadingMutableContainers
-                          error:&error];
-    
-    // get an NSArray latestLoans which is the loans key in the top JSON dictionary
-    NSArray* latestLoans = [json objectForKey:@"loans"];
-    
-    // dump latestLoans to the console
-    NSLog(@"loans: %@", [[latestLoans objectAtIndex:3] objectForKey:@"activity"]); //3
 }
 
 
@@ -130,8 +103,8 @@ UITextField *currentFieldSelected;
     CGRect aRect = self.view.frame;
     aRect.size.height -= kbSize.height;
     
-    NSLog(@"%f", currentFieldSelected.frame.origin.y);
-    NSLog(@"%f", aRect.origin.y);
+//    NSLog(@"%f", currentFieldSelected.frame.origin.y);
+//    NSLog(@"%f", aRect.origin.y);
     
     // Cette condition fait que la vue bouge uniquement si l'objet est caché par le keyboard
     //if (!CGRectContainsPoint(aRect, currentFieldSelected.frame.origin) ) {
@@ -163,8 +136,6 @@ UITextField *currentFieldSelected;
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    NSLog(@"beginEditing :" @"%@", textField.text);
-    
     // On pointe le textField courant selectionne
     currentFieldSelected = textField;
 }
@@ -176,8 +147,6 @@ UITextField *currentFieldSelected;
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    NSLog(@"endEditing :" @"%@", textField.text);
-    
     // On place le pointeur vers le textField courant a nil
     currentFieldSelected = nil;
 }

@@ -11,19 +11,11 @@
 
 @interface PBChantier : NSObject
 
+@property (nonatomic) NSInteger                 *_idChantier;
+@property (nonatomic, strong) NSMutableArray    *_tachesArray;
+
+
 + (PBChantier *)sharedChantier;
-
-- (NSArray *)taches;
-
-
-//Appeler toutes les fonction vers le modele depuis ici.
-
-
-/*
-- (void)bookmarkMaster:(PBTache *)master;
-- (void)unbookmarkMaster:(PBTache *)master;
-
-*/
 
 
 @end

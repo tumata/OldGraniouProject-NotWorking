@@ -7,12 +7,15 @@
 //
 
 #import "AppDelegate.h"
+#import "PBLoggedUser.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    PBLoggedUser *loggedUser = [PBLoggedUser sharedUser];
+    
     return YES;
 }
 							
