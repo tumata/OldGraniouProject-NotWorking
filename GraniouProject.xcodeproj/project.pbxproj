@@ -21,6 +21,14 @@
 		90C765F11917FC7600FD58C0 /* PBTakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765EA1917FC7600FD58C0 /* PBTakePhotoViewController.m */; };
 		90C765F31917FC7600FD58C0 /* PBSaisieCommentaireViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765EE1917FC7600FD58C0 /* PBSaisieCommentaireViewController.m */; };
 		90C765F8191823BA00FD58C0 /* PBTache.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765F7191823BA00FD58C0 /* PBTache.m */; };
+		90C8016219213BCB0024586E /* PBLoadDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C8015F19213BCB0024586E /* PBLoadDataController.m */; };
+		90C8016319213BCB0024586E /* PBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C8016119213BCB0024586E /* PBLoginViewController.m */; };
+		90C80168192140190024586E /* PBMenuPrincipalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C80167192140190024586E /* PBMenuPrincipalViewController.m */; };
+		90C8016F192140B60024586E /* PBMenuMonteurViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C8016C192140B60024586E /* PBMenuMonteurViewController.m */; };
+		90C80170192140B60024586E /* PBMenuChantierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C8016E192140B60024586E /* PBMenuChantierViewController.m */; };
+		90C80173192140C70024586E /* PBMenuConducteurViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C80172192140C70024586E /* PBMenuConducteurViewController.m */; };
+		90C80177192144B10024586E /* UIImage+EncodeImageToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C80176192144B10024586E /* UIImage+EncodeImageToString.m */; };
+		90C8017A192145500024586E /* NSString+DecodeToImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C80179192145500024586E /* NSString+DecodeToImage.m */; };
 		90CB2CBA191A2253006AA73A /* PBTacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB2CB9191A2253006AA73A /* PBTacheViewController.m */; };
 		90CB2CBE191A653E006AA73A /* fond-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90CB2CBC191A653E006AA73A /* fond-1.jpg */; };
 		90CB2CBF191A653E006AA73A /* LogoGraniou.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CB2CBD191A653E006AA73A /* LogoGraniou.png */; };
@@ -51,6 +59,22 @@
 		90C765EE1917FC7600FD58C0 /* PBSaisieCommentaireViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBSaisieCommentaireViewController.m; sourceTree = "<group>"; };
 		90C765F6191823BA00FD58C0 /* PBTache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTache.h; sourceTree = "<group>"; };
 		90C765F7191823BA00FD58C0 /* PBTache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTache.m; sourceTree = "<group>"; };
+		90C8015E19213BCB0024586E /* PBLoadDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBLoadDataController.h; sourceTree = "<group>"; };
+		90C8015F19213BCB0024586E /* PBLoadDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBLoadDataController.m; sourceTree = "<group>"; };
+		90C8016019213BCB0024586E /* PBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBLoginViewController.h; sourceTree = "<group>"; };
+		90C8016119213BCB0024586E /* PBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBLoginViewController.m; sourceTree = "<group>"; };
+		90C80166192140190024586E /* PBMenuPrincipalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMenuPrincipalViewController.h; sourceTree = "<group>"; };
+		90C80167192140190024586E /* PBMenuPrincipalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMenuPrincipalViewController.m; sourceTree = "<group>"; };
+		90C8016B192140B60024586E /* PBMenuMonteurViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMenuMonteurViewController.h; sourceTree = "<group>"; };
+		90C8016C192140B60024586E /* PBMenuMonteurViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMenuMonteurViewController.m; sourceTree = "<group>"; };
+		90C8016D192140B60024586E /* PBMenuChantierViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMenuChantierViewController.h; sourceTree = "<group>"; };
+		90C8016E192140B60024586E /* PBMenuChantierViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMenuChantierViewController.m; sourceTree = "<group>"; };
+		90C80171192140C70024586E /* PBMenuConducteurViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMenuConducteurViewController.h; sourceTree = "<group>"; };
+		90C80172192140C70024586E /* PBMenuConducteurViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMenuConducteurViewController.m; sourceTree = "<group>"; };
+		90C80175192144B10024586E /* UIImage+EncodeImageToString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+EncodeImageToString.h"; sourceTree = "<group>"; };
+		90C80176192144B10024586E /* UIImage+EncodeImageToString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+EncodeImageToString.m"; sourceTree = "<group>"; };
+		90C80178192145500024586E /* NSString+DecodeToImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DecodeToImage.h"; sourceTree = "<group>"; };
+		90C80179192145500024586E /* NSString+DecodeToImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DecodeToImage.m"; sourceTree = "<group>"; };
 		90CB2CB8191A2253006AA73A /* PBTacheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTacheViewController.h; sourceTree = "<group>"; };
 		90CB2CB9191A2253006AA73A /* PBTacheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTacheViewController.m; sourceTree = "<group>"; };
 		90CB2CBC191A653E006AA73A /* fond-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fond-1.jpg"; sourceTree = "<group>"; };
@@ -107,9 +131,11 @@
 				90C765B51917FA5700FD58C0 /* AppDelegate.m */,
 				90C765B71917FA5700FD58C0 /* Main_iPhone.storyboard */,
 				90C765BA1917FA5700FD58C0 /* Main_iPad.storyboard */,
+				90C8015C19213B8A0024586E /* UI */,
 				90C765F41918237D00FD58C0 /* Model */,
 				90C765E01917FB8900FD58C0 /* PhotoPicker */,
 				90C765C01917FA5700FD58C0 /* Images.xcassets */,
+				90C80174192143320024586E /* Categories */,
 				90C765AC1917FA5700FD58C0 /* Supporting Files */,
 			);
 			path = GraniouProject;
@@ -158,6 +184,76 @@
 				90B94BF1191BD87C0062F7CA /* PBChantier.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		90C8015C19213B8A0024586E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				90C8015D19213BA60024586E /* Login */,
+				90C8016419213F880024586E /* Navigation */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		90C8015D19213BA60024586E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				90C8015E19213BCB0024586E /* PBLoadDataController.h */,
+				90C8015F19213BCB0024586E /* PBLoadDataController.m */,
+				90C8016019213BCB0024586E /* PBLoginViewController.h */,
+				90C8016119213BCB0024586E /* PBLoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		90C8016419213F880024586E /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				90C8016519213FF60024586E /* 0-Root */,
+				90C80169192140550024586E /* 1-MenuMonteur */,
+				90C8016A1921406B0024586E /* 2-MenuConducteur */,
+			);
+			name = Navigation;
+			sourceTree = "<group>";
+		};
+		90C8016519213FF60024586E /* 0-Root */ = {
+			isa = PBXGroup;
+			children = (
+				90C80166192140190024586E /* PBMenuPrincipalViewController.h */,
+				90C80167192140190024586E /* PBMenuPrincipalViewController.m */,
+			);
+			name = "0-Root";
+			sourceTree = "<group>";
+		};
+		90C80169192140550024586E /* 1-MenuMonteur */ = {
+			isa = PBXGroup;
+			children = (
+				90C8016B192140B60024586E /* PBMenuMonteurViewController.h */,
+				90C8016C192140B60024586E /* PBMenuMonteurViewController.m */,
+				90C8016D192140B60024586E /* PBMenuChantierViewController.h */,
+				90C8016E192140B60024586E /* PBMenuChantierViewController.m */,
+			);
+			name = "1-MenuMonteur";
+			sourceTree = "<group>";
+		};
+		90C8016A1921406B0024586E /* 2-MenuConducteur */ = {
+			isa = PBXGroup;
+			children = (
+				90C80171192140C70024586E /* PBMenuConducteurViewController.h */,
+				90C80172192140C70024586E /* PBMenuConducteurViewController.m */,
+			);
+			name = "2-MenuConducteur";
+			sourceTree = "<group>";
+		};
+		90C80174192143320024586E /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				90C80175192144B10024586E /* UIImage+EncodeImageToString.h */,
+				90C80176192144B10024586E /* UIImage+EncodeImageToString.m */,
+				90C80178192145500024586E /* NSString+DecodeToImage.h */,
+				90C80179192145500024586E /* NSString+DecodeToImage.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		90CB2CBB191A64DC006AA73A /* Ressources */ = {
@@ -243,14 +339,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90C8017A192145500024586E /* NSString+DecodeToImage.m in Sources */,
 				90CB2CBA191A2253006AA73A /* PBTacheViewController.m in Sources */,
 				90C765E41917FC2C00FD58C0 /* UILabel+dynamicSizeMe.m in Sources */,
 				90C765B61917FA5700FD58C0 /* AppDelegate.m in Sources */,
 				90C765F8191823BA00FD58C0 /* PBTache.m in Sources */,
+				90C8016319213BCB0024586E /* PBLoginViewController.m in Sources */,
 				90C765F11917FC7600FD58C0 /* PBTakePhotoViewController.m in Sources */,
+				90C8016219213BCB0024586E /* PBLoadDataController.m in Sources */,
 				90C765B21917FA5700FD58C0 /* main.m in Sources */,
+				90C8016F192140B60024586E /* PBMenuMonteurViewController.m in Sources */,
+				90C80170192140B60024586E /* PBMenuChantierViewController.m in Sources */,
 				90C765F31917FC7600FD58C0 /* PBSaisieCommentaireViewController.m in Sources */,
 				90B94BF2191BD87C0062F7CA /* PBChantier.m in Sources */,
+				90C80168192140190024586E /* PBMenuPrincipalViewController.m in Sources */,
+				90C80177192144B10024586E /* UIImage+EncodeImageToString.m in Sources */,
+				90C80173192140C70024586E /* PBMenuConducteurViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
