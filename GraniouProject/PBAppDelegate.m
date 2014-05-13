@@ -7,14 +7,14 @@
 //
 
 #import "PBAppDelegate.h"
-#import "PBUserController.h"
+#import "PBUserSyncController.h"
 
 @implementation PBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [PBUserController sharedUser];
+    [PBUserSyncController sharedUser];
     
     return YES;
 }

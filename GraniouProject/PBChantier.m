@@ -26,5 +26,4 @@ static PBChantier *_sharedInstance;
 }
 
 
-
 @end

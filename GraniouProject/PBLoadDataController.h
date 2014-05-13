@@ -10,11 +10,8 @@
 #import "PBLoginViewController.h"
 
 @interface PBLoadDataController : UIViewController
-{
-    NSTimer *timer;
-}
 
-@property (retain, nonatomic) IBOutlet UIProgressView *progressBar;
+@property (strong, nonatomic) IBOutlet UIProgressView *progressBar;
 @property (strong, nonatomic) IBOutlet UIView *loadDataView;
 
 

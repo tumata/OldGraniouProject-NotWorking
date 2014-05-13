@@ -29,7 +29,7 @@
 		90C80173192140C70024586E /* PBMenuConducteurViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C80172192140C70024586E /* PBMenuConducteurViewController.m */; };
 		90C80177192144B10024586E /* UIImage+EncodeImageToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C80176192144B10024586E /* UIImage+EncodeImageToString.m */; };
 		90C8017A192145500024586E /* NSString+DecodeToImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C80179192145500024586E /* NSString+DecodeToImage.m */; };
-		90C801AB1921704D0024586E /* PBUserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C801AA1921704D0024586E /* PBUserController.m */; };
+		90C801AB1921704D0024586E /* PBUserSyncController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C801AA1921704D0024586E /* PBUserSyncController.m */; };
 		90CB2CBA191A2253006AA73A /* PBTacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB2CB9191A2253006AA73A /* PBTacheViewController.m */; };
 		90CB2CBE191A653E006AA73A /* fond-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90CB2CBC191A653E006AA73A /* fond-1.jpg */; };
 		90CB2CBF191A653E006AA73A /* LogoGraniou.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CB2CBD191A653E006AA73A /* LogoGraniou.png */; };
@@ -76,8 +76,8 @@
 		90C80176192144B10024586E /* UIImage+EncodeImageToString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+EncodeImageToString.m"; sourceTree = "<group>"; };
 		90C80178192145500024586E /* NSString+DecodeToImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DecodeToImage.h"; sourceTree = "<group>"; };
 		90C80179192145500024586E /* NSString+DecodeToImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DecodeToImage.m"; sourceTree = "<group>"; };
-		90C801A91921704D0024586E /* PBUserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBUserController.h; sourceTree = "<group>"; };
-		90C801AA1921704D0024586E /* PBUserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBUserController.m; sourceTree = "<group>"; };
+		90C801A91921704D0024586E /* PBUserSyncController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBUserSyncController.h; sourceTree = "<group>"; };
+		90C801AA1921704D0024586E /* PBUserSyncController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBUserSyncController.m; sourceTree = "<group>"; };
 		90CB2CB8191A2253006AA73A /* PBTacheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTacheViewController.h; sourceTree = "<group>"; };
 		90CB2CB9191A2253006AA73A /* PBTacheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTacheViewController.m; sourceTree = "<group>"; };
 		90CB2CBC191A653E006AA73A /* fond-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fond-1.jpg"; sourceTree = "<group>"; };
@@ -181,8 +181,8 @@
 		90C765F41918237D00FD58C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				90C801A91921704D0024586E /* PBUserController.h */,
-				90C801AA1921704D0024586E /* PBUserController.m */,
+				90C801A91921704D0024586E /* PBUserSyncController.h */,
+				90C801AA1921704D0024586E /* PBUserSyncController.m */,
 				90C765F6191823BA00FD58C0 /* PBTache.h */,
 				90C765F7191823BA00FD58C0 /* PBTache.m */,
 				90B94BF0191BD87C0062F7CA /* PBChantier.h */,
@@ -203,10 +203,10 @@
 		90C8015D19213BA60024586E /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				90C8015E19213BCB0024586E /* PBLoadDataController.h */,
-				90C8015F19213BCB0024586E /* PBLoadDataController.m */,
 				90C8016019213BCB0024586E /* PBLoginViewController.h */,
 				90C8016119213BCB0024586E /* PBLoginViewController.m */,
+				90C8015E19213BCB0024586E /* PBLoadDataController.h */,
+				90C8015F19213BCB0024586E /* PBLoadDataController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -353,7 +353,7 @@
 				90C765F11917FC7600FD58C0 /* PBTakePhotoViewController.m in Sources */,
 				90C8016219213BCB0024586E /* PBLoadDataController.m in Sources */,
 				90C765B21917FA5700FD58C0 /* main.m in Sources */,
-				90C801AB1921704D0024586E /* PBUserController.m in Sources */,
+				90C801AB1921704D0024586E /* PBUserSyncController.m in Sources */,
 				90C8016F192140B60024586E /* PBMenuMonteurViewController.m in Sources */,
 				90C80170192140B60024586E /* PBMenuChantierViewController.m in Sources */,
 				90C765F31917FC7600FD58C0 /* PBSaisieCommentaireViewController.m in Sources */,

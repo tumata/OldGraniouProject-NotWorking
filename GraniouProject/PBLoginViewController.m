@@ -7,7 +7,7 @@
 //
 
 #import "PBLoginViewController.h"
-#import "PBUserController.h"
+#import "PBUserSyncController.h"
 
 
 
@@ -196,20 +196,19 @@ UITextField *currentFieldSelected;
 ////////////////////////////////////////////////////////////
 
 - (IBAction)tryConnection:(id)sender {
-    PBUserController *user = [PBUserController sharedUser];
+    PBUserSyncController *user = [PBUserSyncController sharedUser];
     
     
     
     if ([user tryLogin:_textFieldID.text password:_textFieldPSW.text])
     {
-        NSLog(@"ok");
         [self performSegueWithIdentifier:@"loadData" sender:self];
     }
     else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Erreur"
-                                                        message:@"Veuillez recommencer"
+                                                        message:@"Veuillez recommencer ou bien vous connecter à internet"
                                                        delegate:self
-                                              cancelButtonTitle:nil
+                                              cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil, nil];
         [alert show];
     }
