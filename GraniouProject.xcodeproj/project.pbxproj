@@ -13,7 +13,7 @@
 		90C765AA1917FA5700FD58C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C765A91917FA5700FD58C0 /* UIKit.framework */; };
 		90C765B01917FA5700FD58C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90C765AE1917FA5700FD58C0 /* InfoPlist.strings */; };
 		90C765B21917FA5700FD58C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765B11917FA5700FD58C0 /* main.m */; };
-		90C765B61917FA5700FD58C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765B51917FA5700FD58C0 /* AppDelegate.m */; };
+		90C765B61917FA5700FD58C0 /* PBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765B51917FA5700FD58C0 /* PBAppDelegate.m */; };
 		90C765B91917FA5700FD58C0 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90C765B71917FA5700FD58C0 /* Main_iPhone.storyboard */; };
 		90C765BC1917FA5700FD58C0 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90C765BA1917FA5700FD58C0 /* Main_iPad.storyboard */; };
 		90C765C11917FA5700FD58C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90C765C01917FA5700FD58C0 /* Images.xcassets */; };
@@ -29,7 +29,7 @@
 		90C80173192140C70024586E /* PBMenuConducteurViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C80172192140C70024586E /* PBMenuConducteurViewController.m */; };
 		90C80177192144B10024586E /* UIImage+EncodeImageToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C80176192144B10024586E /* UIImage+EncodeImageToString.m */; };
 		90C8017A192145500024586E /* NSString+DecodeToImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C80179192145500024586E /* NSString+DecodeToImage.m */; };
-		90C801AB1921704D0024586E /* PBLoggedUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C801AA1921704D0024586E /* PBLoggedUser.m */; };
+		90C801AB1921704D0024586E /* PBUserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C801AA1921704D0024586E /* PBUserController.m */; };
 		90CB2CBA191A2253006AA73A /* PBTacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB2CB9191A2253006AA73A /* PBTacheViewController.m */; };
 		90CB2CBE191A653E006AA73A /* fond-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90CB2CBC191A653E006AA73A /* fond-1.jpg */; };
 		90CB2CBF191A653E006AA73A /* LogoGraniou.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CB2CBD191A653E006AA73A /* LogoGraniou.png */; };
@@ -46,8 +46,8 @@
 		90C765AF1917FA5700FD58C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		90C765B11917FA5700FD58C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		90C765B31917FA5700FD58C0 /* GraniouProject-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GraniouProject-Prefix.pch"; sourceTree = "<group>"; };
-		90C765B41917FA5700FD58C0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		90C765B51917FA5700FD58C0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		90C765B41917FA5700FD58C0 /* PBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBAppDelegate.h; sourceTree = "<group>"; };
+		90C765B51917FA5700FD58C0 /* PBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PBAppDelegate.m; sourceTree = "<group>"; };
 		90C765B81917FA5700FD58C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		90C765BB1917FA5700FD58C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		90C765C01917FA5700FD58C0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -76,8 +76,8 @@
 		90C80176192144B10024586E /* UIImage+EncodeImageToString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+EncodeImageToString.m"; sourceTree = "<group>"; };
 		90C80178192145500024586E /* NSString+DecodeToImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DecodeToImage.h"; sourceTree = "<group>"; };
 		90C80179192145500024586E /* NSString+DecodeToImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DecodeToImage.m"; sourceTree = "<group>"; };
-		90C801A91921704D0024586E /* PBLoggedUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBLoggedUser.h; sourceTree = "<group>"; };
-		90C801AA1921704D0024586E /* PBLoggedUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBLoggedUser.m; sourceTree = "<group>"; };
+		90C801A91921704D0024586E /* PBUserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBUserController.h; sourceTree = "<group>"; };
+		90C801AA1921704D0024586E /* PBUserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBUserController.m; sourceTree = "<group>"; };
 		90CB2CB8191A2253006AA73A /* PBTacheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTacheViewController.h; sourceTree = "<group>"; };
 		90CB2CB9191A2253006AA73A /* PBTacheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTacheViewController.m; sourceTree = "<group>"; };
 		90CB2CBC191A653E006AA73A /* fond-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fond-1.jpg"; sourceTree = "<group>"; };
@@ -130,8 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				90CB2CBB191A64DC006AA73A /* Ressources */,
-				90C765B41917FA5700FD58C0 /* AppDelegate.h */,
-				90C765B51917FA5700FD58C0 /* AppDelegate.m */,
+				90C765B41917FA5700FD58C0 /* PBAppDelegate.h */,
+				90C765B51917FA5700FD58C0 /* PBAppDelegate.m */,
 				90C765B71917FA5700FD58C0 /* Main_iPhone.storyboard */,
 				90C765BA1917FA5700FD58C0 /* Main_iPad.storyboard */,
 				90C8015C19213B8A0024586E /* UI */,
@@ -181,8 +181,8 @@
 		90C765F41918237D00FD58C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				90C801A91921704D0024586E /* PBLoggedUser.h */,
-				90C801AA1921704D0024586E /* PBLoggedUser.m */,
+				90C801A91921704D0024586E /* PBUserController.h */,
+				90C801AA1921704D0024586E /* PBUserController.m */,
 				90C765F6191823BA00FD58C0 /* PBTache.h */,
 				90C765F7191823BA00FD58C0 /* PBTache.m */,
 				90B94BF0191BD87C0062F7CA /* PBChantier.h */,
@@ -347,13 +347,13 @@
 				90C8017A192145500024586E /* NSString+DecodeToImage.m in Sources */,
 				90CB2CBA191A2253006AA73A /* PBTacheViewController.m in Sources */,
 				90C765E41917FC2C00FD58C0 /* UILabel+dynamicSizeMe.m in Sources */,
-				90C765B61917FA5700FD58C0 /* AppDelegate.m in Sources */,
+				90C765B61917FA5700FD58C0 /* PBAppDelegate.m in Sources */,
 				90C765F8191823BA00FD58C0 /* PBTache.m in Sources */,
 				90C8016319213BCB0024586E /* PBLoginViewController.m in Sources */,
 				90C765F11917FC7600FD58C0 /* PBTakePhotoViewController.m in Sources */,
 				90C8016219213BCB0024586E /* PBLoadDataController.m in Sources */,
 				90C765B21917FA5700FD58C0 /* main.m in Sources */,
-				90C801AB1921704D0024586E /* PBLoggedUser.m in Sources */,
+				90C801AB1921704D0024586E /* PBUserController.m in Sources */,
 				90C8016F192140B60024586E /* PBMenuMonteurViewController.m in Sources */,
 				90C80170192140B60024586E /* PBMenuChantierViewController.m in Sources */,
 				90C765F31917FC7600FD58C0 /* PBSaisieCommentaireViewController.m in Sources */,

@@ -9,10 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PBLoginViewController : UIViewController <UITextFieldDelegate>
-{
-    UITextField *textFieldID;
-    UITextField *textFieldPSW;
-}
 
 - (void)registerForKeyboardNotifications;
 

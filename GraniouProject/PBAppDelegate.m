@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 telecom. All rights reserved.
 //
 
-#import "AppDelegate.h"
-#import "PBLoggedUser.h"
+#import "PBAppDelegate.h"
+#import "PBUserController.h"
 
-@implementation AppDelegate
+@implementation PBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    PBLoggedUser *loggedUser = [PBLoggedUser sharedUser];
+    [PBUserController sharedUser];
     
     return YES;
 }

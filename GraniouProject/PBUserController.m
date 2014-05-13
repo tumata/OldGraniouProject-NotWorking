@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 telecom. All rights reserved.
 //
 
-#import "PBLoggedUser.h"
+#import "PBUserController.h"
 
 // Queue pour fetcher la data
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
@@ -21,19 +21,24 @@
 
 #define kIsAlreadyLoggedKey     @"alreadyLogged"
 
+@interface PBUserController()
+
+@property (nonatomic, strong) NSDictionary *allLoginsPasswords;
+
+@end
 
 
-@implementation PBLoggedUser
+@implementation PBUserController
 
 
 #pragma mark - Singleton Methods
 
 // Singleton
-static PBLoggedUser *_sharedInstance;
+static PBUserController *_sharedInstance;
 
 
 + (void)initialize {
-    if (self == [PBLoggedUser class]) {
+    if (self == [PBUserController class]) {
         _sharedInstance = [[super alloc] init];
         _sharedInstance.hasReceivedLogs = false;
         
@@ -41,10 +46,21 @@ static PBLoggedUser *_sharedInstance;
     }
 }
 
-+ (PBLoggedUser *)sharedUser {
++ (PBUserController *)sharedUser {
     return _sharedInstance;
 }
 
+
+#pragma mark - Public Instance Methods
+
+- (BOOL)tryLogin:(NSString *)login password:(NSString *)password{
+    if ([[_allLoginsPasswords objectForKey:login] isEqualToString:password]) {
+        
+        
+        return TRUE;
+    }
+    else return FALSE;
+}
 
 
 #pragma mark - Private Instance Methods
@@ -60,7 +76,6 @@ static PBLoggedUser *_sharedInstance;
 
 - (void)fetchedData:(NSData *)jsonData {
     
-    
     if (jsonData) {
         
         NSError *error = nil;
@@ -75,9 +90,10 @@ static PBLoggedUser *_sharedInstance;
         for (NSMutableDictionary *item in entries) {
             [loginsPasswords setObject:[item objectForKey:kPasswordLoginKey] forKey:[item objectForKey:kUserLoginKey]];
         }
-        _loginsPasswords = [NSDictionary dictionaryWithDictionary:loginsPasswords];
+        _allLoginsPasswords = [NSDictionary dictionaryWithDictionary:loginsPasswords];
         _sharedInstance.hasReceivedLogs = true;
     }
+    
 }
 
 @end

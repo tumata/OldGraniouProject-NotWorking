@@ -7,15 +7,16 @@
 //
 
 #import "PBLoginViewController.h"
+#import "PBUserController.h"
 
 
 
 @interface PBLoginViewController ()
 
-@property (retain, nonatomic) IBOutlet UITextField *textFieldID;
-@property (retain, nonatomic) IBOutlet UITextField *textFieldPSW;
+@property (strong, nonatomic) IBOutlet UITextField *textFieldID;
+@property (strong, nonatomic) IBOutlet UITextField *textFieldPSW;
 
-@property (assign) CGPoint viewCenterCoords;
+@property (nonatomic) CGPoint viewCenterCoords;
 
 @end
 
@@ -25,7 +26,6 @@ UITextField *currentFieldSelected;
 
 @implementation PBLoginViewController
 
-@synthesize textFieldID, textFieldPSW, viewCenterCoords;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -196,13 +196,22 @@ UITextField *currentFieldSelected;
 ////////////////////////////////////////////////////////////
 
 - (IBAction)tryConnection:(id)sender {
-    if ([self.textFieldID.text isEqual: (@"coucou")])
+    PBUserController *user = [PBUserController sharedUser];
+    
+    
+    
+    if ([user tryLogin:_textFieldID.text password:_textFieldPSW.text])
     {
         NSLog(@"ok");
         [self performSegueWithIdentifier:@"loadData" sender:self];
     }
     else{
-        NSLog(@"pas ok");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Erreur"
+                                                        message:@"Veuillez recommencer"
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:nil, nil];
+        [alert show];
     }
 }
 

@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PBLoggedUser : NSObject
+@interface PBUserController : NSObject
 
-@property (nonatomic, strong) NSDictionary *loginsPasswords;
 @property (nonatomic, strong) NSString  *login;
 @property (nonatomic, strong) NSString  *password;
 @property (nonatomic, strong) NSString  *droitAcces;
@@ -18,8 +17,9 @@
 @property (nonatomic) BOOL  hasReceivedLogs;
 
 
-+ (PBLoggedUser *)sharedUser;
++ (PBUserController *)sharedUser;
 
+- (BOOL)tryLogin:(NSString *)login password:(NSString *)password;
 
 
 @end
