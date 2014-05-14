@@ -26,4 +26,10 @@ static PBChantier *_sharedInstance;
 }
 
 
+- (BOOL)setChantierWithJSON:(id)jsonObjects {
+    // Convertir json en données chantier
+    
+    return true;
+}
+
 @end

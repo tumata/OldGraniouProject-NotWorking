@@ -15,8 +15,9 @@
 @property (nonatomic, strong, readonly) NSString  *droitAcces;
 @property (nonatomic, strong, readonly) NSString  *idChantier;
 
-@property (nonatomic, readonly) BOOL  hasReceivedLogs;
-@property (nonatomic, readonly) BOOL  isLogged;
+@property (nonatomic, readonly) BOOL  hasDownloadedLogs;
+@property (nonatomic, readonly) BOOL  isNowLoggedFromLoginScreen;
+@property (nonatomic, readonly) BOOL  wasLoggedBeforeLoginScreen;
 
 
 + (PBUserSyncController *)sharedUser;

@@ -27,19 +27,9 @@ UITextField *currentFieldSelected;
 @implementation PBLoginViewController
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-
-////////////////////////////////////////////////////////////
-//// Fonction se lancant des que la vue est loadee      ////
-////////////////////////////////////////////////////////////
+//-------------------------------------------------------
+// Fonction se lancant des que la vue est loadee
+//
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -56,10 +46,9 @@ UITextField *currentFieldSelected;
 }
 
 
-////////////////////////////////////////////////////////////
-// Cette fonction se lance en cas de probleme de memoire ///
-////////////////////////////////////////////////////////////
-
+//-------------------------------------------------------
+// Cette fonction se lance en cas de probleme de memoire
+//
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -67,14 +56,16 @@ UITextField *currentFieldSelected;
 }
 
 
-/*
-    Notifications lorsque le clavier apparait / disparait
- 
-    . Lorsqu'il apparait, appel du selector :
-        keyboardWasShown:
-    . Lorsqu'il disparait, appel du selector :
-        keyboardWillBeHidden:
- */
+#pragma mark - KeyBoard notifications and slide
+
+//-------------------------------------------------------
+//  Notifications lorsque le clavier apparait / disparait
+//
+//      . Lorsqu'il apparait, appel du selector :
+//          keyboardWasShown:
+//      . Lorsqu'il disparait, appel du selector :
+//          keyboardWillBeHidden:
+//
 - (void)registerForKeyboardNotifications
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -88,10 +79,9 @@ UITextField *currentFieldSelected;
 }
 
 
-////////////////////////////////////////////////////////////
-// Called when the UIKeyboardWillShowNotification is sent //
-////////////////////////////////////////////////////////////
-
+//-------------------------------------------------------
+// Called when the UIKeyboardWillShowNotification is sent
+//
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
     NSDictionary* info = [aNotification userInfo];
@@ -119,10 +109,9 @@ UITextField *currentFieldSelected;
 }
 
 
-////////////////////////////////////////////////////////////
-// Called when the UIKeyboardWillHideNotification is sent //
-////////////////////////////////////////////////////////////
-
+//-------------------------------------------------------
+// Called when the UIKeyboardWillHideNotification is sent
+//
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification
 {
     [self keyBoardSlide:0];
@@ -130,10 +119,9 @@ UITextField *currentFieldSelected;
 
 
 
-////////////////////////////////////////////////////////////
-//// Notification lorsque debut d'edit du textField   //////
-////////////////////////////////////////////////////////////
-
+//-------------------------------------------------------
+// Notification lorsque debut d'edit du textField
+//
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     // On pointe le textField courant selectionne
@@ -141,10 +129,9 @@ UITextField *currentFieldSelected;
 }
 
 
-////////////////////////////////////////////////////////////
-////   Notification lorsque fin d'edit du textField   //////
-////////////////////////////////////////////////////////////
-
+//-------------------------------------------------------
+//   Notification lorsque fin d'edit du textField
+//
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     // On place le pointeur vers le textField courant a nil
@@ -152,10 +139,9 @@ UITextField *currentFieldSelected;
 }
 
 
-////////////////////////////////////////////////////////////
-// permet de supprimer le clavier si on touche autre part //
-////////////////////////////////////////////////////////////
-
+//-------------------------------------------------------
+// permet de supprimer le clavier si on touche autre part
+//
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
     UITouch *touch = [[event allTouches] anyObject];
@@ -170,19 +156,17 @@ UITextField *currentFieldSelected;
 
 
 
-////////////////////////////////////////////////////////////
-////  Lorsqu'appui sur "retour", on enleve le KeyBoard  ////
-////////////////////////////////////////////////////////////
-
+//-------------------------------------------------------
+//  Lorsqu'appui sur "retour", on enleve le KeyBoard
+//
 - (IBAction)textFieldReturn:(id)sender {
     [sender resignFirstResponder];
 }
 
 
-////////////////////////////////////////////////////////////
-////    Permet de monter la View de "deltaY"        ////////
-////////////////////////////////////////////////////////////
-
+//-------------------------------------------------------
+//    Permet de monter la View de "deltaY"
+//
 - (void)keyBoardSlide:(CGFloat)deltaY {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.25];
@@ -191,39 +175,29 @@ UITextField *currentFieldSelected;
 }
 
 
-////////////////////////////////////////////////////////////
-////    Action sur le bouton connexion          ////////////
-////////////////////////////////////////////////////////////
 
+#pragma mark - IBActions
+
+//-------------------------------------------------------
+//    Action sur le bouton connexion
+//
 - (IBAction)tryConnection:(id)sender {
     PBUserSyncController *user = [PBUserSyncController sharedUser];
     
-    
-    
-    if ([user tryLogin:_textFieldID.text password:_textFieldPSW.text])
-    {
-        [self performSegueWithIdentifier:@"loadData" sender:self];
-    }
-    else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Erreur"
-                                                        message:@"Veuillez recommencer ou bien vous connecter à internet"
+    if (_textFieldID.text.length && _textFieldPSW.text.length) {
+        if ([user tryLogin:_textFieldID.text password:_textFieldPSW.text]) {
+            [self performSegueWithIdentifier:@"loadData" sender:self];
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Identification impossible"
+                                                        message:@"Login / Password non reconnus"
                                                        delegate:self
-                                              cancelButtonTitle:@"OK"
+                                              cancelButtonTitle:@"Recommencer"
                                               otherButtonTitles:nil, nil];
-        [alert show];
+            [alert show];
+        }
     }
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

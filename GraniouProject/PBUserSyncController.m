@@ -34,8 +34,9 @@
 @property (readwrite) NSString  *droitAcces;
 @property (readwrite) NSString  *idChantier;
 
-@property (readwrite) BOOL  hasReceivedLogs;
-@property (readwrite) BOOL  isLogged;
+@property (readwrite) BOOL      hasDownloadedLogs;
+@property (readwrite) BOOL      isNowLoggedFromLoginScreen;
+@property (readwrite) BOOL      wasLoggedBeforeLoginScreen;
 
 
 @end
@@ -53,8 +54,9 @@ static PBUserSyncController *_sharedInstance;
 + (void)initialize {
     if (self == [PBUserSyncController class]) {
         _sharedInstance = [[super alloc] init];
-        _sharedInstance.hasReceivedLogs = false;
-        _sharedInstance.isLogged = false;
+        _sharedInstance.hasDownloadedLogs = false;
+        _sharedInstance.isNowLoggedFromLoginScreen = false;
+        _sharedInstance.wasLoggedBeforeLoginScreen = false;
         
         if (![_sharedInstance isUserAlreadyLoggedWhenLaunchingApplication]) {
             [_sharedInstance downloadUsersFile];
@@ -72,24 +74,27 @@ static PBUserSyncController *_sharedInstance;
 - (BOOL)tryLogin:(NSString *)login password:(NSString *)password{
     if ([[_allLoginsPasswords objectForKey:login] isEqualToString:password]) {
         
+        // Bon login/psw donc on charge les donnees depuis _allUsers
         for (NSDictionary *user in _allUsers) {
             if ([[user objectForKey:kLoginKey] isEqualToString:login]) {
                 _login = [user objectForKey:kLoginKey];
                 _password = [user objectForKey:kPasswordLoginKey];
                 _droitAcces = [user objectForKey:kDroitAccesLoginKey];
                 _idChantier = [user objectForKey:kIdChantierLoginKey];
-                _isLogged = true;
                 
-                NSLog(@"hourra");
-                NSLog(@"%@, %@, %@, %@", _login, _password, _droitAcces, _idChantier);
+                NSLog(@"%s : %@, %@, %@, %@", __PRETTY_FUNCTION__, _login, _password, _droitAcces, _idChantier);
             }
         }
         _allUsers = nil;
         _allLoginsPasswords = nil;
         
+        _isNowLoggedFromLoginScreen = true;
         return TRUE;
     }
-    else return FALSE;
+    else {
+        _isNowLoggedFromLoginScreen = false;
+        return FALSE;
+    }
 }
 
 
@@ -100,10 +105,14 @@ static PBUserSyncController *_sharedInstance;
     
     // Test si UserDefaults pour User présent
     if ([[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultNameKey]) {
+        _wasLoggedBeforeLoginScreen = true;
         [self loadUserFromUserDefaults];
         return TRUE;
     }
-    else return FALSE;
+    else {
+        _wasLoggedBeforeLoginScreen = false;
+        return FALSE;
+    }
 }
 
 // Recupere les informations du user loggé depuis UserDefaults
@@ -113,13 +122,14 @@ static PBUserSyncController *_sharedInstance;
     _password = [user objectForKey:kPasswordLoginKey];
     _droitAcces = [user objectForKey:kDroitAccesLoginKey];
     _idChantier = [user objectForKey:kIdChantierLoginKey];
-    _hasReceivedLogs = true;
+    _hasDownloadedLogs = true;
 }
 
 
 
 
 - (void)downloadUsersFile {
+    
     // Run on the background
     dispatch_async(kBgQueue, ^{
         NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[kBaseURLString stringByAppendingString:kUsersSourceFile]]];
@@ -160,9 +170,9 @@ static PBUserSyncController *_sharedInstance;
 
 - (void)fetchedDataHasBeenParsedSuccessfuly:(BOOL)successfuly {
     if (successfuly) {
-        _hasReceivedLogs = true;
+        _hasDownloadedLogs = true;
     }
-    else _hasReceivedLogs = false;
+    else _hasDownloadedLogs = false;
 }
 
 @end

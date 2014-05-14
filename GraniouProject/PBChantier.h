@@ -17,5 +17,6 @@
 
 + (PBChantier *)sharedChantier;
 
+- (BOOL)setChantierWithJSON:(id)jsonObjects;
 
 @end

@@ -9,11 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PBLoginViewController.h"
 
-@interface PBLoadDataController : UIViewController
-
-@property (strong, nonatomic) IBOutlet UIProgressView *progressBar;
-@property (strong, nonatomic) IBOutlet UIView *loadDataView;
-
+@interface PBLoadChantierController : UIViewController <NSURLSessionDataDelegate>
 
 
 @end

@@ -21,7 +21,7 @@
 		90C765F11917FC7600FD58C0 /* PBTakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765EA1917FC7600FD58C0 /* PBTakePhotoViewController.m */; };
 		90C765F31917FC7600FD58C0 /* PBSaisieCommentaireViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765EE1917FC7600FD58C0 /* PBSaisieCommentaireViewController.m */; };
 		90C765F8191823BA00FD58C0 /* PBTache.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765F7191823BA00FD58C0 /* PBTache.m */; };
-		90C8016219213BCB0024586E /* PBLoadDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C8015F19213BCB0024586E /* PBLoadDataController.m */; };
+		90C8016219213BCB0024586E /* PBLoadChantierController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C8015F19213BCB0024586E /* PBLoadChantierController.m */; };
 		90C8016319213BCB0024586E /* PBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C8016119213BCB0024586E /* PBLoginViewController.m */; };
 		90C80168192140190024586E /* PBMenuPrincipalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C80167192140190024586E /* PBMenuPrincipalViewController.m */; };
 		90C8016F192140B60024586E /* PBMenuMonteurViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C8016C192140B60024586E /* PBMenuMonteurViewController.m */; };
@@ -33,6 +33,7 @@
 		90CB2CBA191A2253006AA73A /* PBTacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB2CB9191A2253006AA73A /* PBTacheViewController.m */; };
 		90CB2CBE191A653E006AA73A /* fond-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90CB2CBC191A653E006AA73A /* fond-1.jpg */; };
 		90CB2CBF191A653E006AA73A /* LogoGraniou.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CB2CBD191A653E006AA73A /* LogoGraniou.png */; };
+		90D00BEF19236091002817BC /* PBNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D00BEE19236091002817BC /* PBNetworking.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,8 +61,8 @@
 		90C765EE1917FC7600FD58C0 /* PBSaisieCommentaireViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBSaisieCommentaireViewController.m; sourceTree = "<group>"; };
 		90C765F6191823BA00FD58C0 /* PBTache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTache.h; sourceTree = "<group>"; };
 		90C765F7191823BA00FD58C0 /* PBTache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTache.m; sourceTree = "<group>"; };
-		90C8015E19213BCB0024586E /* PBLoadDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBLoadDataController.h; sourceTree = "<group>"; };
-		90C8015F19213BCB0024586E /* PBLoadDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBLoadDataController.m; sourceTree = "<group>"; };
+		90C8015E19213BCB0024586E /* PBLoadChantierController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBLoadChantierController.h; sourceTree = "<group>"; };
+		90C8015F19213BCB0024586E /* PBLoadChantierController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBLoadChantierController.m; sourceTree = "<group>"; };
 		90C8016019213BCB0024586E /* PBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBLoginViewController.h; sourceTree = "<group>"; };
 		90C8016119213BCB0024586E /* PBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBLoginViewController.m; sourceTree = "<group>"; };
 		90C80166192140190024586E /* PBMenuPrincipalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMenuPrincipalViewController.h; sourceTree = "<group>"; };
@@ -82,6 +83,8 @@
 		90CB2CB9191A2253006AA73A /* PBTacheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTacheViewController.m; sourceTree = "<group>"; };
 		90CB2CBC191A653E006AA73A /* fond-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fond-1.jpg"; sourceTree = "<group>"; };
 		90CB2CBD191A653E006AA73A /* LogoGraniou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoGraniou.png; sourceTree = "<group>"; };
+		90D00BED19236091002817BC /* PBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBNetworking.h; sourceTree = "<group>"; };
+		90D00BEE19236091002817BC /* PBNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBNetworking.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,17 +132,17 @@
 		90C765AB1917FA5700FD58C0 /* GraniouProject */ = {
 			isa = PBXGroup;
 			children = (
-				90CB2CBB191A64DC006AA73A /* Ressources */,
 				90C765B41917FA5700FD58C0 /* PBAppDelegate.h */,
 				90C765B51917FA5700FD58C0 /* PBAppDelegate.m */,
 				90C765B71917FA5700FD58C0 /* Main_iPhone.storyboard */,
 				90C765BA1917FA5700FD58C0 /* Main_iPad.storyboard */,
 				90C8015C19213B8A0024586E /* UI */,
 				90C765F41918237D00FD58C0 /* Model */,
-				90C765E01917FB8900FD58C0 /* PhotoPicker */,
 				90C765C01917FA5700FD58C0 /* Images.xcassets */,
 				90C80174192143320024586E /* Categories */,
 				90C765AC1917FA5700FD58C0 /* Supporting Files */,
+				90CB2CBB191A64DC006AA73A /* Ressources */,
+				90D00BF019236095002817BC /* Networking */,
 			);
 			path = GraniouProject;
 			sourceTree = "<group>";
@@ -164,18 +167,8 @@
 				90C765EA1917FC7600FD58C0 /* PBTakePhotoViewController.m */,
 				90C765ED1917FC7600FD58C0 /* PBSaisieCommentaireViewController.h */,
 				90C765EE1917FC7600FD58C0 /* PBSaisieCommentaireViewController.m */,
-				90C765E11917FBEA00FD58C0 /* Interfaces */,
 			);
 			name = PhotoPicker;
-			sourceTree = "<group>";
-		};
-		90C765E11917FBEA00FD58C0 /* Interfaces */ = {
-			isa = PBXGroup;
-			children = (
-				90C765E21917FC2C00FD58C0 /* UILabel+dynamicSizeMe.h */,
-				90C765E31917FC2C00FD58C0 /* UILabel+dynamicSizeMe.m */,
-			);
-			name = Interfaces;
 			sourceTree = "<group>";
 		};
 		90C765F41918237D00FD58C0 /* Model */ = {
@@ -196,6 +189,7 @@
 			children = (
 				90C8015D19213BA60024586E /* Login */,
 				90C8016419213F880024586E /* Navigation */,
+				90C765E01917FB8900FD58C0 /* PhotoPicker */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -205,8 +199,8 @@
 			children = (
 				90C8016019213BCB0024586E /* PBLoginViewController.h */,
 				90C8016119213BCB0024586E /* PBLoginViewController.m */,
-				90C8015E19213BCB0024586E /* PBLoadDataController.h */,
-				90C8015F19213BCB0024586E /* PBLoadDataController.m */,
+				90C8015E19213BCB0024586E /* PBLoadChantierController.h */,
+				90C8015F19213BCB0024586E /* PBLoadChantierController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -253,6 +247,8 @@
 		90C80174192143320024586E /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				90C765E21917FC2C00FD58C0 /* UILabel+dynamicSizeMe.h */,
+				90C765E31917FC2C00FD58C0 /* UILabel+dynamicSizeMe.m */,
 				90C80175192144B10024586E /* UIImage+EncodeImageToString.h */,
 				90C80176192144B10024586E /* UIImage+EncodeImageToString.m */,
 				90C80178192145500024586E /* NSString+DecodeToImage.h */,
@@ -268,6 +264,15 @@
 				90CB2CBD191A653E006AA73A /* LogoGraniou.png */,
 			);
 			name = Ressources;
+			sourceTree = "<group>";
+		};
+		90D00BF019236095002817BC /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				90D00BED19236091002817BC /* PBNetworking.h */,
+				90D00BEE19236091002817BC /* PBNetworking.m */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,10 +356,11 @@
 				90C765F8191823BA00FD58C0 /* PBTache.m in Sources */,
 				90C8016319213BCB0024586E /* PBLoginViewController.m in Sources */,
 				90C765F11917FC7600FD58C0 /* PBTakePhotoViewController.m in Sources */,
-				90C8016219213BCB0024586E /* PBLoadDataController.m in Sources */,
+				90C8016219213BCB0024586E /* PBLoadChantierController.m in Sources */,
 				90C765B21917FA5700FD58C0 /* main.m in Sources */,
 				90C801AB1921704D0024586E /* PBUserSyncController.m in Sources */,
 				90C8016F192140B60024586E /* PBMenuMonteurViewController.m in Sources */,
+				90D00BEF19236091002817BC /* PBNetworking.m in Sources */,
 				90C80170192140B60024586E /* PBMenuChantierViewController.m in Sources */,
 				90C765F31917FC7600FD58C0 /* PBSaisieCommentaireViewController.m in Sources */,
 				90B94BF2191BD87C0062F7CA /* PBChantier.m in Sources */,
