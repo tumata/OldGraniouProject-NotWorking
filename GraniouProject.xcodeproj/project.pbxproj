@@ -30,7 +30,7 @@
 		90C80177192144B10024586E /* UIImage+EncodeImageToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C80176192144B10024586E /* UIImage+EncodeImageToString.m */; };
 		90C8017A192145500024586E /* NSString+DecodeToImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C80179192145500024586E /* NSString+DecodeToImage.m */; };
 		90C801AB1921704D0024586E /* PBUserSyncController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C801AA1921704D0024586E /* PBUserSyncController.m */; };
-		90CB2CBA191A2253006AA73A /* PBTacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB2CB9191A2253006AA73A /* PBTacheViewController.m */; };
+		90CB2CBA191A2253006AA73A /* PBDetailedTacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB2CB9191A2253006AA73A /* PBDetailedTacheViewController.m */; };
 		90CB2CBE191A653E006AA73A /* fond-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90CB2CBC191A653E006AA73A /* fond-1.jpg */; };
 		90CB2CBF191A653E006AA73A /* LogoGraniou.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CB2CBD191A653E006AA73A /* LogoGraniou.png */; };
 		90D00BEF19236091002817BC /* PBNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D00BEE19236091002817BC /* PBNetworking.m */; };
@@ -79,8 +79,8 @@
 		90C80179192145500024586E /* NSString+DecodeToImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DecodeToImage.m"; sourceTree = "<group>"; };
 		90C801A91921704D0024586E /* PBUserSyncController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBUserSyncController.h; sourceTree = "<group>"; };
 		90C801AA1921704D0024586E /* PBUserSyncController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBUserSyncController.m; sourceTree = "<group>"; };
-		90CB2CB8191A2253006AA73A /* PBTacheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTacheViewController.h; sourceTree = "<group>"; };
-		90CB2CB9191A2253006AA73A /* PBTacheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTacheViewController.m; sourceTree = "<group>"; };
+		90CB2CB8191A2253006AA73A /* PBDetailedTacheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBDetailedTacheViewController.h; sourceTree = "<group>"; };
+		90CB2CB9191A2253006AA73A /* PBDetailedTacheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBDetailedTacheViewController.m; sourceTree = "<group>"; };
 		90CB2CBC191A653E006AA73A /* fond-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fond-1.jpg"; sourceTree = "<group>"; };
 		90CB2CBD191A653E006AA73A /* LogoGraniou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoGraniou.png; sourceTree = "<group>"; };
 		90D00BED19236091002817BC /* PBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBNetworking.h; sourceTree = "<group>"; };
@@ -161,8 +161,8 @@
 		90C765E01917FB8900FD58C0 /* PhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
-				90CB2CB8191A2253006AA73A /* PBTacheViewController.h */,
-				90CB2CB9191A2253006AA73A /* PBTacheViewController.m */,
+				90CB2CB8191A2253006AA73A /* PBDetailedTacheViewController.h */,
+				90CB2CB9191A2253006AA73A /* PBDetailedTacheViewController.m */,
 				90C765E91917FC7600FD58C0 /* PBTakePhotoViewController.h */,
 				90C765EA1917FC7600FD58C0 /* PBTakePhotoViewController.m */,
 				90C765ED1917FC7600FD58C0 /* PBSaisieCommentaireViewController.h */,
@@ -350,7 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90C8017A192145500024586E /* NSString+DecodeToImage.m in Sources */,
-				90CB2CBA191A2253006AA73A /* PBTacheViewController.m in Sources */,
+				90CB2CBA191A2253006AA73A /* PBDetailedTacheViewController.m in Sources */,
 				90C765E41917FC2C00FD58C0 /* UILabel+dynamicSizeMe.m in Sources */,
 				90C765B61917FA5700FD58C0 /* PBAppDelegate.m in Sources */,
 				90C765F8191823BA00FD58C0 /* PBTache.m in Sources */,

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="bSi-9m-9Zh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Gt2-UK-5zs">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Tache View Controller-->
+        <!--Detailed Tache View Controller-->
         <scene sceneID="kkY-wj-tS9">
             <objects>
-                <viewController id="fPK-UP-bPv" customClass="PBTacheViewController" sceneMemberID="viewController">
+                <viewController id="fPK-UP-bPv" customClass="PBDetailedTacheViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4in-er-VoN"/>
                         <viewControllerLayoutGuide type="bottom" id="OYn-qU-AqF"/>
@@ -27,7 +26,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSq-2Q-pRq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="1698"/>
+            <point key="canvasLocation" x="3810" y="-382"/>
         </scene>
         <!--Saisie Commentaire View Controller-->
         <scene sceneID="8N7-PN-nra">
@@ -85,7 +84,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipP-eG-zF9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="679" y="2041"/>
+            <point key="canvasLocation" x="4351" y="-39"/>
         </scene>
         <!--Take Photo View Controller-->
         <scene sceneID="I9c-cR-UhR">
@@ -155,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qS6-hc-Hxq" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="679" y="1366"/>
+            <point key="canvasLocation" x="4351" y="-714"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1b8-jD-Gby">
@@ -173,7 +172,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K6m-U7-Iuo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-458" y="1698"/>
+            <point key="canvasLocation" x="3214" y="-382"/>
         </scene>
         <!--viewFirstPage-->
         <scene sceneID="pTw-n8-IM2">
@@ -220,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TdV-m7-FWy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="110" y="94"/>
+            <point key="canvasLocation" x="-326" y="94"/>
         </scene>
         <!--viewControllerLoginPage-->
         <scene sceneID="EVF-t3-cS6">
@@ -234,18 +233,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fond-1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="lWW-i7-Vz0" userLabel="imageViewBackground">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fond-1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="lWW-i7-Vz0" userLabel="imageViewBackground">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="568" id="UGq-FE-Vrl"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Lh-CT-hbA" userLabel="buttonConnection">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Lh-CT-hbA" userLabel="buttonConnection">
                                 <rect key="frame" x="97" y="400" width="127" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="8Lh-CT-hbA" secondAttribute="height" multiplier="127:30" id="A6X-mi-Ow4"/>
+                                    <constraint firstAttribute="width" constant="127" id="B45-6r-ema"/>
+                                    <constraint firstAttribute="height" constant="30" id="xRJ-0l-XYW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Connexion"/>
+                                <state key="normal" title="Connexion">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <attributedString key="userComments">
                                     <fragment content="bouton de connexion">
                                         <attributes>
@@ -262,7 +266,8 @@
                                 <rect key="frame" x="20" y="236" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="5Fc-In-rX3" secondAttribute="height" multiplier="40:3" id="XSC-Db-P8O"/>
+                                    <constraint firstAttribute="height" constant="21" id="atb-oN-shw"/>
+                                    <constraint firstAttribute="width" constant="280" id="gKo-Mf-OD4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -280,7 +285,8 @@
                                 <rect key="frame" x="20" y="315" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="RAv-1U-s8s" secondAttribute="height" multiplier="40:3" id="jOV-rE-GFp"/>
+                                    <constraint firstAttribute="width" constant="280" id="Xei-L9-9vj"/>
+                                    <constraint firstAttribute="height" constant="21" id="cR3-FL-ykE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -298,15 +304,16 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="194"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="CJJ-iU-wGM" secondAttribute="height" multiplier="160:97" id="Kc4-HB-lZD"/>
-                                    <constraint firstAttribute="width" constant="320" id="NWS-9d-hRP"/>
+                                    <constraint firstAttribute="height" constant="194" id="3IL-jy-m2p"/>
+                                    <constraint firstAttribute="width" constant="320" id="bb5-2G-SUW"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entrez votre identifiant" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GDX-9z-MFw" userLabel="textFieldID">
                                 <rect key="frame" x="60" y="265" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="GDX-9z-MFw" secondAttribute="height" multiplier="20:3" id="b5w-qo-5r5"/>
+                                    <constraint firstAttribute="width" constant="200" id="PWU-fT-vN2"/>
+                                    <constraint firstAttribute="height" constant="30" id="d3K-Kh-I6E"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -327,7 +334,8 @@
                                 <rect key="frame" x="60" y="344" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="0h7-e1-oD9" secondAttribute="height" multiplier="20:3" id="1vu-PT-JTh"/>
+                                    <constraint firstAttribute="height" constant="30" id="8nz-0U-teT"/>
+                                    <constraint firstAttribute="width" constant="200" id="hsy-Ot-ErE"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -347,9 +355,12 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="RAv-1U-s8s" firstAttribute="top" secondItem="GDX-9z-MFw" secondAttribute="bottom" constant="20" id="16o-QM-Nx5"/>
+                            <constraint firstItem="lWW-i7-Vz0" firstAttribute="leading" secondItem="zzg-TV-G8o" secondAttribute="leading" id="2B5-Dt-bk5"/>
                             <constraint firstAttribute="centerX" secondItem="0h7-e1-oD9" secondAttribute="centerX" id="4t4-U1-a5F"/>
                             <constraint firstItem="CJJ-iU-wGM" firstAttribute="top" secondItem="kdU-aJ-0Es" secondAttribute="bottom" id="9ol-xo-qgf"/>
+                            <constraint firstAttribute="trailing" secondItem="lWW-i7-Vz0" secondAttribute="trailing" id="LLP-Bd-7jQ"/>
                             <constraint firstAttribute="centerX" secondItem="CJJ-iU-wGM" secondAttribute="centerX" id="Oaz-OL-nFx"/>
+                            <constraint firstItem="lWW-i7-Vz0" firstAttribute="top" secondItem="kdU-aJ-0Es" secondAttribute="bottom" constant="-20" id="XAS-af-hkX"/>
                             <constraint firstItem="8ff-jp-3pm" firstAttribute="top" secondItem="8Lh-CT-hbA" secondAttribute="bottom" constant="50" id="dBP-cO-2gP"/>
                             <constraint firstAttribute="centerX" secondItem="8Lh-CT-hbA" secondAttribute="centerX" id="edr-WO-jUG"/>
                             <constraint firstItem="0h7-e1-oD9" firstAttribute="top" secondItem="RAv-1U-s8s" secondAttribute="bottom" constant="8" id="eqf-1b-UMV"/>
@@ -376,7 +387,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MfI-pU-7Wg" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-395" y="94"/>
+            <point key="canvasLocation" x="-831" y="94"/>
         </scene>
         <!--Menu Principal View Controller - menuMonteurConducteur-->
         <scene sceneID="AYm-Dh-7AW">
@@ -471,7 +482,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Znv-Z4-5ns" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="612" y="94"/>
+            <point key="canvasLocation" x="176" y="94"/>
         </scene>
         <!--Menu Monteur View Controller - menuMonteur-->
         <scene sceneID="JqC-wW-k3U">

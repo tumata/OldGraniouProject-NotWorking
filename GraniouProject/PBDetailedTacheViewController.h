@@ -11,7 +11,7 @@
 #import "PBSaisieCommentaireViewController.h"
 #import "PBTache.h"
 
-@interface PBTacheViewController : UIViewController <TakePictureDelegate, SaisirCommentaireDelegate>
+@interface PBDetailedTacheViewController : UIViewController <TakePictureDelegate, SaisirCommentaireDelegate>
 
 @property (strong, nonatomic) PBTache *tache;
 

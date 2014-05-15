@@ -17,10 +17,10 @@
 #define MY_SPACE_AFTER_TEXTVIEW 20
 #define MY_SPACE_FOR_SECTION 40
 
-#import "PBTacheViewController.h"
+#import "PBDetailedTacheViewController.h"
 
 
-@interface PBTacheViewController ()
+@interface PBDetailedTacheViewController ()
 
 @property (nonatomic) CGRect                frameScrollRect;
 @property (nonatomic) CGRect                lastFrameRect;
@@ -41,7 +41,7 @@
 
 @end
 
-@implementation PBTacheViewController
+@implementation PBDetailedTacheViewController
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
