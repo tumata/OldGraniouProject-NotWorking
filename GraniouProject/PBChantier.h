@@ -9,14 +9,39 @@
 #import <Foundation/Foundation.h>
 #import "PBTache.h"
 
-@interface PBChantier : NSObject
+@interface PBChantier : NSObject <NSURLSessionDataDelegate>
+
+
+@property (nonatomic, strong, readonly) NSDictionary *infosChantier;
 
 @property (nonatomic) NSInteger                 *_idChantier;
-@property (nonatomic, strong) NSMutableArray    *_tachesArray;
+@property (nonatomic, weak) NSMutableArray    *_tachesArray;
+
+
 
 
 + (PBChantier *)sharedChantier;
 
-- (BOOL)setChantierWithJSON:(id)jsonObjects;
+
+- (void)uploadChantierToServerThenDownload;
+- (void)uploadChantierToServer;
+- (void)loadChantierFromServer;
+
+- (BOOL)saveChantierToUserDefaults;
+- (BOOL)getChantierFromUserDefaults;
+
+
+
+- (NSArray *)getTheSixInfosKeyThenValue;
+
+- (NSArray *)getKeyThenValueNomChantier;
+- (NSArray *)getKeyThenValueAmenageur;
+- (NSArray *)getKeyThenValuePartenaire;
+- (NSArray *)getKeyThenValueAdresse;
+- (NSArray *)getKeyThenValueDate;
+- (NSArray *)getKeyThenValueCodeSite;
+- (NSArray *)getKeyThenValueBrin;
+- (NSArray *)getKeyThenValuePhase;
+
 
 @end

@@ -23,6 +23,7 @@
 + (PBUserSyncController *)sharedUser;
 
 - (BOOL)tryLogin:(NSString *)login password:(NSString *)password;
+- (void)downloadUsersFile;
 
 
 @end

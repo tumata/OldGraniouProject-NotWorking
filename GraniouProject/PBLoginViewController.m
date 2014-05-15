@@ -43,6 +43,18 @@ UITextField *currentFieldSelected;
 
     // On recupere les coordonnes de base de la vue
     self.viewCenterCoords = self.view.center;
+    
+    // On s'abonne aux notifications de PBUserSyncController
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userInfosHaveBeenLoadedFromUserDefaults:) name:@"pb.userLoadedFromUserDefaults" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userNotLoggedNoInternet:) name:@"pb.notLoggedNoInternet" object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"pb.userLoadedFromUserDefaults" object:nil];
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"pb.notLoggedNoInternet" object:nil];
+    
+    [super viewDidDisappear:animated];
 }
 
 
@@ -199,5 +211,40 @@ UITextField *currentFieldSelected;
     }
 }
 
+#pragma mark - Notifications
+
+//-------------------------------------------------------
+// L'utilisateur était déjà loggé, on passe page suivante
+//
+- (void)userInfosHaveBeenLoadedFromUserDefaults:(NSNotification *)notif {
+    [self performSegueWithIdentifier:@"loadData" sender:self];
+}
+
+//-------------------------------------------------------
+//  Utilisateur non loggé et pas internet
+//
+- (void)userNotLoggedNoInternet:(NSNotification *)notif {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Problème de connection"
+                                                    message:@"Vous n'êtes pas identifiés et n'avez pas d'accès internet. Accès à l'application impossible"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Réessayer"
+                                          otherButtonTitles:nil, nil];
+    
+    [alert show];
+}
+
+
+# pragma mark - AlertView Delegate
+
+//-------------------------------------------------------
+//    Action sur le bouton connexion
+//
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if ([alertView.title isEqualToString:@"Problème de connection"]) {
+        [[PBUserSyncController sharedUser] downloadUsersFile];
+    }
+    
+    
+}
 
 @end

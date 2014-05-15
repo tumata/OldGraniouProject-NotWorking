@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PBLoginViewController.h"
 
-@interface PBLoadChantierController : UIViewController <NSURLSessionDataDelegate>
+@interface PBLoadChantierController : UIViewController <UIAlertViewDelegate>
 
 
 @end

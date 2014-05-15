@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PBLoginViewController : UIViewController <UITextFieldDelegate>
+@interface PBLoginViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate>
 
 - (void)registerForKeyboardNotifications;
 

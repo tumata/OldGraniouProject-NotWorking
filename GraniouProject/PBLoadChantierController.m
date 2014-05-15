@@ -7,11 +7,6 @@
 //
 
 
-//URL ou envoyer la data
-#define destinationUrl @"http://ahmed-bacha.fr/json_data.php"
-
-
-
 #import "PBLoadChantierController.h"
 #import "PBUserSyncController.h"
 #import "PBNetworking.h"
@@ -19,10 +14,7 @@
 
 @interface PBLoadChantierController ()
 
-@property (nonatomic, strong) NSURLSession *session;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-
-@property (nonatomic) BOOL jSONObjectHasBeenSuccessfullySetToChantier;
 
 @end
 
@@ -32,18 +24,27 @@
 
 
 //-------------------------------------------------------
-// Vue chargée, on commence a charger le chantier :
-// 1. Utilisateur déja connecté avant lancement application
-//      -> On recupere les données depuis UserDefault
-// 2. Utilisateur vient de se connecter :
-//      -> On va recuperer les données sur internet
+// Lance l'indicateur d'activité + lance la requette HTTP
 //
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Notification lorsque chantier chargé depuis le serveur
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chantierLoaded:) name:@"pb.chantierLoaded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chantierNotLoaded:) name:@"pb.chantierNotLoaded" object:nil];
+
+    
+    
     [self startLoadingChantierForActiveUser];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"pb.chantierLoaded" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"pb.chantierNotLoaded" object:nil];
+    [super viewDidDisappear:animated];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -56,82 +57,68 @@
 // Lance l'indicateur d'activité + lance la requette HTTP
 //
 -(void)startLoadingChantierForActiveUser {
-    _jSONObjectHasBeenSuccessfullySetToChantier = FALSE;
+    
+    
     [_activityIndicator startAnimating];
     
-    NSString *data = @"id=";
-    data = [data stringByAppendingString:[[PBUserSyncController sharedUser] idChantier]];
+    PBUserSyncController *user = [PBUserSyncController sharedUser];
     
-    [PBNetworking sendHttpPostWithData:data toURLWithString:destinationUrl delegate:self];
+    //-------------------------------------------------------
+    //    Il etait loggé avant de lancer l'appli
+    //
+    if ([user wasLoggedBeforeLoginScreen]) {
+        
+        // Il y a internet
+        if ([user hasDownloadedLogs]) {
+            [[PBChantier sharedChantier] uploadChantierToServerThenDownload];
+            
+        }
+        // Pas internet, on charge depuis les UserDefaults
+        else {
+            [[PBChantier sharedChantier] getChantierFromUserDefaults];
+            timer = [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(segueCanNowBePerformed:) userInfo:NULL repeats:NO];
+        }
+    }
+    //-------------------------------------------------------
+    //    Il vient d'entrer ses identifiants
+    //
+    else {
+        [[PBChantier sharedChantier] loadChantierFromServer];
+    }
+    
 }
 
 
 //-------------------------------------------------------
-// Action une fois le chantier chargé dans PBChantier
+// On passe fenetre suivante, tout s'est bien déroulé
 //
-- (void)chantierSuccessfullyDownloaded {
-    
-    if (_jSONObjectHasBeenSuccessfullySetToChantier) {
-        NSLog(@"%s : Téléchargement réussi et JSON converti en Chantier", __func__);
-        // Timer pour éviter que le temps de chargement soit trop court et que le segue se déclenche trop tot
-        timer = [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(segueCanNowBePerformed:) userInfo:NULL repeats:NO];
-    }
-    else {
-        NSLog(@"%s : Téléchargement réussi mais JSON non converti en Chantier", __func__);
-    }
-}
-
-- (void)chantierCouldNotBeDownloaded:(NSError *)error {
-    NSLog(@"Error %@",[[error userInfo] objectForKey:@"NSLocalizedDescription"]);
-}
-
 - (void)segueCanNowBePerformed:(id)sender {
-    NSLog(@"Timer fired!");
     [self performSegueWithIdentifier:@"dataLoaded" sender:self];
 }
 
 
-#pragma mark - NSURLSessionData Delegate Methods
 
-//-------------------------------------------------------
-// Lancé une fois la data depuis le serveur récuperée
-//
-- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask
-    didReceiveData:(NSData *)data
-{
-    _jSONObjectHasBeenSuccessfullySetToChantier = false;
-    
-    NSError *error;
-    id jsonObjects = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+#pragma - mark Notifications
 
-    if (error == nil) {
-        NSLog(@"%s : Received JSon : %@", __func__, jsonObjects);
-        
-        if ([[PBChantier sharedChantier] setChantierWithJSON:jsonObjects]) {
-            _jSONObjectHasBeenSuccessfullySetToChantier = true;
-        }
-    }
+- (void)chantierLoaded:(NSNotification *)notif {
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(segueCanNowBePerformed:) userInfo:NULL repeats:NO];
 }
 
-//-------------------------------------------------------
-// Une fois la connection terminée, fonction appelée.
-// Permet de savoir également si appareil Connecté
-//
-- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
-didCompleteWithError:(NSError *)error
-{
-    [_activityIndicator stopAnimating];
+- (void)chantierNotLoaded:(NSNotification *)notif {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Erreur réseau"
+                                                    message:@"Merci de recommencer"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Réessayer"
+                                          otherButtonTitles:nil, nil];
     
-    if(error == nil)
-    {
-        [_session invalidateAndCancel];
-        [self chantierSuccessfullyDownloaded];
-    }
-    else {
-        [self chantierCouldNotBeDownloaded:error];
-    }
-    
-    
+    [alert show];
+}
+
+
+#pragma mark - AlertView delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    [self performSegueWithIdentifier:@"backToLogin" sender:self];
 }
 
 @end

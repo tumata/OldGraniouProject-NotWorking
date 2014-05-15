@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Gt2-UK-5zs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="bSi-9m-9Zh">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -161,6 +161,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gt2-UK-5zs" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="oVt-V7-T6E"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Su4-o4-Yu6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -215,11 +216,12 @@
                     <connections>
                         <outlet property="activityIndicator" destination="ftj-F3-h04" id="eEG-V7-cIE"/>
                         <segue destination="KAa-nD-2kH" kind="modal" identifier="dataLoaded" id="TsU-dB-8rg"/>
+                        <segue destination="bSi-9m-9Zh" kind="modal" identifier="backToLogin" id="4v0-QF-BCd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TdV-m7-FWy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-326" y="94"/>
+            <point key="canvasLocation" x="-348" y="94"/>
         </scene>
         <!--viewControllerLoginPage-->
         <scene sceneID="EVF-t3-cS6">
@@ -379,6 +381,7 @@
                             </fragment>
                         </attributedString>
                     </view>
+                    <navigationItem key="navigationItem" id="ZKe-Og-LxN"/>
                     <connections>
                         <outlet property="textFieldID" destination="GDX-9z-MFw" id="2qe-bv-zuU"/>
                         <outlet property="textFieldPSW" destination="0h7-e1-oD9" id="tRV-8M-edP"/>
@@ -387,7 +390,171 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MfI-pU-7Wg" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-831" y="94"/>
+            <point key="canvasLocation" x="-929" y="-39"/>
+        </scene>
+        <!--Presentation Chantier View Controller-->
+        <scene sceneID="YKW-Vc-swz">
+            <objects>
+                <viewController id="667-d8-dyZ" customClass="PBPresentationChantierViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yn1-lG-TjE"/>
+                        <viewControllerLayoutGuide type="bottom" id="H1N-JQ-V4r"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qzd-ru-kVB">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7R-O0-hIg">
+                                <rect key="frame" x="20" y="20" width="280" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ppa-bq-Ozb"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Label">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="20" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JHd-oB-W9H">
+                                <rect key="frame" x="0.0" y="80" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="TSR-N6-wSG"/>
+                                    <constraint firstAttribute="width" constant="320" id="VjO-wg-zv0"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Adresse :" id="o9m-Cd-soE"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="xhY-XH-I6q"/>
+                                    <barButtonItem title="Item" id="bLR-uB-g0e"/>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8De-eI-6ig">
+                                <rect key="frame" x="0.0" y="124" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Gvb-yR-N0o"/>
+                                    <constraint firstAttribute="width" constant="320" id="jPT-Wz-YCX"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Code site :" id="Oah-f3-LJR"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="dTX-us-Q2h"/>
+                                    <barButtonItem title="Item" id="3Oc-B6-bnv"/>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NwU-OF-cbo">
+                                <rect key="frame" x="0.0" y="168" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="O9N-tA-EnS"/>
+                                    <constraint firstAttribute="height" constant="44" id="xM9-5V-DuC"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Brin :" id="HQc-va-Sgo"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="dEG-y6-jOd"/>
+                                    <barButtonItem title="Item" id="kJm-4n-rYs"/>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apS-GW-dEd">
+                                <rect key="frame" x="0.0" y="212" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="0S3-Vj-nDY"/>
+                                    <constraint firstAttribute="width" constant="320" id="tHb-fM-LS1"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Phase :" id="KLI-bL-BW2"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Q08-8o-DI6"/>
+                                    <barButtonItem title="Item" id="vwH-Xx-x3l"/>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GYP-I0-i2b">
+                                <rect key="frame" x="0.0" y="256" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="gBH-vd-V0r"/>
+                                    <constraint firstAttribute="width" constant="320" id="rh8-L7-tID"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Aménageur :" id="rhq-0x-CbM"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="CCV-pp-PQo"/>
+                                    <barButtonItem title="Item" id="Bzn-gX-yoC"/>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yW-dH-FK6">
+                                <rect key="frame" x="0.0" y="300" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="S6d-Tl-6LH"/>
+                                    <constraint firstAttribute="width" constant="320" id="ct5-0M-rCp"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Date :" id="Qbo-AX-oUK"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="kfS-Ql-Hjd"/>
+                                    <barButtonItem title="Item" id="VIu-IN-2xF"/>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1f-44-ctE">
+                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="b0n-j2-sTR"/>
+                                    <barButtonItem title="Synchroniser les données" id="shr-3I-sLn"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="aOS-6s-HdO"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8De-eI-6ig" firstAttribute="top" secondItem="JHd-oB-W9H" secondAttribute="bottom" id="0MS-Nb-0bO"/>
+                            <constraint firstItem="GYP-I0-i2b" firstAttribute="top" secondItem="apS-GW-dEd" secondAttribute="bottom" id="9HF-3H-lg0"/>
+                            <constraint firstAttribute="centerX" secondItem="6yW-dH-FK6" secondAttribute="centerX" id="Alo-2C-IOZ"/>
+                            <constraint firstAttribute="centerX" secondItem="8De-eI-6ig" secondAttribute="centerX" id="BKX-bX-vNr"/>
+                            <constraint firstItem="JHd-oB-W9H" firstAttribute="top" secondItem="U7R-O0-hIg" secondAttribute="bottom" constant="20" id="FiA-5B-Rzi"/>
+                            <constraint firstAttribute="centerX" secondItem="NwU-OF-cbo" secondAttribute="centerX" id="I07-4x-sxM"/>
+                            <constraint firstAttribute="centerX" secondItem="JHd-oB-W9H" secondAttribute="centerX" id="JId-hm-Vp6"/>
+                            <constraint firstAttribute="centerX" secondItem="GYP-I0-i2b" secondAttribute="centerX" id="U9D-kJ-3kp"/>
+                            <constraint firstItem="apS-GW-dEd" firstAttribute="top" secondItem="NwU-OF-cbo" secondAttribute="bottom" id="aUO-Xr-0jS"/>
+                            <constraint firstAttribute="centerX" secondItem="apS-GW-dEd" secondAttribute="centerX" id="cET-d3-CRy"/>
+                            <constraint firstItem="NwU-OF-cbo" firstAttribute="top" secondItem="8De-eI-6ig" secondAttribute="bottom" id="dMR-vC-jRw"/>
+                            <constraint firstItem="6yW-dH-FK6" firstAttribute="top" secondItem="GYP-I0-i2b" secondAttribute="bottom" id="j1k-gV-Bz3"/>
+                            <constraint firstAttribute="trailing" secondItem="U7R-O0-hIg" secondAttribute="trailing" constant="20" id="lIl-H0-4DM"/>
+                            <constraint firstItem="U7R-O0-hIg" firstAttribute="top" secondItem="yn1-lG-TjE" secondAttribute="bottom" constant="20" id="nXB-bd-NM7"/>
+                            <constraint firstItem="U7R-O0-hIg" firstAttribute="leading" secondItem="Qzd-ru-kVB" secondAttribute="leading" constant="20" id="tDq-AQ-9Jq"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="9kA-Oc-Xa4">
+                        <barButtonItem key="leftBarButtonItem" title="Déconnexion" id="Ibd-UM-UgJ">
+                            <connections>
+                                <action selector="actionDeconnexion:" destination="667-d8-dyZ" id="wYH-fK-4Gq"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Accès" id="QqU-ad-gEY">
+                            <connections>
+                                <segue destination="8bm-jw-s6h" kind="push" id="lrP-k8-I0v"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="labelTitre" destination="U7R-O0-hIg" id="EMH-Xb-3zF"/>
+                        <outlet property="toolbar1" destination="JHd-oB-W9H" id="9Vf-5j-6lb"/>
+                        <outlet property="toolbar2" destination="8De-eI-6ig" id="gA0-xU-YVT"/>
+                        <outlet property="toolbar3" destination="NwU-OF-cbo" id="kWk-cY-KEg"/>
+                        <outlet property="toolbar4" destination="apS-GW-dEd" id="ShI-W1-Sky"/>
+                        <outlet property="toolbar5" destination="GYP-I0-i2b" id="Q7v-f4-U6M"/>
+                        <outlet property="toolbar6" destination="6yW-dH-FK6" id="4Ck-fd-DbC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p0X-Og-37U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="651" y="94"/>
         </scene>
         <!--Menu Principal View Controller - menuMonteurConducteur-->
         <scene sceneID="AYm-Dh-7AW">
@@ -477,7 +644,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="8bm-jw-s6h" kind="relationship" relationship="rootViewController" id="Caz-So-ik8"/>
+                        <segue destination="667-d8-dyZ" kind="relationship" relationship="rootViewController" id="mUP-sg-LPE"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Znv-Z4-5ns" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -608,6 +775,9 @@
                                 <state key="normal" title="Tâches">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Gt2-UK-5zs" kind="modal" id="4Gk-g1-4oI"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRT-Go-zW7">
                                 <rect key="frame" x="0.0" y="196" width="320" height="25"/>

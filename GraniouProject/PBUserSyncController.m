@@ -58,8 +58,26 @@ static PBUserSyncController *_sharedInstance;
         _sharedInstance.isNowLoggedFromLoginScreen = false;
         _sharedInstance.wasLoggedBeforeLoginScreen = false;
         
+        
         if (![_sharedInstance isUserAlreadyLoggedWhenLaunchingApplication]) {
+            //---------------------------------------------------------------------
+            // Ici il n'est donc pas encore loggé au moment du lancement de l'appli
+            
+            // On telecharge la liste des users depuis le serveur
             [_sharedInstance downloadUsersFile];
+        }
+        else {
+            //------------------------------------------------
+            // Ici il est loggé au moment ou l'appli se lance
+            
+            // On telecharge le user depuis UsersDefault
+            [_sharedInstance loadUserFromUserDefaults];
+            
+            // On test la connection internet
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"pb.userLoadedFromUserDefaults" object:self];
+
+            
+            
         }
     }
 }
@@ -106,7 +124,6 @@ static PBUserSyncController *_sharedInstance;
     // Test si UserDefaults pour User présent
     if ([[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultNameKey]) {
         _wasLoggedBeforeLoginScreen = true;
-        [self loadUserFromUserDefaults];
         return TRUE;
     }
     else {
@@ -122,7 +139,6 @@ static PBUserSyncController *_sharedInstance;
     _password = [user objectForKey:kPasswordLoginKey];
     _droitAcces = [user objectForKey:kDroitAccesLoginKey];
     _idChantier = [user objectForKey:kIdChantierLoginKey];
-    _hasDownloadedLogs = true;
 }
 
 
@@ -141,23 +157,28 @@ static PBUserSyncController *_sharedInstance;
 - (void)parseFetchedData:(NSData *)jsonData {
     
     if (jsonData) {
-        
-        NSError *error = nil;
-        
-        id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
-        
-        // Recuperation de la table "users"
-        NSArray *entries = [jsonObjects objectForKey:kUsersKey];
-        
-        // On rempli le dictionnaire des login/passwords
-        NSMutableDictionary *loginsPasswords = [[NSMutableDictionary alloc] initWithCapacity:[entries count]];
-        for (NSMutableDictionary *item in entries) {
-            [loginsPasswords setObject:[item objectForKey:kPasswordLoginKey] forKey:[item objectForKey:kLoginKey]];
+        if (!_wasLoggedBeforeLoginScreen) {
+            NSError *error = nil;
+            
+            id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+            
+            NSLog(@"%@", jsonObjects);
+            
+            // Recuperation de la table "users"
+            NSArray *entries = [jsonObjects objectForKey:kUsersKey];
+            
+            // On rempli le dictionnaire des login/passwords
+            NSMutableDictionary *loginsPasswords = [[NSMutableDictionary alloc] initWithCapacity:[entries count]];
+            for (NSMutableDictionary *item in entries) {
+                [loginsPasswords setObject:[item objectForKey:kPasswordLoginKey] forKey:[item objectForKey:kLoginKey]];
+            }
+            
+            _allUsers = entries;
+            _allLoginsPasswords = loginsPasswords;
         }
-        
-        _allUsers = entries;
-        _allLoginsPasswords = loginsPasswords;
-        
+        else {
+            NSLog(@"LoggedBefore et Internet");
+        }
         [self fetchedDataHasBeenParsedSuccessfuly:TRUE];
         
     }
@@ -172,7 +193,15 @@ static PBUserSyncController *_sharedInstance;
     if (successfuly) {
         _hasDownloadedLogs = true;
     }
-    else _hasDownloadedLogs = false;
+    else {
+        _hasDownloadedLogs = false;
+        if (_wasLoggedBeforeLoginScreen) {
+            NSLog(@"LoggedBefore mais pas internet");
+        }
+        else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"pb.notLoggedNoInternet" object:self];
+        }
+    }
 }
 
 @end

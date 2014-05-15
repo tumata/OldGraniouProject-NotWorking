@@ -319,7 +319,7 @@
 // Valider Tache touché
 -(void)boutonSaveTouched:(id)sender
 {
-    
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 
