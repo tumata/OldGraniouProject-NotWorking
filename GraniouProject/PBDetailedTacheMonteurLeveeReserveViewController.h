@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "PBTakePhotoViewController.h"
 #import "PBSaisieCommentaireViewController.h"
-#import "PBTache.h"
+#import "PBTacheMonteurLeveeReserve.h"
 
-@interface PBDetailedTacheViewController : UIViewController <TakePictureDelegate, SaisirCommentaireDelegate>
+@interface PBDetailedTacheMonteurLeveeReserveViewController : UIViewController <TakePictureDelegate, SaisirCommentaireDelegate>
 
-@property (strong, nonatomic) PBTache *tache;
+@property (strong, nonatomic) PBTacheMonteurLeveeReserve *tache;
 
 @end
 

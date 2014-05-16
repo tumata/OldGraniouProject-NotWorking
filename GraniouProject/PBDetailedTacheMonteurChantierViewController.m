@@ -1,8 +1,8 @@
 //
-//  TacheTestViewController.m
+//  PBDetailedTacheMonteurChantierViewController.m
 //  GraniouProject
 //
-//  Created by Philippe Tumata on 07/05/2014.
+//  Created by Philippe Tumata on 16/05/2014.
 //  Copyright (c) 2014 telecom. All rights reserved.
 //
 
@@ -17,10 +17,10 @@
 #define MY_SPACE_AFTER_TEXTVIEW 20
 #define MY_SPACE_FOR_SECTION 40
 
-#import "PBDetailedTacheViewController.h"
 
+#import "PBDetailedTacheMonteurChantierViewController.h"
 
-@interface PBDetailedTacheViewController ()
+@interface PBDetailedTacheMonteurChantierViewController ()
 
 @property (nonatomic) CGRect                frameScrollRect;
 @property (nonatomic) CGRect                lastFrameRect;
@@ -30,7 +30,6 @@
 @property (nonatomic, strong) UILabel       *titreLabel;
 @property (nonatomic, strong) UILabel       *descriptionLabelStatic;
 @property (nonatomic, strong) UITextView    *descriptionTextView;
-@property (nonatomic, strong) UIImageView   *descriptionImage;
 
 @property (nonatomic, strong) UILabel       *commentaireLabelStatic;
 @property (nonatomic, strong) UITextView    *commentaireTextView;
@@ -39,10 +38,10 @@
 @property (nonatomic, strong) UIButton      *boutonAddCommentaire;
 @property (nonatomic, strong) UIButton      *boutonAddImage;
 
+
 @end
 
-@implementation PBDetailedTacheViewController
-
+@implementation PBDetailedTacheMonteurChantierViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -57,13 +56,13 @@
 {
     [super viewDidLoad];
     
-    _tache = [[PBTache alloc]initWithIdChantier:1
-                                       idTache:1
-                                         name:@"Tache 1"
-                                  description:@"Voici la dercription de la tache et c'est plutot sympas de voir que ca marche très bien n'est pas ? Voila donc vous avez ça a faire et puis ça et puis aussi ça car quand on s'amuse on ne compte pas. N'est pas ? Allez, ciao"
-                              imageDescription:[UIImage imageNamed:@"fond-1.jp"]
-                                   commentaire:@"Voici la dercription de la tache et c'est plutot sympas de voir que ca marche très bien n'est pas ? Voila donc vous avez ça a faire et puis ça et puis aussi ça car quand on s'amuse on ne compte pas. N'est pas ? Allez, ciao"
-                              imageCommentaire:[UIImage imageNamed:@"fond-1.jpg"]];
+    //    _tache = [[PBTacheMonteurLeveeReserve alloc]initWithIdChantier:1
+    //                                       idTache:1
+    //                                         name:@"Tache 1"
+    //                                  description:@"Voici la dercription de la tache et c'est plutot sympas de voir que ca marche très bien n'est pas ? Voila donc vous avez ça a faire et puis ça et puis aussi ça car quand on s'amuse on ne compte pas. N'est pas ? Allez, ciao"
+    //                              imageDescription:[UIImage imageNamed:@"fond-1.jp"]
+    //                                   commentaire:@"Voici la dercription de la tache et c'est plutot sympas de voir que ca marche très bien n'est pas ? Voila donc vous avez ça a faire et puis ça et puis aussi ça car quand on s'amuse on ne compte pas. N'est pas ? Allez, ciao"
+    //                              imageCommentaire:[UIImage imageNamed:@"fond-1.jpg"]];
     
     [self initialisationViews];
 }
@@ -113,7 +112,7 @@
                                 _frameScrollRect.size.width - 40,
                                 0);
     
-
+    
     
     NSLog(@"_lastFrameRect");
     NSLog(@"lastFrame origine Y depart : %f", _lastFrameRect.origin.y);
@@ -139,8 +138,8 @@
     // _descriptionLabelStatic
     ///////////////////////////////////////////////////////
     _descriptionLabelStatic = [[UILabel alloc] initWithFrame:
-                   [self getRectForElementWithHeight:MY_LABEL_HEIGHT
-                             andSpaceWithLastElement:MY_SPACE_AFTER_TITLE]];
+                               [self getRectForElementWithHeight:MY_LABEL_HEIGHT
+                                         andSpaceWithLastElement:MY_SPACE_AFTER_TITLE]];
     _descriptionLabelStatic.font = [UIFont fontWithName:@"TrebuchetMS" size:18];
     [_descriptionLabelStatic setText:@"Description :"];
     [_insideView addSubview:_descriptionLabelStatic];
@@ -148,25 +147,13 @@
     // _descriptionTextView
     ///////////////////////////////////////////////////////
     _descriptionTextView = [[UITextView alloc] initWithFrame:
-                               [self getRectForElementWithHeight:MY_TEXTVIEW_HEIGHT
-                                         andSpaceWithLastElement:MY_SPACE_AFTER_LABEL]];
+                            [self getRectForElementWithHeight:MY_TEXTVIEW_HEIGHT
+                                      andSpaceWithLastElement:MY_SPACE_AFTER_LABEL]];
     _descriptionTextView.font = [UIFont fontWithName:@"TrebuchetMS" size:15];
     _descriptionTextView.textAlignment = NSTextAlignmentJustified;
     [_descriptionTextView setText:_tache.description];
     [_descriptionTextView setEditable:false];
     [_insideView addSubview:_descriptionTextView];
-    
-    // _descriptionImage
-    ///////////////////////////////////////////////////////
-    if (_tache.imageDescription)
-    {
-        _descriptionImage = [[UIImageView alloc] initWithFrame:
-                            [self getRectForElementWithHeight:MY_IMAGEVIEW_HEIGHT
-                                      andSpaceWithLastElement:MY_SPACE_AFTER_TEXTVIEW]];
-        [_descriptionImage setImage:_tache.imageDescription];
-        _descriptionImage.contentMode = UIViewContentModeScaleAspectFit;
-        [_insideView addSubview:_descriptionImage];
-    }
     
     
     // _commentaireLabelStatic
@@ -182,11 +169,11 @@
     ///////////////////////////////////////////////////////
     if (_tache.commentaire.length)
     {
-                // _commentaireTextView
+        // _commentaireTextView
         ///////////////////////////////////////////////////////
         _commentaireTextView = [[UITextView alloc] initWithFrame:
-                            [self getRectForElementWithHeight:MY_TEXTVIEW_HEIGHT
-                                      andSpaceWithLastElement:MY_SPACE_AFTER_LABEL]];
+                                [self getRectForElementWithHeight:MY_TEXTVIEW_HEIGHT
+                                          andSpaceWithLastElement:MY_SPACE_AFTER_LABEL]];
         _commentaireTextView.font = [UIFont fontWithName:@"TrebuchetMS" size:15];
         _commentaireTextView.textAlignment = NSTextAlignmentJustified;
         [_commentaireTextView setText:_tache.commentaire];
@@ -197,7 +184,7 @@
         ///////////////////////////////////////////////////////
         _boutonAddCommentaire = [UIButton buttonWithType:UIButtonTypeSystem];
         _boutonAddCommentaire.frame = [self getRectForElementWithHeight:MY_BUTTON_HEIGHT
-                                           andSpaceWithLastElement:MY_SPACE_AFTER_TEXTVIEW];
+                                                andSpaceWithLastElement:MY_SPACE_AFTER_TEXTVIEW];
         [_boutonAddCommentaire setTitle:@"Modifier commentaire" forState:UIControlStateNormal];
         _boutonAddCommentaire.titleLabel.font = [UIFont fontWithName:@"TrebuchetMS" size:18];
         [_boutonAddCommentaire addTarget:self action:@selector(boutonAddCommentaireTouched:) forControlEvents:UIControlEventTouchUpInside];        [_insideView addSubview:_boutonAddCommentaire];
@@ -208,15 +195,15 @@
         ///////////////////////////////////////////////////////
         _boutonAddCommentaire = [UIButton buttonWithType:UIButtonTypeSystem];
         [_boutonAddCommentaire setFrame:[self getRectForElementWithHeight:MY_BUTTON_HEIGHT
-                                                andSpaceWithLastElement:MY_SPACE_AFTER_TEXTVIEW]];
+                                                  andSpaceWithLastElement:MY_SPACE_AFTER_TEXTVIEW]];
         [_boutonAddCommentaire setTitle:@"Ajouter commentaire" forState:UIControlStateNormal];
         _boutonAddCommentaire.titleLabel.font = [UIFont fontWithName:@"TrebuchetMS" size:18];
         [_boutonAddCommentaire addTarget:self action:@selector(boutonAddCommentaireTouched:) forControlEvents:UIControlEventTouchUpInside];
         [_insideView addSubview:_boutonAddCommentaire];
-
+        
     }
     
-
+    
     // _commentaireImage
     ///////////////////////////////////////////////////////
     if (_tache.imageCommentaire)
@@ -244,7 +231,7 @@
         ///////////////////////////////////////////////////////
         _boutonAddImage = [UIButton buttonWithType:UIButtonTypeSystem];
         [_boutonAddImage setFrame:[self getRectForElementWithHeight:MY_BUTTON_HEIGHT
-                                                  andSpaceWithLastElement:MY_SPACE_AFTER_TEXTVIEW]];
+                                            andSpaceWithLastElement:MY_SPACE_AFTER_TEXTVIEW]];
         [_boutonAddImage setTitle:@"Joindre une photo" forState:UIControlStateNormal];
         _boutonAddImage.titleLabel.font = [UIFont fontWithName:@"TrebuchetMS" size:18];
         [_boutonAddImage addTarget:self action:@selector(boutonAddImageTouched:) forControlEvents:UIControlEventTouchUpInside];
@@ -268,17 +255,17 @@
     
     [self updateLastFrameRectOriginAddY:space];
     CGRect rectangle = CGRectMake(_lastFrameRect.origin.x,
-                                   _lastFrameRect.origin.y,
-                                   _lastFrameRect.size.width,
-                                   height);
+                                  _lastFrameRect.origin.y,
+                                  _lastFrameRect.size.width,
+                                  height);
     [self updateLastFrameRectOriginAddY:height];
     [self updateInsideViewBoundsAddY:(height + space)];
     
     /*
-    NSLog(@"Origine du rectangle : %f", rectangle.origin.y);
-    NSLog(@"+ %f", height);
-    NSLog(@"InsideView total height : %f", _insideView.frame.size.height);
-    NSLog(@" ");
+     NSLog(@"Origine du rectangle : %f", rectangle.origin.y);
+     NSLog(@"+ %f", height);
+     NSLog(@"InsideView total height : %f", _insideView.frame.size.height);
+     NSLog(@" ");
      */
     
     return rectangle;
@@ -294,9 +281,9 @@
 -(void)updateInsideViewBoundsAddY:(CGFloat)heightToAdd
 {
     [_insideView setFrame:CGRectMake(_insideView.frame.origin.x,
-                                      _insideView.frame.origin.y,
-                                      _insideView.frame.size.width,
-                                      (_insideView.frame.size.height + heightToAdd))];
+                                     _insideView.frame.origin.y,
+                                     _insideView.frame.size.width,
+                                     (_insideView.frame.size.height + heightToAdd))];
 }
 
 
@@ -365,6 +352,7 @@
         NSLog(@"ok2");
     }
 }
+
 
 
 @end

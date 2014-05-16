@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#include "PBTache.h"
+#include "PBTacheMonteurLeveeReserve.h"
+#include "PBTacheMonteurChantier.h"
 
 @protocol SaisirCommentaireDelegate;
 
@@ -15,7 +16,9 @@
 @interface PBSaisieCommentaireViewController : UIViewController
 
 @property (nonatomic, assign) id<SaisirCommentaireDelegate> delegate;
-@property (strong, nonatomic) PBTache *tache;
+@property (weak, nonatomic) NSObject *tache;
+
+
 
 @end
 

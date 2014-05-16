@@ -11,6 +11,13 @@
 #import "PBNetworking.h"
 
 
+//User defaults
+#define keyChantierForUserDefault       @"chantierEnregistre"
+
+#define keyInfosChantierForUserDefault  @"informationsChantier"
+#define keyIDChantierForUserDefault     @"identifiantChantier"
+#define keyTachesArrayForUserDefault    @"listeDesTaches"
+
 //URL ou envoyer la data
 #define destinationUrl @"http://ahmed-bacha.fr/json_data.php"
 
@@ -36,6 +43,8 @@
 
 @property (nonatomic, strong) NSURLSession *session;
 
+@property (readwrite) NSDictionary *infosChantier;
+
 @end
 
 
@@ -53,7 +62,13 @@ static PBChantier *_sharedInstance;
 //
 + (void)initialize {
     if (self == [PBChantier class]) {
-        _sharedInstance = [[super alloc] init];
+        if ([[PBUserSyncController sharedUser] wasLoggedBeforeLoginScreen]) {
+            _sharedInstance = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:keyChantierForUserDefault]];
+        }
+        else {
+            _sharedInstance = [[super alloc] init];
+        }
+        
     }
 }
 
@@ -104,12 +119,17 @@ static PBChantier *_sharedInstance;
     
 }
 
+
+
 #pragma mark Actions sur UsersDefault
 
 //-------------------------------------------------------
 // Sauvegarde le chantier dans les userDefaults
 //
 - (BOOL)saveChantierToUserDefaults {
+
+    // Archiving calls encodeWithCoder: on the singleton instance.
+    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_sharedInstance] forKey:keyChantierForUserDefault];
     
     return true;
 }
@@ -119,6 +139,9 @@ static PBChantier *_sharedInstance;
 // Recupere le chantier depuis le UserDefault
 //
 - (BOOL)getChantierFromUserDefaults {
+    
+    // Unarchiving calls initWithCoder: on the singleton instance.
+    [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:keyChantierForUserDefault]];
     
     return true;
 }
@@ -256,6 +279,28 @@ didCompleteWithError:(NSError *)error
     
     
 }
+
+#pragma mark - NSCoder
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    //Encode properties, other class variables, etc
+	[encoder encodeObject:_idChantier forKey:keyIDChantierForUserDefault];
+	
+    [encoder encodeObject:_infosChantier forKey:keyInfosChantierForUserDefault];
+    [encoder encodeObject:_tachesArray forKey:keyTachesArrayForUserDefault];
+}
+- (id)initWithCoder:(NSCoder *)decoder
+{
+        //decode properties, other class vars
+		_sharedInstance.idChantier = [decoder decodeObjectForKey:keyIDChantierForUserDefault];
+        
+        _sharedInstance.infosChantier = [decoder decodeObjectForKey:keyInfosChantierForUserDefault];
+        _sharedInstance.tachesArray = [decoder decodeObjectForKey:keyTachesArrayForUserDefault];
+    
+    return _sharedInstance;
+}
+
 
 
 

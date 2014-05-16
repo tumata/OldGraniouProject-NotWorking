@@ -14,7 +14,10 @@
 
 @end
 
-@implementation PBSaisieCommentaireViewController
+@implementation PBSaisieCommentaireViewController{
+    PBTacheMonteurChantier *laTacheMonteurChantier;
+    PBTacheMonteurLeveeReserve *laTacheMonteurLeveeReserve;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,7 +31,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _commentaireTextField.text = _tache.commentaire;
+    if ([[[_tache class]description] isEqualToString:[[PBTacheMonteurChantier class] description]]) {
+        laTacheMonteurChantier = (PBTacheMonteurChantier *)_tache;
+        laTacheMonteurLeveeReserve = nil;
+    }
+    if ([[[_tache class]description] isEqualToString:[[PBTacheMonteurLeveeReserve class] description]]) {
+        laTacheMonteurLeveeReserve = (PBTacheMonteurLeveeReserve *)_tache;
+        laTacheMonteurChantier = nil;
+    }
+    
+    if (laTacheMonteurChantier) _commentaireTextField.text = laTacheMonteurChantier.commentaire;
+    if (laTacheMonteurLeveeReserve) _commentaireTextField.text = laTacheMonteurLeveeReserve.commentaire;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,8 +60,15 @@
 {
     if (_commentaireTextField.text.length)
     {
-        _tache.commentaire = _commentaireTextField.text;
-        [_delegate userFinishedSaisie:_tache.commentaire];
+        if (laTacheMonteurChantier) {
+            laTacheMonteurChantier.commentaire = _commentaireTextField.text;
+            [_delegate userFinishedSaisie:laTacheMonteurChantier.commentaire];
+        }
+        if (laTacheMonteurLeveeReserve) {
+            laTacheMonteurLeveeReserve.commentaire = _commentaireTextField.text;
+            [_delegate userFinishedSaisie:laTacheMonteurLeveeReserve.commentaire];
+        }
+        
         [self.navigationController popViewControllerAnimated:true];
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90306E111926B326002F90C8 /* PBTacheMonteurChantier.m in Sources */ = {isa = PBXBuildFile; fileRef = 90306E101926B326002F90C8 /* PBTacheMonteurChantier.m */; };
+		90306E141926C019002F90C8 /* PBDetailedTacheMonteurChantierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90306E131926C019002F90C8 /* PBDetailedTacheMonteurChantierViewController.m */; };
 		90B94BF2191BD87C0062F7CA /* PBChantier.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B94BF1191BD87C0062F7CA /* PBChantier.m */; };
 		90BEBE251924A30C00F72C3B /* PBPresentationChantierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BEBE241924A30C00F72C3B /* PBPresentationChantierViewController.m */; };
 		90C765A61917FA5700FD58C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C765A51917FA5700FD58C0 /* Foundation.framework */; };
@@ -21,7 +23,7 @@
 		90C765E41917FC2C00FD58C0 /* UILabel+dynamicSizeMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765E31917FC2C00FD58C0 /* UILabel+dynamicSizeMe.m */; };
 		90C765F11917FC7600FD58C0 /* PBTakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765EA1917FC7600FD58C0 /* PBTakePhotoViewController.m */; };
 		90C765F31917FC7600FD58C0 /* PBSaisieCommentaireViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765EE1917FC7600FD58C0 /* PBSaisieCommentaireViewController.m */; };
-		90C765F8191823BA00FD58C0 /* PBTache.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765F7191823BA00FD58C0 /* PBTache.m */; };
+		90C765F8191823BA00FD58C0 /* PBTacheMonteurLeveeReserve.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C765F7191823BA00FD58C0 /* PBTacheMonteurLeveeReserve.m */; };
 		90C8016219213BCB0024586E /* PBLoadChantierController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C8015F19213BCB0024586E /* PBLoadChantierController.m */; };
 		90C8016319213BCB0024586E /* PBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C8016119213BCB0024586E /* PBLoginViewController.m */; };
 		90C80168192140190024586E /* PBMenuPrincipalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C80167192140190024586E /* PBMenuPrincipalViewController.m */; };
@@ -31,13 +33,17 @@
 		90C80177192144B10024586E /* UIImage+EncodeImageToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C80176192144B10024586E /* UIImage+EncodeImageToString.m */; };
 		90C8017A192145500024586E /* NSString+DecodeToImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C80179192145500024586E /* NSString+DecodeToImage.m */; };
 		90C801AB1921704D0024586E /* PBUserSyncController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C801AA1921704D0024586E /* PBUserSyncController.m */; };
-		90CB2CBA191A2253006AA73A /* PBDetailedTacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB2CB9191A2253006AA73A /* PBDetailedTacheViewController.m */; };
+		90CB2CBA191A2253006AA73A /* PBDetailedTacheMonteurLeveeReserveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB2CB9191A2253006AA73A /* PBDetailedTacheMonteurLeveeReserveViewController.m */; };
 		90CB2CBE191A653E006AA73A /* fond-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90CB2CBC191A653E006AA73A /* fond-1.jpg */; };
 		90CB2CBF191A653E006AA73A /* LogoGraniou.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CB2CBD191A653E006AA73A /* LogoGraniou.png */; };
 		90D00BEF19236091002817BC /* PBNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D00BEE19236091002817BC /* PBNetworking.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		90306E0F1926B326002F90C8 /* PBTacheMonteurChantier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTacheMonteurChantier.h; sourceTree = "<group>"; };
+		90306E101926B326002F90C8 /* PBTacheMonteurChantier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTacheMonteurChantier.m; sourceTree = "<group>"; };
+		90306E121926C019002F90C8 /* PBDetailedTacheMonteurChantierViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBDetailedTacheMonteurChantierViewController.h; sourceTree = "<group>"; };
+		90306E131926C019002F90C8 /* PBDetailedTacheMonteurChantierViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBDetailedTacheMonteurChantierViewController.m; sourceTree = "<group>"; };
 		90B94BF0191BD87C0062F7CA /* PBChantier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBChantier.h; sourceTree = "<group>"; };
 		90B94BF1191BD87C0062F7CA /* PBChantier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBChantier.m; sourceTree = "<group>"; };
 		90BEBE231924A30C00F72C3B /* PBPresentationChantierViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBPresentationChantierViewController.h; sourceTree = "<group>"; };
@@ -62,8 +68,8 @@
 		90C765EA1917FC7600FD58C0 /* PBTakePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTakePhotoViewController.m; sourceTree = "<group>"; };
 		90C765ED1917FC7600FD58C0 /* PBSaisieCommentaireViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBSaisieCommentaireViewController.h; sourceTree = "<group>"; };
 		90C765EE1917FC7600FD58C0 /* PBSaisieCommentaireViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBSaisieCommentaireViewController.m; sourceTree = "<group>"; };
-		90C765F6191823BA00FD58C0 /* PBTache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTache.h; sourceTree = "<group>"; };
-		90C765F7191823BA00FD58C0 /* PBTache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTache.m; sourceTree = "<group>"; };
+		90C765F6191823BA00FD58C0 /* PBTacheMonteurLeveeReserve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTacheMonteurLeveeReserve.h; sourceTree = "<group>"; };
+		90C765F7191823BA00FD58C0 /* PBTacheMonteurLeveeReserve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTacheMonteurLeveeReserve.m; sourceTree = "<group>"; };
 		90C8015E19213BCB0024586E /* PBLoadChantierController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBLoadChantierController.h; sourceTree = "<group>"; };
 		90C8015F19213BCB0024586E /* PBLoadChantierController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBLoadChantierController.m; sourceTree = "<group>"; };
 		90C8016019213BCB0024586E /* PBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBLoginViewController.h; sourceTree = "<group>"; };
@@ -82,8 +88,8 @@
 		90C80179192145500024586E /* NSString+DecodeToImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DecodeToImage.m"; sourceTree = "<group>"; };
 		90C801A91921704D0024586E /* PBUserSyncController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBUserSyncController.h; sourceTree = "<group>"; };
 		90C801AA1921704D0024586E /* PBUserSyncController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBUserSyncController.m; sourceTree = "<group>"; };
-		90CB2CB8191A2253006AA73A /* PBDetailedTacheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBDetailedTacheViewController.h; sourceTree = "<group>"; };
-		90CB2CB9191A2253006AA73A /* PBDetailedTacheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBDetailedTacheViewController.m; sourceTree = "<group>"; };
+		90CB2CB8191A2253006AA73A /* PBDetailedTacheMonteurLeveeReserveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBDetailedTacheMonteurLeveeReserveViewController.h; sourceTree = "<group>"; };
+		90CB2CB9191A2253006AA73A /* PBDetailedTacheMonteurLeveeReserveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBDetailedTacheMonteurLeveeReserveViewController.m; sourceTree = "<group>"; };
 		90CB2CBC191A653E006AA73A /* fond-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fond-1.jpg"; sourceTree = "<group>"; };
 		90CB2CBD191A653E006AA73A /* LogoGraniou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoGraniou.png; sourceTree = "<group>"; };
 		90D00BED19236091002817BC /* PBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBNetworking.h; sourceTree = "<group>"; };
@@ -104,6 +110,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		90306E151926C02E002F90C8 /* 1.1-MenuChantier */ = {
+			isa = PBXGroup;
+			children = (
+				90C8016D192140B60024586E /* PBMenuChantierViewController.h */,
+				90C8016E192140B60024586E /* PBMenuChantierViewController.m */,
+				90306E181926C0D5002F90C8 /* 1.1.1-MenuTaches */,
+				90306E191926C0EA002F90C8 /* 1.1.2-MenuDocuments */,
+			);
+			name = "1.1-MenuChantier";
+			sourceTree = "<group>";
+		};
+		90306E161926C073002F90C8 /* 1.2-MenuAutoControle */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "1.2-MenuAutoControle";
+			sourceTree = "<group>";
+		};
+		90306E171926C074002F90C8 /* 1.3-MenuLeveeReserve */ = {
+			isa = PBXGroup;
+			children = (
+				90CB2CB8191A2253006AA73A /* PBDetailedTacheMonteurLeveeReserveViewController.h */,
+				90CB2CB9191A2253006AA73A /* PBDetailedTacheMonteurLeveeReserveViewController.m */,
+			);
+			name = "1.3-MenuLeveeReserve";
+			sourceTree = "<group>";
+		};
+		90306E181926C0D5002F90C8 /* 1.1.1-MenuTaches */ = {
+			isa = PBXGroup;
+			children = (
+				90306E121926C019002F90C8 /* PBDetailedTacheMonteurChantierViewController.h */,
+				90306E131926C019002F90C8 /* PBDetailedTacheMonteurChantierViewController.m */,
+			);
+			name = "1.1.1-MenuTaches";
+			sourceTree = "<group>";
+		};
+		90306E191926C0EA002F90C8 /* 1.1.2-MenuDocuments */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "1.1.2-MenuDocuments";
+			sourceTree = "<group>";
+		};
 		90C765991917FA5700FD58C0 = {
 			isa = PBXGroup;
 			children = (
@@ -164,8 +213,6 @@
 		90C765E01917FB8900FD58C0 /* PhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
-				90CB2CB8191A2253006AA73A /* PBDetailedTacheViewController.h */,
-				90CB2CB9191A2253006AA73A /* PBDetailedTacheViewController.m */,
 				90C765E91917FC7600FD58C0 /* PBTakePhotoViewController.h */,
 				90C765EA1917FC7600FD58C0 /* PBTakePhotoViewController.m */,
 				90C765ED1917FC7600FD58C0 /* PBSaisieCommentaireViewController.h */,
@@ -179,10 +226,12 @@
 			children = (
 				90C801A91921704D0024586E /* PBUserSyncController.h */,
 				90C801AA1921704D0024586E /* PBUserSyncController.m */,
-				90C765F6191823BA00FD58C0 /* PBTache.h */,
-				90C765F7191823BA00FD58C0 /* PBTache.m */,
 				90B94BF0191BD87C0062F7CA /* PBChantier.h */,
 				90B94BF1191BD87C0062F7CA /* PBChantier.m */,
+				90C765F6191823BA00FD58C0 /* PBTacheMonteurLeveeReserve.h */,
+				90C765F7191823BA00FD58C0 /* PBTacheMonteurLeveeReserve.m */,
+				90306E0F1926B326002F90C8 /* PBTacheMonteurChantier.h */,
+				90306E101926B326002F90C8 /* PBTacheMonteurChantier.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -234,8 +283,9 @@
 			children = (
 				90C8016B192140B60024586E /* PBMenuMonteurViewController.h */,
 				90C8016C192140B60024586E /* PBMenuMonteurViewController.m */,
-				90C8016D192140B60024586E /* PBMenuChantierViewController.h */,
-				90C8016E192140B60024586E /* PBMenuChantierViewController.m */,
+				90306E151926C02E002F90C8 /* 1.1-MenuChantier */,
+				90306E161926C073002F90C8 /* 1.2-MenuAutoControle */,
+				90306E171926C074002F90C8 /* 1.3-MenuLeveeReserve */,
 			);
 			name = "1-MenuMonteur";
 			sourceTree = "<group>";
@@ -355,15 +405,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				90C8017A192145500024586E /* NSString+DecodeToImage.m in Sources */,
-				90CB2CBA191A2253006AA73A /* PBDetailedTacheViewController.m in Sources */,
+				90CB2CBA191A2253006AA73A /* PBDetailedTacheMonteurLeveeReserveViewController.m in Sources */,
 				90C765E41917FC2C00FD58C0 /* UILabel+dynamicSizeMe.m in Sources */,
 				90C765B61917FA5700FD58C0 /* PBAppDelegate.m in Sources */,
-				90C765F8191823BA00FD58C0 /* PBTache.m in Sources */,
+				90C765F8191823BA00FD58C0 /* PBTacheMonteurLeveeReserve.m in Sources */,
 				90C8016319213BCB0024586E /* PBLoginViewController.m in Sources */,
 				90C765F11917FC7600FD58C0 /* PBTakePhotoViewController.m in Sources */,
 				90C8016219213BCB0024586E /* PBLoadChantierController.m in Sources */,
 				90C765B21917FA5700FD58C0 /* main.m in Sources */,
 				90C801AB1921704D0024586E /* PBUserSyncController.m in Sources */,
+				90306E111926B326002F90C8 /* PBTacheMonteurChantier.m in Sources */,
 				90C8016F192140B60024586E /* PBMenuMonteurViewController.m in Sources */,
 				90BEBE251924A30C00F72C3B /* PBPresentationChantierViewController.m in Sources */,
 				90D00BEF19236091002817BC /* PBNetworking.m in Sources */,
@@ -371,6 +422,7 @@
 				90C765F31917FC7600FD58C0 /* PBSaisieCommentaireViewController.m in Sources */,
 				90B94BF2191BD87C0062F7CA /* PBChantier.m in Sources */,
 				90C80168192140190024586E /* PBMenuPrincipalViewController.m in Sources */,
+				90306E141926C019002F90C8 /* PBDetailedTacheMonteurChantierViewController.m in Sources */,
 				90C80177192144B10024586E /* UIImage+EncodeImageToString.m in Sources */,
 				90C80173192140C70024586E /* PBMenuConducteurViewController.m in Sources */,
 			);
