@@ -7,8 +7,11 @@
 //
 
 #import "PBMenuPrincipalViewController.h"
+#import "PBUserSyncController.h"
 
 @interface PBMenuPrincipalViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *boutonMonteur;
+@property (weak, nonatomic) IBOutlet UIButton *boutonConducteur;
 
 @end
 
@@ -29,6 +32,15 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    if ([[PBUserSyncController sharedUser] isMonteur]) {
+        [_boutonConducteur setUserInteractionEnabled:false];
+        [_boutonConducteur setHidden:true];
+    }
+    if ([[PBUserSyncController sharedUser] isConducteur]) {
+        [_boutonMonteur setUserInteractionEnabled:false];
+        [_boutonMonteur setHidden:true];
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -25,5 +25,7 @@
 - (BOOL)tryLogin:(NSString *)login password:(NSString *)password;
 - (void)downloadUsersFile;
 
+- (BOOL)isConducteur;
+- (BOOL)isMonteur;
 
 @end

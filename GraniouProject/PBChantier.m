@@ -219,20 +219,26 @@ static PBChantier *_sharedInstance;
     // On recupere les infos chantier
     //
     NSArray *chantier = [jsonObjects objectForKey:keyChantiersJSON];
-    _infosChantier = [chantier objectAtIndex:0];
-    
-    
+    if ([chantier count]) {
+        _infosChantier = [chantier objectAtIndex:0];
+    }
+
     // On recupere les TachesMonteurChantier
     //
-    NSMutableArray *taches = [jsonObjects objectForKey:keyTachesJSON];
-    for (NSDictionary *dico in taches) {
-        PBTacheMonteurChantier *tache = [[PBTacheMonteurChantier alloc] initTacheWithInfos:dico];
-        [taches addObject:tache];
+    NSArray *taches = [jsonObjects objectForKey:keyTachesJSON];
+    NSMutableArray *tempTachesArray = [[NSMutableArray alloc] init];
+    
+    if ([taches count]) {
+        for (NSDictionary *dico in taches) {
+            NSLog(@"%@", dico);
+            PBTacheMonteurChantier *tache = [[PBTacheMonteurChantier alloc] initTacheWithInfos:dico];
+            [tempTachesArray addObject:tache];
+        }
     }
     
+    _tachesArray = [[NSArray alloc] initWithArray:tempTachesArray];
     
-    
-    NSLog(@"%@", jsonObjects);
+    NSLog(@"%s : %@", __func__, _tachesArray);
     
     return true;
 }

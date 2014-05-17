@@ -73,6 +73,9 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    for (id viewToRemove in [self.view subviews]){
+        [viewToRemove removeFromSuperview];
+    }
 }
 
 
@@ -299,7 +302,12 @@
                                       (_insideView.frame.size.height + heightToAdd))];
 }
 
-
+- (void)reinitializeAllViews {
+    for (id viewToRemove in [self.view subviews]){
+        [viewToRemove removeFromSuperview];
+    }
+    [self initialisationViews];
+}
 
 
 #pragma mark - Actions sur les boutons
@@ -331,6 +339,8 @@
     _tache.imageCommentaire = imageChosen;
     // Mise a jour vue
     _commentaireImage.image = _tache.imageCommentaire;
+    // Redessin de la vue
+    [self reinitializeAllViews];
 }
 
 #pragma mark - SaisirCommentaireDelegate
@@ -341,6 +351,8 @@
     _tache.commentaire = saisie;
     // Mise a jour vue
     _commentaireTextView.text = _tache.commentaire;
+    // Redessin de la vue
+    [self reinitializeAllViews];
 }
 
 

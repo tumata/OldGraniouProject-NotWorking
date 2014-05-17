@@ -15,15 +15,19 @@
 #define kUserDefaultNameKey        @"UtilisateurSaved"
 
 // Liens et clefs pour recuperer depuis le serveur
-#define kBaseURLString          @"http://ahmed-bacha.fr/"
-#define kUsersSourceFile        @"json_users.php"
-#define kUsersKey               @"users"
-#define kLoginKey               @"login"
-#define kPasswordLoginKey       @"password"
-#define kDroitAccesLoginKey     @"droit"
-#define kIdChantierLoginKey     @"idChantier"
+#define kBaseURLString              @"http://ahmed-bacha.fr/"
+#define kUsersSourceFile            @"json_users.php"
+#define kUsersKey                   @"users"
+#define kLoginKey                   @"login"
+#define kPasswordLoginKey           @"password"
+#define kDroitAccesLoginKey         @"droit"
+#define kIdChantierLoginKey         @"idChantier"
 
-#define kIsAlreadyLoggedKey     @"alreadyLogged"
+#define kDroitAccesValueResponsable @"Responsable"
+#define kDroitAccesValueConducteur  @"Conducteur"
+#define kDroitAccesValueEquipe      @"Equipe"
+
+#define kIsAlreadyLoggedKey         @"alreadyLogged"
 
 @interface PBUserSyncController()
 @property (nonatomic, strong) NSArray       *allUsers;
@@ -115,6 +119,17 @@ static PBUserSyncController *_sharedInstance;
     }
 }
 
+- (BOOL)isConducteur {
+    if ([_droitAcces isEqualToString:kDroitAccesValueConducteur]) return true;
+    else return false;
+}
+
+
+- (BOOL)isMonteur {
+    if ([_droitAcces isEqualToString:kDroitAccesValueEquipe]) return true;
+    else return false;
+}
+
 
 #pragma mark - Private Instance Methods
 
@@ -170,7 +185,10 @@ static PBUserSyncController *_sharedInstance;
             // On rempli le dictionnaire des login/passwords
             NSMutableDictionary *loginsPasswords = [[NSMutableDictionary alloc] initWithCapacity:[entries count]];
             for (NSMutableDictionary *item in entries) {
-                [loginsPasswords setObject:[item objectForKey:kPasswordLoginKey] forKey:[item objectForKey:kLoginKey]];
+                NSString *equipe = [item objectForKey:kDroitAccesLoginKey];
+                if (![equipe isEqualToString:kDroitAccesValueResponsable]) {
+                    [loginsPasswords setObject:[item objectForKey:kPasswordLoginKey] forKey:[item objectForKey:kLoginKey]];
+                }
             }
             
             _allUsers = entries;

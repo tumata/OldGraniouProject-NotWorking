@@ -7,15 +7,16 @@
 //
 
 #import "PBTacheMonteurChantier.h"
+#import "NSString+DecodeToImage.h"
 
 #define keyIDChantier       @"idChantier"
-#define keyIDTache          @"idTacheChantier"
+#define keyIDTache          @"id"
 
-#define keyTitre            @"titreChantier"
-#define keyDescription      @"descriptionTacheChantier"
+#define keyTitre            @"titreTache"
+#define keyDescription      @"contenuTache"
 
-#define keyCommentaire      @"commentaireTacheChantier"
-#define keyCommentaireImage @"commentaireTacheChantierImage"
+#define keyCommentaire      @"commentaire"
+#define keyCommentaireImage @"image"
 
 @interface PBTacheMonteurChantier ()
 
@@ -55,8 +56,15 @@
         _description = [tacheInfos objectForKey:keyDescription];
         
         _commentaire = [tacheInfos objectForKey:keyCommentaire];
-        _imageCommentaire = [tacheInfos objectForKey:keyCommentaireImage];
         
+        NSString *stringImageCommentaire = [tacheInfos objectForKey:keyCommentaireImage];
+        if ([stringImageCommentaire length]) {
+            _imageCommentaire = [stringImageCommentaire decodeBase64ToImage];
+        
+        }
+        else {
+            _imageCommentaire = nil;
+        }
     }
     return self;
 }

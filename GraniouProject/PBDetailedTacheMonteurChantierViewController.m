@@ -9,7 +9,7 @@
 #define MY_LABEL_HEIGHT 25
 #define MY_BUTTON_HEIGHT 30
 #define MY_TEXTVIEW_HEIGHT 100
-#define MY_IMAGEVIEW_HEIGHT 200
+#define MY_IMAGEVIEW_HEIGHT 300
 
 #define MY_SPACE_BEFORE_TITLE 10
 #define MY_SPACE_AFTER_TITLE 20
@@ -64,7 +64,6 @@
     //                                   commentaire:@"Voici la dercription de la tache et c'est plutot sympas de voir que ca marche très bien n'est pas ? Voila donc vous avez ça a faire et puis ça et puis aussi ça car quand on s'amuse on ne compte pas. N'est pas ? Allez, ciao"
     //                              imageCommentaire:[UIImage imageNamed:@"fond-1.jpg"]];
     
-    _tache = [[[PBChantier sharedChantier] tachesArray] objectAtIndex:0];
     
     [self initialisationViews];
 }
@@ -73,7 +72,10 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    for (id viewToRemove in [self.view subviews]){
+        [viewToRemove removeFromSuperview];
+    }
 }
 
 
@@ -96,7 +98,7 @@
     _frameScrollRect = CGRectMake(0,
                                   0,
                                   self.view.frame.size.width,
-                                  self.view.bounds.size.height - self.navigationController.navigationBar.frame.size.height - 20);
+                                  self.view.bounds.size.height);
     
     // Zone de scroll
     _scrollView = [[UIScrollView alloc] initWithFrame:_frameScrollRect];
@@ -113,12 +115,6 @@
                                 _frameScrollRect.origin.y + 20,
                                 _frameScrollRect.size.width - 40,
                                 0);
-    
-    
-    
-    NSLog(@"_lastFrameRect");
-    NSLog(@"lastFrame origine Y depart : %f", _lastFrameRect.origin.y);
-    NSLog(@"%f", _frameScrollRect.size.height);
     
     ///////////////////////////////////////////////////////
     //// Creation et placement des elements dans la vue ///
@@ -249,6 +245,13 @@
     [self.view addSubview:_scrollView];
 }
 
+- (void)reinitializeAllViews {
+    for (id viewToRemove in [self.view subviews]){
+        [viewToRemove removeFromSuperview];
+    }
+    [self initialisationViews];
+}
+
 // Fonction permettant de recuperer un CGRect a la bonne taille pour les elements de la vue
 // Met automatiquement a jour l'origine de lastFrameRect
 -(CGRect)getRectForElementWithHeight:(CGFloat)height andSpaceWithLastElement:(CGFloat)space
@@ -308,7 +311,8 @@
 // Valider Tache touché
 -(void)boutonSaveTouched:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [[self navigationController] popViewControllerAnimated:YES];
+    //[self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 
@@ -320,6 +324,8 @@
     _tache.imageCommentaire = imageChosen;
     // Mise a jour vue
     _commentaireImage.image = _tache.imageCommentaire;
+    // Redessin de la vue
+    [self reinitializeAllViews];
 }
 
 #pragma mark - SaisirCommentaireDelegate
@@ -330,6 +336,8 @@
     _tache.commentaire = saisie;
     // Mise a jour vue
     _commentaireTextView.text = _tache.commentaire;
+    // Redessin de la vue
+    [self reinitializeAllViews];
 }
 
 
