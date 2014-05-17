@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PBTacheMonteurLeveeReserve.h"
+#import "PBTacheMonteurChantier.h"
 
 @interface PBChantier : NSObject <NSURLSessionDataDelegate, NSCoding>
 
-
-@property (nonatomic, strong, readonly) NSDictionary *infosChantier;
-
 @property (nonatomic) NSString           *idChantier;
-@property (nonatomic, weak) NSArray      *tachesArray;
+
+
+@property (nonatomic, strong, readonly) NSDictionary    *infosChantier;
+@property (nonatomic, strong) NSArray                   *tachesArray;
 
 
 

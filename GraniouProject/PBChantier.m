@@ -21,7 +21,8 @@
 //URL ou envoyer la data
 #define destinationUrl @"http://ahmed-bacha.fr/json_data.php"
 
-#define keyChantiers    @"chantiers"
+#define keyChantiersJSON    @"chantiers"
+#define keyTachesJSON       @"taches"
 
 #define keyNom          @"nom"
 #define keyAdresse      @"adresse"
@@ -215,8 +216,19 @@ static PBChantier *_sharedInstance;
 //
 - (BOOL)initializeChantierWithJSON:(id)jsonObjects {
     
-    NSArray *chantier = [jsonObjects objectForKey:keyChantiers];
+    // On recupere les infos chantier
+    //
+    NSArray *chantier = [jsonObjects objectForKey:keyChantiersJSON];
     _infosChantier = [chantier objectAtIndex:0];
+    
+    
+    // On recupere les TachesMonteurChantier
+    //
+    NSMutableArray *taches = [jsonObjects objectForKey:keyTachesJSON];
+    for (NSDictionary *dico in taches) {
+        PBTacheMonteurChantier *tache = [[PBTacheMonteurChantier alloc] initTacheWithInfos:dico];
+        [taches addObject:tache];
+    }
     
     
     

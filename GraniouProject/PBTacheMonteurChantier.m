@@ -45,6 +45,22 @@
     return self;
 }
 
+-(id)initTacheWithInfos:(NSDictionary *)tacheInfos {
+    self = [super init];
+    if (self) {
+        _idChantier = [tacheInfos objectForKey:keyIDChantier];
+        _idTache = [tacheInfos objectForKey:keyIDTache];
+        
+        _titre = [tacheInfos objectForKey:keyTitre];
+        _description = [tacheInfos objectForKey:keyDescription];
+        
+        _commentaire = [tacheInfos objectForKey:keyCommentaire];
+        _imageCommentaire = [tacheInfos objectForKey:keyCommentaireImage];
+        
+    }
+    return self;
+}
+
 
 - (void)encodeWithCoder:(NSCoder *)encoder
 {

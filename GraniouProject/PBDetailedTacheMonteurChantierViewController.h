@@ -10,6 +10,7 @@
 #import "PBTakePhotoViewController.h"
 #import "PBSaisieCommentaireViewController.h"
 #import "PBTacheMonteurChantier.h"
+#import "PBChantier.h"
 
 @interface PBDetailedTacheMonteurChantierViewController : UIViewController <TakePictureDelegate, SaisirCommentaireDelegate>
 
