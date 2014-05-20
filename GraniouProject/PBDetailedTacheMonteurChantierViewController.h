@@ -14,6 +14,8 @@
 
 @interface PBDetailedTacheMonteurChantierViewController : UIViewController <TakePictureDelegate, SaisirCommentaireDelegate>
 
-@property (strong, nonatomic) PBTacheMonteurChantier *tache;
+@property (weak, nonatomic) PBTacheMonteurChantier *tache;
+
+- (void)reinitializeAllViews;
 
 @end

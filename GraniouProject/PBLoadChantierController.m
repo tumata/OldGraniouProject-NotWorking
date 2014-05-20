@@ -67,17 +67,23 @@
     //    Il etait loggé avant de lancer l'appli
     //
     if ([user wasLoggedBeforeLoginScreen]) {
+        NSLog(@"%s", __func__);
+        // Temporaire
+        [[PBChantier sharedChantier] getChantierFromUserDefaults];
+        timer = [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(segueCanNowBePerformed:) userInfo:NULL repeats:NO];
+        [_activityIndicator stopAnimating];
+        //  \finTemporaire
         
         // Il y a internet
-        if ([user hasDownloadedLogs]) {
-            [[PBChantier sharedChantier] uploadChantierToServerThenDownload];
-            
-        }
-        // Pas internet, on charge depuis les UserDefaults
-        else {
-            [[PBChantier sharedChantier] getChantierFromUserDefaults];
-            timer = [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(segueCanNowBePerformed:) userInfo:NULL repeats:NO];
-        }
+//        if ([user hasDownloadedLogs]) {
+//            [[PBChantier sharedChantier] uploadChantierToServerThenDownload];
+//            
+//        }
+//        // Pas internet, on charge depuis les UserDefaults
+//        else {
+//            [[PBChantier sharedChantier] getChantierFromUserDefaults];
+//            timer = [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(segueCanNowBePerformed:) userInfo:NULL repeats:NO];
+//        }
     }
     //-------------------------------------------------------
     //    Il vient d'entrer ses identifiants
@@ -98,7 +104,7 @@
 
 
 
-#pragma - mark Notifications
+#pragma mark - Notifications
 
 - (void)chantierLoaded:(NSNotification *)notif {
     timer = [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(segueCanNowBePerformed:) userInfo:NULL repeats:NO];

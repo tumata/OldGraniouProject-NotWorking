@@ -70,6 +70,8 @@
 }
 
 
+#pragma mark - encode / decode
+
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
     //Encode properties, other class variables, etc

@@ -25,6 +25,11 @@
 - (BOOL)tryLogin:(NSString *)login password:(NSString *)password;
 - (void)downloadUsersFile;
 
+- (void)removeUserFromUserDefaults;
+- (void)applicationWillTerminateScenario;
+
+- (void)reinitializeUserAndChantierToZero;
+
 - (BOOL)isConducteur;
 - (BOOL)isMonteur;
 

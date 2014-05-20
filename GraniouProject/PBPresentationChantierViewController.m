@@ -8,6 +8,7 @@
 
 #import "PBPresentationChantierViewController.h"
 #import "PBChantier.h"
+#import "PBUserSyncController.h"
 
 @interface PBPresentationChantierViewController ()
 
@@ -75,22 +76,31 @@
         }
     }
 }
-/*
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if ([[segue identifier] isEqualToString:@"backToLoginScreen"]) {
+        [[PBUserSyncController sharedUser] reinitializeUserAndChantierToZero];
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 #pragma mark - IB Actions
 
 - (IBAction)actionDeconnexion:(id)sender {
+    // Tester si donnees synchronisees
+    // Si données synchronisees :
     
+        [[PBChantier sharedChantier] removeChantierFromUserDefaults];
+        [[PBUserSyncController sharedUser] removeUserFromUserDefaults];
     
+    [self performSegueWithIdentifier:@"backToLoginScreen" sender:self];
 }
 
 

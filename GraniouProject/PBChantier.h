@@ -29,7 +29,9 @@
 
 - (BOOL)saveChantierToUserDefaults;
 - (BOOL)getChantierFromUserDefaults;
+- (BOOL)removeChantierFromUserDefaults;
 
+- (void)reinitializeToZero;
 
 
 - (NSArray *)getTheSixInfosKeyThenValue;

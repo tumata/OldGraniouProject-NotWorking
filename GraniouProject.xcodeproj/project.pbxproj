@@ -11,6 +11,8 @@
 		90306E141926C019002F90C8 /* PBDetailedTacheMonteurChantierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90306E131926C019002F90C8 /* PBDetailedTacheMonteurChantierViewController.m */; };
 		90B94BF2191BD87C0062F7CA /* PBChantier.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B94BF1191BD87C0062F7CA /* PBChantier.m */; };
 		90BEBE251924A30C00F72C3B /* PBPresentationChantierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BEBE241924A30C00F72C3B /* PBPresentationChantierViewController.m */; };
+		90C6F1D4192B6D98003E4A36 /* PBListeDocumentsTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C6F1D3192B6D98003E4A36 /* PBListeDocumentsTableTableViewController.m */; };
+		90C6F1DA192B718B003E4A36 /* PBShowPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C6F1D9192B718B003E4A36 /* PBShowPDFViewController.m */; };
 		90C765A61917FA5700FD58C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C765A51917FA5700FD58C0 /* Foundation.framework */; };
 		90C765A81917FA5700FD58C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C765A71917FA5700FD58C0 /* CoreGraphics.framework */; };
 		90C765AA1917FA5700FD58C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C765A91917FA5700FD58C0 /* UIKit.framework */; };
@@ -50,6 +52,10 @@
 		90B94BF1191BD87C0062F7CA /* PBChantier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBChantier.m; sourceTree = "<group>"; };
 		90BEBE231924A30C00F72C3B /* PBPresentationChantierViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBPresentationChantierViewController.h; sourceTree = "<group>"; };
 		90BEBE241924A30C00F72C3B /* PBPresentationChantierViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBPresentationChantierViewController.m; sourceTree = "<group>"; };
+		90C6F1D2192B6D98003E4A36 /* PBListeDocumentsTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBListeDocumentsTableTableViewController.h; sourceTree = "<group>"; };
+		90C6F1D3192B6D98003E4A36 /* PBListeDocumentsTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBListeDocumentsTableTableViewController.m; sourceTree = "<group>"; };
+		90C6F1D8192B718B003E4A36 /* PBShowPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBShowPDFViewController.h; sourceTree = "<group>"; };
+		90C6F1D9192B718B003E4A36 /* PBShowPDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBShowPDFViewController.m; sourceTree = "<group>"; };
 		90C765A21917FA5700FD58C0 /* GraniouProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraniouProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90C765A51917FA5700FD58C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		90C765A71917FA5700FD58C0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -159,8 +165,23 @@
 		90306E191926C0EA002F90C8 /* 1.1.2-MenuDocuments */ = {
 			isa = PBXGroup;
 			children = (
+				90C6F1D2192B6D98003E4A36 /* PBListeDocumentsTableTableViewController.h */,
+				90C6F1D3192B6D98003E4A36 /* PBListeDocumentsTableTableViewController.m */,
+				90C6F1D8192B718B003E4A36 /* PBShowPDFViewController.h */,
+				90C6F1D9192B718B003E4A36 /* PBShowPDFViewController.m */,
 			);
 			name = "1.1.2-MenuDocuments";
+			sourceTree = "<group>";
+		};
+		907A8495192A1F63003809E3 /* Taches */ = {
+			isa = PBXGroup;
+			children = (
+				90C765F6191823BA00FD58C0 /* PBTacheMonteurLeveeReserve.h */,
+				90C765F7191823BA00FD58C0 /* PBTacheMonteurLeveeReserve.m */,
+				90306E0F1926B326002F90C8 /* PBTacheMonteurChantier.h */,
+				90306E101926B326002F90C8 /* PBTacheMonteurChantier.m */,
+			);
+			name = Taches;
 			sourceTree = "<group>";
 		};
 		90C765991917FA5700FD58C0 = {
@@ -238,10 +259,7 @@
 				90C801AA1921704D0024586E /* PBUserSyncController.m */,
 				90B94BF0191BD87C0062F7CA /* PBChantier.h */,
 				90B94BF1191BD87C0062F7CA /* PBChantier.m */,
-				90C765F6191823BA00FD58C0 /* PBTacheMonteurLeveeReserve.h */,
-				90C765F7191823BA00FD58C0 /* PBTacheMonteurLeveeReserve.m */,
-				90306E0F1926B326002F90C8 /* PBTacheMonteurChantier.h */,
-				90306E101926B326002F90C8 /* PBTacheMonteurChantier.m */,
+				907A8495192A1F63003809E3 /* Taches */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -415,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90C8017A192145500024586E /* NSString+DecodeToImage.m in Sources */,
+				90C6F1D4192B6D98003E4A36 /* PBListeDocumentsTableTableViewController.m in Sources */,
 				90CB2CBA191A2253006AA73A /* PBDetailedTacheMonteurLeveeReserveViewController.m in Sources */,
 				90C765E41917FC2C00FD58C0 /* UILabel+dynamicSizeMe.m in Sources */,
 				90C765B61917FA5700FD58C0 /* PBAppDelegate.m in Sources */,
@@ -437,6 +456,7 @@
 				90306E141926C019002F90C8 /* PBDetailedTacheMonteurChantierViewController.m in Sources */,
 				90C80177192144B10024586E /* UIImage+EncodeImageToString.m in Sources */,
 				90C80173192140C70024586E /* PBMenuConducteurViewController.m in Sources */,
+				90C6F1DA192B718B003E4A36 /* PBShowPDFViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

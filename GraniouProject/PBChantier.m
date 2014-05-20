@@ -63,13 +63,7 @@ static PBChantier *_sharedInstance;
 //
 + (void)initialize {
     if (self == [PBChantier class]) {
-        if ([[PBUserSyncController sharedUser] wasLoggedBeforeLoginScreen]) {
-            _sharedInstance = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:keyChantierForUserDefault]];
-        }
-        else {
-            _sharedInstance = [[super alloc] init];
-        }
-        
+        _sharedInstance = [[super alloc] init];
     }
 }
 
@@ -83,6 +77,12 @@ static PBChantier *_sharedInstance;
 
 #pragma mark - Fonctions publiques
 
+- (void)reinitializeToZero {
+    _sharedInstance.infosChantier = nil;
+    _sharedInstance.tachesArray = nil;
+    _sharedInstance.idChantier = nil;
+}
+
 #pragma mark Actions sur le réseau
 
 //-------------------------------------------------------
@@ -93,6 +93,8 @@ static PBChantier *_sharedInstance;
     //------------------------------
     //        gerer l'envoi       //
     //------------------------------
+    
+    // Supprimer les données dans userDefault une fois envoi reussi
     
     NSString *data = @"id=";
     data = [data stringByAppendingString:[[PBUserSyncController sharedUser] idChantier]];
@@ -131,6 +133,7 @@ static PBChantier *_sharedInstance;
 
     // Archiving calls encodeWithCoder: on the singleton instance.
     [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_sharedInstance] forKey:keyChantierForUserDefault];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     return true;
 }
@@ -145,6 +148,18 @@ static PBChantier *_sharedInstance;
     [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:keyChantierForUserDefault]];
     
     return true;
+}
+
+//-------------------------------------------------------
+// Efface les informations de UserDefaults, tout a été uploadé
+//
+
+- (BOOL)removeChantierFromUserDefaults {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:keyChantierForUserDefault]) {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:keyChantierForUserDefault];
+        return true;
+    }
+    else return false;
 }
 
 
@@ -238,6 +253,8 @@ static PBChantier *_sharedInstance;
     
     _tachesArray = [[NSArray alloc] initWithArray:tempTachesArray];
     
+    [self saveChantierToUserDefaults];
+    
     NSLog(@"%s : %@", __func__, _tachesArray);
     
     return true;
@@ -286,6 +303,7 @@ didCompleteWithError:(NSError *)error
     if(error == nil)
     {
         [_session invalidateAndCancel];
+        
 
         // Une fois finit faire cette notification :
         [[NSNotificationCenter defaultCenter] postNotificationName:@"pb.chantierLoaded" object:self];

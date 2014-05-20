@@ -390,7 +390,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MfI-pU-7Wg" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1281" y="-23"/>
+            <point key="canvasLocation" x="-700" y="-627"/>
         </scene>
         <!--Presentation Chantier View Controller-->
         <scene sceneID="YKW-Vc-swz">
@@ -550,6 +550,7 @@
                         <outlet property="toolbar4" destination="apS-GW-dEd" id="ShI-W1-Sky"/>
                         <outlet property="toolbar5" destination="GYP-I0-i2b" id="Q7v-f4-U6M"/>
                         <outlet property="toolbar6" destination="6yW-dH-FK6" id="4Ck-fd-DbC"/>
+                        <segue destination="bSi-9m-9Zh" kind="modal" identifier="backToLoginScreen" id="8Zf-IT-wVe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p0X-Og-37U" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -801,6 +802,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="CMe-Zj-GYI" kind="push" id="Zfd-DF-Nn3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -921,6 +925,96 @@
             </objects>
             <point key="canvasLocation" x="4070" y="-269"/>
         </scene>
+        <!--Liste Documents Table Table View Controller - Documents-->
+        <scene sceneID="9vM-bR-mH5">
+            <objects>
+                <tableViewController id="CMe-Zj-GYI" customClass="PBListeDocumentsTableTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="quj-je-7nC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="documentCell" textLabel="E2u-T1-whk" style="IBUITableViewCellStyleDefault" id="Mxo-Rf-wca">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mxo-Rf-wca" id="S28-4w-iey">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="E2u-T1-whk">
+                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="HKy-so-zIU" kind="push" id="VJa-Bn-0Ph"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CMe-Zj-GYI" id="t8e-7v-T99"/>
+                            <outlet property="delegate" destination="CMe-Zj-GYI" id="UNo-PY-jHh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Documents" id="IKi-G6-ooc"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ev-T2-Oad" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2725" y="-348"/>
+        </scene>
+        <!--ShowPDF View Controller-->
+        <scene sceneID="Y3u-fR-UeL">
+            <objects>
+                <viewController id="HKy-so-zIU" customClass="PBShowPDFViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vFF-uU-Kik"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cqc-Tr-QUo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WiI-4K-Tad">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPS-ww-kgw">
+                                <rect key="frame" x="136" y="307" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Aperçu">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="previewDocument:" destination="HKy-so-zIU" eventType="touchUpInside" id="i9u-vg-Vhm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1s-yX-82Q">
+                                <rect key="frame" x="120" y="357" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Télécharger">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="openDocument:" destination="HKy-so-zIU" eventType="touchUpInside" id="Iu3-A0-vvj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="uIk-i3-sHI">
+                                <rect key="frame" x="20" y="86" width="280" height="177"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Attention, les documents ne sont pas sauvegardés. Appuyez sur télécharger puis sur "Open in iBooks" pour pouvoir acceder à ce document depuis l'application iBooks. (Application à télécharger si vous ne l'avez pas déjà)</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2tw-xI-app"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U3R-bw-wbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3109" y="-348"/>
+        </scene>
         <!--Tache Monteur Chantier Table View Controller - Tâches-->
         <scene sceneID="g6D-Jd-HJJ">
             <objects>
@@ -973,7 +1067,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="8Gl-Ej-rHP"/>
+        <segue reference="8Zf-IT-wVe"/>
         <segue reference="Mfn-ZQ-1TO"/>
+        <segue reference="8Gl-Ej-rHP"/>
     </inferredMetricsTieBreakers>
 </document>

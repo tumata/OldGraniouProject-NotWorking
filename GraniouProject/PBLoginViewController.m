@@ -45,8 +45,18 @@ UITextField *currentFieldSelected;
     self.viewCenterCoords = self.view.center;
     
     // On s'abonne aux notifications de PBUserSyncController
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userInfosHaveBeenLoadedFromUserDefaults:) name:@"pb.userLoadedFromUserDefaults" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userNotLoggedNoInternet:) name:@"pb.notLoggedNoInternet" object:nil];
+    
+    if ([[PBUserSyncController sharedUser] wasLoggedBeforeLoginScreen]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Déjà connecté"
+                                                        message:@"Nous allons restaurer votre session"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Restaurer la session"
+                                              otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -214,13 +224,6 @@ UITextField *currentFieldSelected;
 #pragma mark - Notifications
 
 //-------------------------------------------------------
-// L'utilisateur était déjà loggé, on passe page suivante
-//
-- (void)userInfosHaveBeenLoadedFromUserDefaults:(NSNotification *)notif {
-    [self performSegueWithIdentifier:@"loadData" sender:self];
-}
-
-//-------------------------------------------------------
 //  Utilisateur non loggé et pas internet
 //
 - (void)userNotLoggedNoInternet:(NSNotification *)notif {
@@ -237,13 +240,15 @@ UITextField *currentFieldSelected;
 # pragma mark - AlertView Delegate
 
 //-------------------------------------------------------
-//    Action sur le bouton connexion
+//    Action sur le bouton cancel lorsque pas internet
 //
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if ([alertView.title isEqualToString:@"Problème de connection"]) {
         [[PBUserSyncController sharedUser] downloadUsersFile];
     }
-    
+    if ([alertView.title isEqualToString:@"Déjà connecté"]) {
+        [self performSegueWithIdentifier:@"loadData" sender:self];
+    }
     
 }
 

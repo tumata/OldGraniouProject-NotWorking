@@ -7,6 +7,7 @@
 //
 
 #import "PBUserSyncController.h"
+#import "PBChantier.h"
 
 // Queue pour fetcher la data
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
@@ -42,6 +43,8 @@
 @property (readwrite) BOOL      isNowLoggedFromLoginScreen;
 @property (readwrite) BOOL      wasLoggedBeforeLoginScreen;
 
+@property (readwrite, strong)   NSTimer *timer;
+
 
 @end
 
@@ -74,14 +77,12 @@ static PBUserSyncController *_sharedInstance;
             //------------------------------------------------
             // Ici il est loggé au moment ou l'appli se lance
             
-            // On telecharge le user depuis UsersDefault
+            // On charge le chantier depuis UserDefault
+            //[[PBChantier sharedChantier] getChantierFromUserDefaults];
+            
+            // On charge le user depuis UsersDefault
             [_sharedInstance loadUserFromUserDefaults];
-            
-            // On test la connection internet
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"pb.userLoadedFromUserDefaults" object:self];
-
-            
-            
+        
         }
     }
 }
@@ -105,6 +106,7 @@ static PBUserSyncController *_sharedInstance;
                 _idChantier = [user objectForKey:kIdChantierLoginKey];
                 
                 NSLog(@"%s : %@, %@, %@, %@", __PRETTY_FUNCTION__, _login, _password, _droitAcces, _idChantier);
+                [self saveUserToUserDefaults];
             }
         }
         _allUsers = nil;
@@ -119,6 +121,7 @@ static PBUserSyncController *_sharedInstance;
     }
 }
 
+// Test si l'utilisateur est un conducteur
 - (BOOL)isConducteur {
     if ([_droitAcces isEqualToString:kDroitAccesValueConducteur]) return true;
     else return false;
@@ -130,8 +133,60 @@ static PBUserSyncController *_sharedInstance;
     else return false;
 }
 
+// Efface les informations de UserDefaults, tout a été uploadé
+- (void)removeUserFromUserDefaults {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultNameKey]) {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserDefaultNameKey];
+    }
+}
+
+// Scenario lorsque l'application se terminate
+- (void)applicationWillTerminateScenario {
+    if ([self isUserLogged]) {
+        [self saveUserToUserDefaults];
+        NSLog(@"%s : userSavedToDefaults", __func__);
+        
+        // Sauvegarder les donnees chantier
+        [[PBChantier sharedChantier] saveChantierToUserDefaults];
+    }
+    else {
+        [self removeUserFromUserDefaults];
+    }
+}
+
+// Remise a zero des donnees
+- (void)reinitializeUserAndChantierToZero {
+    _sharedInstance.hasDownloadedLogs = false;
+    _sharedInstance.isNowLoggedFromLoginScreen = false;
+    _sharedInstance.wasLoggedBeforeLoginScreen = false;
+    
+    _sharedInstance.login = nil;
+    _sharedInstance.password = nil;
+    _sharedInstance.idChantier = nil;
+    _sharedInstance.droitAcces = nil;
+    _sharedInstance.hasDownloadedLogs = false;
+    _sharedInstance.isNowLoggedFromLoginScreen = false;
+    _sharedInstance.wasLoggedBeforeLoginScreen = false;
+    
+    [[PBChantier sharedChantier] reinitializeToZero];
+    
+    [_sharedInstance downloadUsersFile];
+    
+}
+
+
 
 #pragma mark - Private Instance Methods
+
+// Test si l'utilisateur est loggé
+- (BOOL)isUserLogged {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultNameKey]) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 
 // Test si l'utilisateur est deja loggé au moment du lancement de l'application
 - (BOOL)isUserAlreadyLoggedWhenLaunchingApplication {
@@ -147,6 +202,8 @@ static PBUserSyncController *_sharedInstance;
     }
 }
 
+
+
 // Recupere les informations du user loggé depuis UserDefaults
 - (void)loadUserFromUserDefaults {
     NSDictionary *user = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultNameKey];
@@ -156,9 +213,21 @@ static PBUserSyncController *_sharedInstance;
     _idChantier = [user objectForKey:kIdChantierLoginKey];
 }
 
+// Sauvegarde l'utilisateur dans le UserDefaults
+- (void)saveUserToUserDefaults {
+    NSMutableDictionary *user = [[NSMutableDictionary alloc] init];
+    
+    [user setObject:_login forKey:kLoginKey];
+    [user setObject:_password forKey:kPasswordLoginKey];
+    [user setObject:_droitAcces forKey:kDroitAccesLoginKey];
+    [user setObject:_idChantier forKey:kIdChantierLoginKey];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:user forKey:kUserDefaultNameKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+}
 
-
-
+// Recuperation des users
 - (void)downloadUsersFile {
     
     // Run on the background

@@ -54,18 +54,8 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
-    //    _tache = [[PBTacheMonteurLeveeReserve alloc]initWithIdChantier:1
-    //                                       idTache:1
-    //                                         name:@"Tache 1"
-    //                                  description:@"Voici la dercription de la tache et c'est plutot sympas de voir que ca marche très bien n'est pas ? Voila donc vous avez ça a faire et puis ça et puis aussi ça car quand on s'amuse on ne compte pas. N'est pas ? Allez, ciao"
-    //                              imageDescription:[UIImage imageNamed:@"fond-1.jp"]
-    //                                   commentaire:@"Voici la dercription de la tache et c'est plutot sympas de voir que ca marche très bien n'est pas ? Voila donc vous avez ça a faire et puis ça et puis aussi ça car quand on s'amuse on ne compte pas. N'est pas ? Allez, ciao"
-    //                              imageCommentaire:[UIImage imageNamed:@"fond-1.jpg"]];
-    
-    
     [self initialisationViews];
+    [super viewDidLoad];
 }
 
 
@@ -114,7 +104,7 @@
     _lastFrameRect = CGRectMake(_frameScrollRect.origin.x + 20,
                                 _frameScrollRect.origin.y + 20,
                                 _frameScrollRect.size.width - 40,
-                                0);
+                                20);
     
     ///////////////////////////////////////////////////////
     //// Creation et placement des elements dans la vue ///
@@ -179,7 +169,7 @@
         [_insideView addSubview:_commentaireTextView];
         
         // _boutonAddCommentaire : modifier commentaire
-        ///////////////////////////////////////////////////////
+        //
         _boutonAddCommentaire = [UIButton buttonWithType:UIButtonTypeSystem];
         _boutonAddCommentaire.frame = [self getRectForElementWithHeight:MY_BUTTON_HEIGHT
                                                 andSpaceWithLastElement:MY_SPACE_AFTER_TEXTVIEW];
@@ -190,7 +180,7 @@
     else
     {
         // _boutonAddCommentaire : ajouter commentaire
-        ///////////////////////////////////////////////////////
+        //
         _boutonAddCommentaire = [UIButton buttonWithType:UIButtonTypeSystem];
         [_boutonAddCommentaire setFrame:[self getRectForElementWithHeight:MY_BUTTON_HEIGHT
                                                   andSpaceWithLastElement:MY_SPACE_AFTER_TEXTVIEW]];
@@ -237,7 +227,7 @@
     }
     
     // On ajoute un espacement tout en bas
-    [self getRectForElementWithHeight:0 andSpaceWithLastElement:20];
+    [self getRectForElementWithHeight:0 andSpaceWithLastElement:80];
     
     // Ajout du tout a la vue
     [_scrollView addSubview:_insideView];
@@ -266,12 +256,12 @@
     [self updateLastFrameRectOriginAddY:height];
     [self updateInsideViewBoundsAddY:(height + space)];
     
-    /*
+    //*
      NSLog(@"Origine du rectangle : %f", rectangle.origin.y);
      NSLog(@"+ %f", height);
      NSLog(@"InsideView total height : %f", _insideView.frame.size.height);
      NSLog(@" ");
-     */
+     //*/
     
     return rectangle;
 }
@@ -312,7 +302,6 @@
 -(void)boutonSaveTouched:(id)sender
 {
     [[self navigationController] popViewControllerAnimated:YES];
-    //[self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 
@@ -357,9 +346,7 @@
     {
         PBSaisieCommentaireViewController *vc = [segue destinationViewController];
         vc.delegate = self;
-        NSLog(@"ok");
         [vc setTache:_tache];
-        NSLog(@"ok2");
     }
 }
 
