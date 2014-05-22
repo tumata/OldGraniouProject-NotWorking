@@ -13,7 +13,6 @@
 
 @property (nonatomic) NSString           *idChantier;
 
-
 @property (nonatomic, strong, readonly) NSDictionary    *infosChantier;
 @property (nonatomic, strong) NSArray                   *tachesArray;
 @property (nonatomic, strong) NSArray                   *tachesLRArray;

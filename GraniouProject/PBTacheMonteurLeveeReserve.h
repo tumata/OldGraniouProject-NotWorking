@@ -15,13 +15,12 @@
 
 @property (readonly, copy, nonatomic) NSString      *titre;
 @property (readonly, copy, nonatomic) NSString      *description;
-@property (readonly, copy, nonatomic) UIImage     *imageDescription;
+@property (readonly, copy, nonatomic) UIImage       *imageDescription;
 
-@property (copy, nonatomic) NSString      *commentaire;
-@property (copy, nonatomic) UIImage     *imageCommentaire;
+@property (copy, nonatomic) NSString                *commentaire;
+@property (copy, nonatomic) UIImage                 *imageCommentaire;
 
 
--(id)initWithIdChantier:(NSString *)idChantier idTache:(NSString *)idTache name:(NSString *) name description:(NSString *)descr imageDescription:(UIImage *)imgDescr commentaire:(NSString *)comm imageCommentaire:(UIImage *)imgComm;
 - (id)initTacheWithInfos:(NSDictionary *)tacheInfos;
 
 - (NSData *)tacheToData;

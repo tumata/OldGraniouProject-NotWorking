@@ -118,9 +118,9 @@
     
 
     
-    NSLog(@"_lastFrameRect");
-    NSLog(@"lastFrame origine Y depart : %f", _lastFrameRect.origin.y);
-    NSLog(@"%f", _frameScrollRect.size.height);
+    //NSLog(@"_lastFrameRect");
+    //NSLog(@"lastFrame origine Y depart : %f", _lastFrameRect.origin.y);
+    //NSLog(@"%f", _frameScrollRect.size.height);
     
     ///////////////////////////////////////////////////////
     //// Creation et placement des elements dans la vue ///

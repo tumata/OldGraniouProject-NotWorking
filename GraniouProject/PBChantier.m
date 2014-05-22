@@ -18,9 +18,11 @@
 #define keyInfosChantierForUserDefault  @"informationsChantier"
 #define keyIDChantierForUserDefault     @"identifiantChantier"
 #define keyTachesArrayForUserDefault    @"listeDesTaches"
+#define keyTachesLRArrayForUserDefault  @"listeDesTachesLR"
 
 //URL ou envoyer la data
-#define destinationUrl @"http://ahmed-bacha.fr/json_get_all.php"
+//#define destinationUrl @"http://ahmed-bacha.fr/json_get_all.php"
+#define destinationUrl @"http://ahmed-bacha.fr/roma.php"
 
 #define keyChantiersJSON    @"chantiers"
 #define keyTachesJSON       @"taches"
@@ -45,8 +47,10 @@
 @interface PBChantier ()
 
 @property (nonatomic, strong) NSURLSession *session;
+@property (nonatomic, strong) NSMutableData *gatherAllData;
 
 @property (readwrite) NSDictionary *infosChantier;
+@property int i;
 
 @end
 
@@ -66,6 +70,8 @@ static PBChantier *_sharedInstance;
 + (void)initialize {
     if (self == [PBChantier class]) {
         _sharedInstance = [[super alloc] init];
+        _sharedInstance.i = 0;
+        _sharedInstance.gatherAllData = [NSMutableData data];
     }
 }
 
@@ -82,6 +88,7 @@ static PBChantier *_sharedInstance;
 - (void)reinitializeToZero {
     _sharedInstance.infosChantier = nil;
     _sharedInstance.tachesArray = nil;
+    _sharedInstance.tachesLRArray = nil;
     _sharedInstance.idChantier = nil;
 }
 
@@ -135,6 +142,8 @@ static PBChantier *_sharedInstance;
 
     // Archiving calls encodeWithCoder: on the singleton instance.
     [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_sharedInstance] forKey:keyChantierForUserDefault];
+    
+    // Sauvegarde persistante
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     return true;
@@ -233,15 +242,19 @@ static PBChantier *_sharedInstance;
 //
 - (BOOL)initializeChantierWithJSON:(id)jsonObjects {
     
-    // On recupere les infos chantier
-    //
+    /*----------------------------------------*/
+    /*   On recupere les infos chantier       */
+    /*----------------------------------------*/
     NSArray *chantier = [jsonObjects objectForKey:keyChantiersJSON];
     if ([chantier count]) {
         _infosChantier = [chantier objectAtIndex:0];
     }
-
-    // On recupere les TachesMonteurChantier
-    //
+    chantier = nil;
+    
+    
+    /*----------------------------------------*/
+    /* On recupere les TachesMonteurChantier  */
+    /*----------------------------------------*/
     NSArray *taches = [jsonObjects objectForKey:keyTachesJSON];
     NSMutableArray *tempTachesArray = [[NSMutableArray alloc] init];
     
@@ -253,9 +266,12 @@ static PBChantier *_sharedInstance;
         }
         _tachesArray = [[NSArray alloc] initWithArray:tempTachesArray];
     }
+    tempTachesArray = nil;
+    taches = nil;
     
-    // On recupere les TachesMonteurChantier
-    //
+    /*----------------------------------------*/
+    /* On recupere les TachesMonteurChantier  */
+    /*----------------------------------------*/
     NSArray *tachesLR = [jsonObjects objectForKey:keyTachesLRJSON];
     NSMutableArray *tempTachesLRArray = [[NSMutableArray alloc] init];
     
@@ -268,60 +284,63 @@ static PBChantier *_sharedInstance;
         }
         _tachesLRArray = [[NSArray alloc] initWithArray:tempTachesLRArray];
     }
+    tempTachesLRArray = nil;
+    tachesLR = nil;
     
+    jsonObjects = nil;
     
-    
+    /*----------------------------------------*/
+    /* Apres tout recup, save dans UsrDefault */
+    /*----------------------------------------*/
     [self saveChantierToUserDefaults];
-    // Rajouter dans saveToUserDefault la LeveeReserve
     
     return true;
 }
-
-
-//-------------------------------------------------------
-// Fonction de convertion du chantier en JSON
-//
-- (BOOL)convertChantierToJSON {
-    
-    
-    return true;
-}
-
 
 
 
 #pragma mark - NSURLSessionData Delegate Methods
 
 //-------------------------------------------------------
-// Lancé une fois la data depuis le serveur récuperée
+// Lancé une fois a chaque fragment de data
 //
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask
-    didReceiveData:(NSData *)data
+    didReceiveData:(NSData *)receivedData
 {
+    NSLog(@"%s - Iteration : %i, Data length : %i", __func__, _sharedInstance.i, [receivedData length]);
+    _sharedInstance.i++;
     
-    NSError *error;
-    id jsonObjects = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-    
-    if (error == nil) {
-        NSLog(@"%s : Received JSon : %@", __func__, jsonObjects);
-        
-        [[PBChantier sharedChantier] initializeChantierWithJSON:jsonObjects];
-    }
+    [_gatherAllData appendData:receivedData];
 }
 
 //-------------------------------------------------------
 // Une fois la connection terminée, fonction appelée.
+// La data est complete
 // Permet de savoir également si appareil Connecté
 //
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
 didCompleteWithError:(NSError *)error
 {
+    _sharedInstance.i = 0;
     
     if(error == nil)
     {
+        // On s'occuper de la data :
+        NSError *error;
+        id jsonObjects = [NSJSONSerialization JSONObjectWithData:_gatherAllData options:NSJSONReadingMutableContainers error:&error];
+        //NSLog(@"%s : Received JSon : %@", __func__, jsonObjects);
+        
+        if (error == nil) {
+            [[PBChantier sharedChantier] initializeChantierWithJSON:jsonObjects];
+        }
+        else NSLog(@"%s : erreur conversion JSON", __func__);
+        
+        // On enleve les donnees temporaires
+        _gatherAllData = nil;
+        
+        // On se deconnecte
         [_session invalidateAndCancel];
         
-
         // Une fois finit faire cette notification :
         [[NSNotificationCenter defaultCenter] postNotificationName:@"pb.chantierLoaded" object:self];
         
@@ -339,17 +358,19 @@ didCompleteWithError:(NSError *)error
 {
     //Encode properties, other class variables, etc
 	[encoder encodeObject:_idChantier forKey:keyIDChantierForUserDefault];
-	
     [encoder encodeObject:_infosChantier forKey:keyInfosChantierForUserDefault];
+    
     [encoder encodeObject:_tachesArray forKey:keyTachesArrayForUserDefault];
+    [encoder encodeObject:_tachesLRArray forKey:keyTachesLRArrayForUserDefault];
 }
 - (id)initWithCoder:(NSCoder *)decoder
 {
-        //decode properties, other class vars
-		_sharedInstance.idChantier = [decoder decodeObjectForKey:keyIDChantierForUserDefault];
-        
-        _sharedInstance.infosChantier = [decoder decodeObjectForKey:keyInfosChantierForUserDefault];
-        _sharedInstance.tachesArray = [decoder decodeObjectForKey:keyTachesArrayForUserDefault];
+    //decode properties, other class vars
+    _sharedInstance.idChantier = [decoder decodeObjectForKey:keyIDChantierForUserDefault];
+    _sharedInstance.infosChantier = [decoder decodeObjectForKey:keyInfosChantierForUserDefault];
+    
+    _sharedInstance.tachesArray = [decoder decodeObjectForKey:keyTachesArrayForUserDefault];
+    _sharedInstance.tachesLRArray = [decoder decodeObjectForKey:keyTachesLRArrayForUserDefault];
     
     return _sharedInstance;
 }

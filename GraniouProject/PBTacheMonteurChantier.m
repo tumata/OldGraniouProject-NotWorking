@@ -9,14 +9,17 @@
 #import "PBTacheMonteurChantier.h"
 #import "NSString+DecodeToImage.h"
 
-#define keyIDChantier       @"idChantier"
-#define keyIDTache          @"id"
+#define keyIDChantier           @"idChantier"
+#define keyIDTache              @"id"
 
-#define keyTitre            @"titreTache"
-#define keyDescription      @"contenuTache"
+#define keyTitre                @"titreTache"
+#define keyDescription          @"contenuTache"
 
-#define keyCommentaire      @"commentaire"
-#define keyCommentaireImage @"image"
+#define keyCommentaire                      @"commentaire"
+#define keyCommentaireImageDico             @"image"
+#define keyCommentaireImageDicoData         @"data"
+#define keyCommentaireImageDicoExtension    @"extension"
+#define keyCommentaireImageDicoName         @"name"
 
 #define keyCompression 0.5
 
@@ -29,24 +32,6 @@
 
 @implementation PBTacheMonteurChantier
 
-// Constructeur
--(id)initWithIdChantier:(NSString *)idChantier idTache:(NSString *)idTache name:(NSString *)name description:(NSString *)descr commentaire:(NSString *)comm imageCommentaire:(UIImage *)imgComm
-{
-    
-    self = [super init];
-    if (self) {
-        _idChantier = idChantier;
-        _idTache = idTache;
-        
-        _titre = name;
-        _description = descr;
-        
-        _commentaire = comm;
-        _imageCommentaire = imgComm;
-        
-    }
-    return self;
-}
 
 -(id)initTacheWithInfos:(NSDictionary *)tacheInfos {
     self = [super init];
@@ -59,14 +44,15 @@
         
         _commentaire = [tacheInfos objectForKey:keyCommentaire];
         
-        NSString *stringImageCommentaire = [tacheInfos objectForKey:keyCommentaireImage];
-        if ([stringImageCommentaire length]) {
-            _imageCommentaire = [stringImageCommentaire decodeBase64ToImage];
         
+        NSDictionary *dicoCommentaireImage = [tacheInfos objectForKey:keyCommentaireImageDico];
+        if ([[dicoCommentaireImage description] length]) {
+            NSString *stringImageCommentaire = [dicoCommentaireImage objectForKey:keyCommentaireImageDicoData];
+            if ([stringImageCommentaire length]) {
+                _imageCommentaire = [stringImageCommentaire decodeBase64ToImage];
+            }
         }
-        else {
-            _imageCommentaire = nil;
-        }
+        else _imageCommentaire = nil;
     }
     return self;
 }
@@ -84,8 +70,9 @@
     [encoder encodeObject:_description forKey:keyDescription];
     
     [encoder encodeObject:_commentaire forKey:keyCommentaire];
-    [encoder encodeObject:_imageCommentaire forKey:keyCommentaireImage];
+    [encoder encodeObject:_imageCommentaire forKey:keyCommentaireImageDico];
 }
+
 - (id)initWithCoder:(NSCoder *)decoder
 {
 	self = [super init];
@@ -99,11 +86,19 @@
         _description = [decoder decodeObjectForKey:keyDescription];
         
         _commentaire = [decoder decodeObjectForKey:keyCommentaire];
-        _imageCommentaire = [decoder decodeObjectForKey:keyCommentaireImage];
+        _imageCommentaire = [decoder decodeObjectForKey:keyCommentaireImageDico];
 	}
 	return self;
 }
 
+#pragma mark - NSData serialization
+
+
+/**
+ *  Conversion de la tache en NSData
+ *
+ *  @return NSData* contenant les infos de la tache
+ */
 - (NSData *)tacheToData {
     NSString *boundary = @"---------------------------14737809831466499882746641449";
     

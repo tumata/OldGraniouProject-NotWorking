@@ -47,6 +47,7 @@
 
 
 - (void)initializeAllUIItemsFromPBChantier {
+    
     PBChantier *chantier = [PBChantier sharedChantier];
     
     NSDictionary *underlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
