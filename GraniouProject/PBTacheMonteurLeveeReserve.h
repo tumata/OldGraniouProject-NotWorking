@@ -22,5 +22,8 @@
 
 
 -(id)initWithIdChantier:(NSString *)idChantier idTache:(NSString *)idTache name:(NSString *) name description:(NSString *)descr imageDescription:(UIImage *)imgDescr commentaire:(NSString *)comm imageCommentaire:(UIImage *)imgComm;
+- (id)initTacheWithInfos:(NSDictionary *)tacheInfos;
+
+- (NSData *)tacheToData;
 
 @end

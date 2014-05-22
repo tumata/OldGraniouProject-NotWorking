@@ -18,6 +18,8 @@
 #define keyCommentaire      @"commentaire"
 #define keyCommentaireImage @"image"
 
+#define keyCompression 0.5
+
 @interface PBTacheMonteurChantier ()
 
 @property (readwrite) NSString          *titre;
@@ -100,6 +102,42 @@
         _imageCommentaire = [decoder decodeObjectForKey:keyCommentaireImage];
 	}
 	return self;
+}
+
+- (NSData *)tacheToData {
+    NSString *boundary = @"---------------------------14737809831466499882746641449";
+    
+    NSMutableData *body = [NSMutableData data];
+    
+    // Pour commencer la requete
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    // Image
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"image\"; filename=\"%@.jpg\"\r\n", [self getNomImageCommentaire]] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[NSData dataWithData:UIImageJPEGRepresentation(_imageCommentaire, keyCompression)]];
+    
+    // Id Tache
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"id\"\r\n\r\n%@", _idTache] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    // Id Chantier
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"idChantier\"\r\n\r\n%@", _idChantier] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    // Commentaire
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"commentaire\"\r\n\r\n%@", _commentaire] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    // Pour terminer la requete
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    return body;
+}
+
+- (NSString *)getNomImageCommentaire {
+    return [NSString stringWithFormat:@"image-%@-%@", _idChantier, _idTache];
 }
 
 

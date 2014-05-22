@@ -9,6 +9,7 @@
 #import "PBPresentationChantierViewController.h"
 #import "PBChantier.h"
 #import "PBUserSyncController.h"
+#import "PBNetworking.h"
 
 @interface PBPresentationChantierViewController ()
 
@@ -101,6 +102,46 @@
         [[PBUserSyncController sharedUser] removeUserFromUserDefaults];
     
     [self performSegueWithIdentifier:@"backToLoginScreen" sender:self];
+}
+
+- (IBAction)actionSynchro:(id)sender {
+    PBTacheMonteurChantier *tache = [[PBChantier sharedChantier] tachesArray][0];
+    [PBNetworking sendHttpPostTacheWithData:[tache tacheToData] toUrlWithString:@"http://www.ahmed-bacha.fr/send_tache_ios.php" delegate:self];
+}
+
+
+
+#pragma mark - NSURLSessionData Delegate Methods
+
+//-------------------------------------------------------
+// Lancé une fois la data depuis le serveur récuperée
+//
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask
+    didReceiveData:(NSData *)data
+{
+    NSString *theReply = [[NSString alloc] initWithBytes:[data bytes] length:[data length] encoding: NSASCIIStringEncoding];
+    //NSString *theReply = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    
+    NSLog(@"Reponse : %@", theReply);
+}
+
+//-------------------------------------------------------
+// Une fois la connection terminée, fonction appelée.
+// Permet de savoir également si appareil Connecté
+//
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
+didCompleteWithError:(NSError *)error
+{
+    
+    if(error == nil)
+    {
+        NSLog(@"Reussi!!!!! (reponse du serveur)");
+    }
+    else {
+        NSLog(@"Erreur");
+    }
+    
+    
 }
 
 

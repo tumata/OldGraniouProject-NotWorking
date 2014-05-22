@@ -14,4 +14,8 @@
              toURLWithString:(NSString *)stringURL
                     delegate:(id<NSURLSessionDataDelegate>)delegate;
 
++ (void)sendHttpPostTacheWithData:(NSData *)body
+                  toUrlWithString:(NSString *)stringURL
+                         delegate:(id<NSURLSessionDataDelegate>)delegate;
+
 @end

@@ -256,7 +256,7 @@
     [self updateLastFrameRectOriginAddY:height];
     [self updateInsideViewBoundsAddY:(height + space)];
     
-    //*
+    /*
      NSLog(@"Origine du rectangle : %f", rectangle.origin.y);
      NSLog(@"+ %f", height);
      NSLog(@"InsideView total height : %f", _insideView.frame.size.height);

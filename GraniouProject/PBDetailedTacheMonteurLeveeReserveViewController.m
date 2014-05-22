@@ -327,7 +327,7 @@
 // Valider Tache touché
 -(void)boutonSaveTouched:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [[self navigationController] popViewControllerAnimated:YES];
 }
 
 
@@ -372,9 +372,7 @@
     {
         PBSaisieCommentaireViewController *vc = [segue destinationViewController];
         vc.delegate = self;
-        NSLog(@"ok");
         [vc setTache:_tache];
-        NSLog(@"ok2");
     }
 }
 

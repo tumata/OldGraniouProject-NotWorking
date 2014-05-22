@@ -29,5 +29,32 @@
     
 }
 
++ (void)sendHttpPostTacheWithData:(NSData *)body
+                  toUrlWithString:(NSString *)stringURL
+                         delegate:(id<NSURLSessionDataDelegate>)delegate {
+    
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: delegate delegateQueue: [NSOperationQueue mainQueue]];
+    
+    
+    NSURL * url = [NSURL URLWithString:stringURL];
+    NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url];
+    
+    [request setHTTPMethod:@"POST"];
+    
+    NSString *boundary = @"---------------------------14737809831466499882746641449";
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
+    [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
+    
+    // Body donnee en parametres
+    [request setHTTPBody:body];
+    
+    
+    NSURLSessionDataTask * dataTask = [defaultSession dataTaskWithRequest:request];
+    [dataTask resume];
+
+
+}
+
 
 @end

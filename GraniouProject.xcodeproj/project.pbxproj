@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		90F5B99A192C9FC300E1C9F6 /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 90F5B99B192C9FC300E1C9F6 /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				90F5B99E192C9FE300E1C9F6 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		90306E111926B326002F90C8 /* PBTacheMonteurChantier.m in Sources */ = {isa = PBXBuildFile; fileRef = 90306E101926B326002F90C8 /* PBTacheMonteurChantier.m */; };
 		90306E141926C019002F90C8 /* PBDetailedTacheMonteurChantierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90306E131926C019002F90C8 /* PBDetailedTacheMonteurChantierViewController.m */; };
@@ -106,6 +120,7 @@
 		90CD2B24192764AB0018DF16 /* PBTacheMonteurLeveeReserveTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTacheMonteurLeveeReserveTableViewController.m; sourceTree = "<group>"; };
 		90D00BED19236091002817BC /* PBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBNetworking.h; sourceTree = "<group>"; };
 		90D00BEE19236091002817BC /* PBNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBNetworking.m; sourceTree = "<group>"; };
+		90F5B99F192CA12B00E1C9F6 /* readme.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.markdown; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +202,7 @@
 		90C765991917FA5700FD58C0 = {
 			isa = PBXGroup;
 			children = (
+				90F5B99F192CA12B00E1C9F6 /* readme.markdown */,
 				90C765AB1917FA5700FD58C0 /* GraniouProject */,
 				90C765A41917FA5700FD58C0 /* Frameworks */,
 				90C765A31917FA5700FD58C0 /* Products */,
@@ -407,6 +423,7 @@
 			projectRoot = "";
 			targets = (
 				90C765A11917FA5700FD58C0 /* GraniouProject */,
+				90F5B99A192C9FC300E1C9F6 /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -426,6 +443,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		90F5B99E192C9FE300E1C9F6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"Telecom\";\ncompanyID=\"com.telecom\";\ncompanyURL=\"http://graniou-rail-project.fr\";\ntarget=\"iphoneos\";\n#target=\"macosx\";\noutputPath=\"~/help\";\n# End constants\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--docset-atom-filename \"${company}.atom\" \\\n--docset-feed-url \"${companyURL}/${company}/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"${companyURL}/${company}/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"${companyURL}/${company}\" \\\n--output \"${outputPath}\" \\\n--publish-docset \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--exit-threshold 2 \\\n\"${PROJECT_DIR}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		90C7659E1917FA5700FD58C0 /* Sources */ = {
@@ -598,6 +631,20 @@
 			};
 			name = Release;
 		};
+		90F5B99C192C9FC300E1C9F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		90F5B99D192C9FC300E1C9F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -615,6 +662,15 @@
 			buildConfigurations = (
 				90C765D81917FA5700FD58C0 /* Debug */,
 				90C765D91917FA5700FD58C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		90F5B99B192C9FC300E1C9F6 /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90F5B99C192C9FC300E1C9F6 /* Debug */,
+				90F5B99D192C9FC300E1C9F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

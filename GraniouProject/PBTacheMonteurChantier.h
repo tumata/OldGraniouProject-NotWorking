@@ -20,9 +20,9 @@
 @property (copy, nonatomic) UIImage     *imageCommentaire;
 
 
--(id)initWithIdChantier:(NSString *)idChantier idTache:(NSString *)idTache name:(NSString *) name description:(NSString *)descr  commentaire:(NSString *)comm imageCommentaire:(UIImage *)imgComm;
--(id)initTacheWithInfos:(NSDictionary *)tacheInfos;
+- (id)initWithIdChantier:(NSString *)idChantier idTache:(NSString *)idTache name:(NSString *) name description:(NSString *)descr  commentaire:(NSString *)comm imageCommentaire:(UIImage *)imgComm;
+- (id)initTacheWithInfos:(NSDictionary *)tacheInfos;
 
-
+- (NSData *)tacheToData;
 
 @end

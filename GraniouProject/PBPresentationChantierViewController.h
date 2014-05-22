@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PBPresentationChantierViewController : UIViewController
+@interface PBPresentationChantierViewController : UIViewController <NSURLSessionDataDelegate>
 
 @end

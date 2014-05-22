@@ -9,6 +9,7 @@
 #import "PBChantier.h"
 #import "PBUserSyncController.h"
 #import "PBNetworking.h"
+#import "PBTacheMonteurLeveeReserve.h"
 
 
 //User defaults
@@ -19,10 +20,11 @@
 #define keyTachesArrayForUserDefault    @"listeDesTaches"
 
 //URL ou envoyer la data
-#define destinationUrl @"http://ahmed-bacha.fr/json_data.php"
+#define destinationUrl @"http://ahmed-bacha.fr/json_get_all.php"
 
 #define keyChantiersJSON    @"chantiers"
 #define keyTachesJSON       @"taches"
+#define keyTachesLRJSON     @"leveeReserve"
 
 #define keyNom          @"nom"
 #define keyAdresse      @"adresse"
@@ -245,17 +247,32 @@ static PBChantier *_sharedInstance;
     
     if ([taches count]) {
         for (NSDictionary *dico in taches) {
-            NSLog(@"%@", dico);
+            //NSLog(@"Tache dico : %@", dico);
             PBTacheMonteurChantier *tache = [[PBTacheMonteurChantier alloc] initTacheWithInfos:dico];
             [tempTachesArray addObject:tache];
         }
+        _tachesArray = [[NSArray alloc] initWithArray:tempTachesArray];
     }
     
-    _tachesArray = [[NSArray alloc] initWithArray:tempTachesArray];
+    // On recupere les TachesMonteurChantier
+    //
+    NSArray *tachesLR = [jsonObjects objectForKey:keyTachesLRJSON];
+    NSMutableArray *tempTachesLRArray = [[NSMutableArray alloc] init];
+    
+    NSLog(@"TachesLR count : %i", [tachesLR count]);
+    if ([tachesLR count]) {
+        for (NSDictionary *dico in tachesLR) {
+            //NSLog(@"TacheLR dico : %@", dico);
+            PBTacheMonteurLeveeReserve *tache = [[PBTacheMonteurLeveeReserve alloc] initTacheWithInfos:dico];
+            [tempTachesLRArray addObject:tache];
+        }
+        _tachesLRArray = [[NSArray alloc] initWithArray:tempTachesLRArray];
+    }
+    
+    
     
     [self saveChantierToUserDefaults];
-    
-    NSLog(@"%s : %@", __func__, _tachesArray);
+    // Rajouter dans saveToUserDefault la LeveeReserve
     
     return true;
 }
