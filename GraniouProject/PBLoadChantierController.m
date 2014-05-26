@@ -31,7 +31,7 @@
     [super viewDidLoad];
     
     // Notification lorsque chantier chargé depuis le serveur
-     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chantierLoaded:) name:@"pb.chantierLoaded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chantierLoaded:) name:@"pb.chantierLoaded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chantierNotLoaded:) name:@"pb.chantierNotLoaded" object:nil];
 
     

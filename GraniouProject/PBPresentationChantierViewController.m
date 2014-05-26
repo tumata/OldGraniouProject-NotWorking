@@ -10,6 +10,7 @@
 #import "PBChantier.h"
 #import "PBUserSyncController.h"
 #import "PBNetworking.h"
+#import "PBTacheMonteurLeveeReserve.h"
 
 @interface PBPresentationChantierViewController ()
 
@@ -96,53 +97,88 @@
 #pragma mark - IB Actions
 
 - (IBAction)actionDeconnexion:(id)sender {
-    // Tester si donnees synchronisees
-    // Si données synchronisees :
     
-        [[PBChantier sharedChantier] removeChantierFromUserDefaults];
-        [[PBUserSyncController sharedUser] removeUserFromUserDefaults];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"!!! ATTENTION !!!"
+                                                    message:@"Avant de vous déconnecter, synchronisez vos données. \nTOUTES DONNÉES NON SYNCHRONISÉES SERONT PERDUES."
+                                                   delegate:self
+                                          cancelButtonTitle:@"Annuler"
+                                          otherButtonTitles:@"J'ai synchronisé", nil];
+    [alert show];
+}
+
+- (IBAction)actionSynchro:(id)sender {
+    [self synchroniserDonnees];
+}
+
+#pragma mark - fonction lorsque appui sur bouton deconnection
+
+- (void)validationDeconnection {
+    [[PBChantier sharedChantier] removeChantierFromUserDefaults];
+    [[PBUserSyncController sharedUser] removeUserFromUserDefaults];
     
     [self performSegueWithIdentifier:@"backToLoginScreen" sender:self];
 }
 
-- (IBAction)actionSynchro:(id)sender {
-    PBTacheMonteurChantier *tache = [[PBChantier sharedChantier] tachesArray][0];
-    [PBNetworking sendHttpPostTacheWithData:[tache tacheToData] toUrlWithString:@"http://www.ahmed-bacha.fr/send_tache_ios.php" delegate:self];
+#pragma mark - functions related to Synchro
+
+- (void)synchroniserDonnees {
+    // On empeche l'utilisateur de toucher a la vue et navigation
+    [self.view setUserInteractionEnabled:false];
+    [self.navigationController setNavigationBarHidden:true animated:true];
+    
+    // Notifications une fois termine
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(donneesSynchronisees:) name:@"pb.chantierFinishedSynchroYes" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(donneesNonSynchronisees:) name:@"pb.chantierFinishedSynchroNo" object:nil];
+    
+    // On envoi les donnees puis on les recupere
+    [[PBChantier sharedChantier] uploadChantierToServerThenDownload];
+    
+}
+
+- (void)donneesSynchronisees:(id)sender {
+    
+    // On redonne droit a l'utilisateur de toucher a la vue et navigation
+    [self.view setUserInteractionEnabled:true];
+    [self.navigationController setNavigationBarHidden:false animated:true];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sauvegarde réussie !"
+                                                    message:@"Si vous le désirez, vous pouvez désormais vous déconnecter. \nLes données sont sur le serveur."
+                                                   delegate:self
+                                          cancelButtonTitle:@"ok"
+                                          otherButtonTitles:nil, nil];
+    [alert show];
+    
+    // Remove notifications
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"pb.chantierFinishedSynchroYes" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"pb.chantierFinishedSynchroNo" object:nil];
+}
+
+- (void)donneesNonSynchronisees:(id)sender {
+    
+    // On redonne droit a l'utilisateur de toucher a la vue et navigation
+    [self.view setUserInteractionEnabled:true];
+    [self.navigationController setNavigationBarHidden:false animated:true];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sauvegarde échouée"
+                                                    message:@"Nous ne pouvons garantir l'envoi des données. La connexion réseau a échoué pendant l'envoi."
+                                                   delegate:self
+                                          cancelButtonTitle:@"ok"
+                                          otherButtonTitles:nil, nil];
+    [alert show];
+    
+    // Remove notifications
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"pb.chantierFinishedSynchroYes" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"pb.chantierFinishedSynchroNo" object:nil];
 }
 
 
+#pragma mark - UIAlertView Delegate
 
-#pragma mark - NSURLSessionData Delegate Methods
-
-//-------------------------------------------------------
-// Lancé une fois la data depuis le serveur récuperée
-//
-- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask
-    didReceiveData:(NSData *)data
-{
-    NSString *theReply = [[NSString alloc] initWithBytes:[data bytes] length:[data length] encoding: NSASCIIStringEncoding];
-    //NSString *theReply = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
-    NSLog(@"Reponse : %@", theReply);
-}
-
-//-------------------------------------------------------
-// Une fois la connection terminée, fonction appelée.
-// Permet de savoir également si appareil Connecté
-//
-- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
-didCompleteWithError:(NSError *)error
-{
-    
-    if(error == nil)
-    {
-        NSLog(@"Reussi!!!!! (reponse du serveur)");
+    if ([alertView.title isEqualToString:@"!!! ATTENTION !!!"] && (buttonIndex == 1)) {
+        [self validationDeconnection];
     }
-    else {
-        NSLog(@"Erreur");
-    }
-    
-    
 }
 
 

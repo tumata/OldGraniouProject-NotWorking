@@ -152,6 +152,8 @@ static PBUserSyncController *_sharedInstance;
     else {
         [self removeUserFromUserDefaults];
     }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 // Remise a zero des donnees
@@ -223,7 +225,8 @@ static PBUserSyncController *_sharedInstance;
     [user setObject:_idChantier forKey:kIdChantierLoginKey];
     
     [[NSUserDefaults standardUserDefaults] setObject:user forKey:kUserDefaultNameKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    user = nil;
     
 }
 

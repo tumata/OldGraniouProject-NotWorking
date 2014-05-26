@@ -9,6 +9,7 @@
 #import "PBChantier.h"
 #import "PBUserSyncController.h"
 #import "PBNetworking.h"
+#import "PBNetworkingSendTaches.h"
 #import "PBTacheMonteurLeveeReserve.h"
 
 
@@ -98,19 +99,42 @@ static PBChantier *_sharedInstance;
 // Upload le chantier puis download la mise a jour
 //
 - (void)uploadChantierToServerThenDownload {
-    
-    //------------------------------
-    //        gerer l'envoi       //
-    //------------------------------
-    
-    // Supprimer les données dans userDefault une fois envoi reussi
-    
-    NSString *data = @"id=";
-    data = [data stringByAppendingString:[[PBUserSyncController sharedUser] idChantier]];
-    
-    [PBNetworking sendHttpPostWithData:data toURLWithString:destinationUrl delegate:self];
-    
+    // Gere a la fois upload puis une fois finit download
+    [self uploadChantierToServer];
 }
+
+
+//-------------------------------------------------------
+// Upload le chantier sur le serveur
+//
+- (void)uploadChantierToServer {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chantierFinishedUploadingToServerYes:) name:@"pb.chantierFinishedUploadingYes" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chantierFinishedUploadingToServerNo:) name:@"pb.chantierFinishedUploadingNo" object:nil];
+    
+    [PBNetworkingSendTaches sendAllTachesFromChantierToUrl];
+}
+
+//-------------------------------------------------------
+// Une fois chantier envoye vers le serveur
+//
+- (void)chantierFinishedUploadingToServerYes:(id)sender {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"pb.chantierFinishedUploadingYes" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"pb.chantierFinishedUploadingNo" object:nil];
+    [self loadChantierFromServer];
+}
+
+//-------------------------------------------------------
+// Une fois chantier envoye vers le serveur
+//
+- (void)chantierFinishedUploadingToServerNo:(id)sender {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"pb.chantierFinishedUploadingYes" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"pb.chantierFinishedUploadingNo" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"pb.chantierFinishedSynchroNo" object:nil];
+}
+
+
+
 
 //-------------------------------------------------------
 // Recupere le chantier depuis le serveur
@@ -123,15 +147,6 @@ static PBChantier *_sharedInstance;
     [PBNetworking sendHttpPostWithData:data toURLWithString:destinationUrl delegate:self];
 }
 
-//-------------------------------------------------------
-// Upload le chantier sur le serveur
-//
-- (void)uploadChantierToServer {
-
-    
-}
-
-
 
 #pragma mark Actions sur UsersDefault
 
@@ -142,9 +157,6 @@ static PBChantier *_sharedInstance;
 
     // Archiving calls encodeWithCoder: on the singleton instance.
     [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_sharedInstance] forKey:keyChantierForUserDefault];
-    
-    // Sauvegarde persistante
-    [[NSUserDefaults standardUserDefaults] synchronize];
     
     return true;
 }
@@ -166,11 +178,16 @@ static PBChantier *_sharedInstance;
 //
 
 - (BOOL)removeChantierFromUserDefaults {
+    bool ok = false;
     if ([[NSUserDefaults standardUserDefaults] objectForKey:keyChantierForUserDefault]) {
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:keyChantierForUserDefault];
-        return true;
+        ok = true;
     }
-    else return false;
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:keyTachesArrayForUserDefault]) {
+        NSLog(@"La clef est bonne");
+    }
+    
+    return ok;
 }
 
 
@@ -242,6 +259,8 @@ static PBChantier *_sharedInstance;
 //
 - (BOOL)initializeChantierWithJSON:(id)jsonObjects {
     
+    [self removeChantierFromUserDefaults];
+    
     /*----------------------------------------*/
     /*   On recupere les infos chantier       */
     /*----------------------------------------*/
@@ -275,7 +294,7 @@ static PBChantier *_sharedInstance;
     NSArray *tachesLR = [jsonObjects objectForKey:keyTachesLRJSON];
     NSMutableArray *tempTachesLRArray = [[NSMutableArray alloc] init];
     
-    NSLog(@"TachesLR count : %i", [tachesLR count]);
+    NSLog(@"TachesLR count : %lu", (unsigned long)[tachesLR count]);
     if ([tachesLR count]) {
         for (NSDictionary *dico in tachesLR) {
             //NSLog(@"TacheLR dico : %@", dico);
@@ -296,6 +315,8 @@ static PBChantier *_sharedInstance;
     
     return true;
 }
+
+
 
 
 
@@ -337,12 +358,14 @@ didCompleteWithError:(NSError *)error
         
         // On enleve les donnees temporaires
         _gatherAllData = nil;
+        _gatherAllData = [NSMutableData data];
         
         // On se deconnecte
         [_session invalidateAndCancel];
         
         // Une fois finit faire cette notification :
         [[NSNotificationCenter defaultCenter] postNotificationName:@"pb.chantierLoaded" object:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"pb.chantierFinishedSynchroYes" object:nil];
         
     }
     else {
