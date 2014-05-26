@@ -93,6 +93,12 @@ static PBChantier *_sharedInstance;
     _sharedInstance.idChantier = nil;
 }
 
+- (bool)isEmpty {
+    NSLog(@"%i", _infosChantier.description.length);
+    if (_infosChantier.description.length < 2) return true;
+    else return false;
+}
+
 #pragma mark Actions sur le réseau
 
 //-------------------------------------------------------
@@ -181,12 +187,9 @@ static PBChantier *_sharedInstance;
     bool ok = false;
     if ([[NSUserDefaults standardUserDefaults] objectForKey:keyChantierForUserDefault]) {
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:keyChantierForUserDefault];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         ok = true;
     }
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:keyTachesArrayForUserDefault]) {
-        NSLog(@"La clef est bonne");
-    }
-    
     return ok;
 }
 
@@ -260,6 +263,7 @@ static PBChantier *_sharedInstance;
 - (BOOL)initializeChantierWithJSON:(id)jsonObjects {
     
     [self removeChantierFromUserDefaults];
+    [self reinitializeToZero];
     
     /*----------------------------------------*/
     /*   On recupere les infos chantier       */

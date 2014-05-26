@@ -32,6 +32,7 @@
 - (BOOL)removeChantierFromUserDefaults;
 
 - (void)reinitializeToZero;
+- (bool)isEmpty;
 
 
 - (NSArray *)getTheSixInfosKeyThenValue;

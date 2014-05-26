@@ -47,7 +47,8 @@ UITextField *currentFieldSelected;
     // On s'abonne aux notifications de PBUserSyncController
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userNotLoggedNoInternet:) name:@"pb.notLoggedNoInternet" object:nil];
     
-    if ([[PBUserSyncController sharedUser] wasLoggedBeforeLoginScreen]) {
+    if ([[PBUserSyncController sharedUser] wasLoggedBeforeLoginScreen]
+        && [[NSUserDefaults standardUserDefaults] objectForKey:@"chantierEnregistre"]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Déjà connecté"
                                                         message:@"Nous allons restaurer votre session"
                                                        delegate:self

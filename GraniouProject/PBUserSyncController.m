@@ -142,7 +142,9 @@ static PBUserSyncController *_sharedInstance;
 
 // Scenario lorsque l'application se terminate
 - (void)applicationWillTerminateScenario {
-    if ([self isUserLogged]) {
+    if ([self isUserLogged] && ![[PBChantier sharedChantier] isEmpty]) {
+        
+        // Sauvegarde le User
         [self saveUserToUserDefaults];
         NSLog(@"%s : userSavedToDefaults", __func__);
         
@@ -150,6 +152,7 @@ static PBUserSyncController *_sharedInstance;
         [[PBChantier sharedChantier] saveChantierToUserDefaults];
     }
     else {
+        // Bug, on enleve le user 
         [self removeUserFromUserDefaults];
     }
     
