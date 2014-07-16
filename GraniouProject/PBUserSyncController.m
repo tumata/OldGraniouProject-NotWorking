@@ -16,7 +16,7 @@
 #define kUserDefaultNameKey        @"UtilisateurSaved"
 
 // Liens et clefs pour recuperer depuis le serveur
-#define kBaseURLString              @"http://ahmed-bacha.fr/"
+#define kBaseURLString              @"http://graniou-rail-project.fr/WebService/"
 #define kUsersSourceFile            @"json_users.php"
 #define kUsersKey                   @"users"
 #define kLoginKey                   @"login"

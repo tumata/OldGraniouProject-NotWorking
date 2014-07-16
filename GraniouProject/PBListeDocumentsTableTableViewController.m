@@ -10,7 +10,7 @@
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
-#define kBaseURLString              @"http://ahmed-bacha.fr/"
+#define kBaseURLString              @"http://graniou-rail-project.fr/WebService/"
 #define kUsersSourceFile            @"json_pdfs.php"
 #define kFichiers                   @"fichiers"
 #define kName                       @"name"
@@ -23,7 +23,10 @@
 
 @interface PBListeDocumentsTableTableViewController ()
 
-@property (nonatomic, strong) NSArray *listeDocuments;
+// Array de Dictionnaires
+@property (nonatomic, strong) NSArray *listeDocumentsDownloaded;
+// Array de String
+@property (nonatomic, strong) NSArray *listeDocumentsSaved;
 
 @end
 
@@ -34,8 +37,9 @@
 {
     [super viewDidLoad];
     [self downloadDocuments];
+    NSError *error;
     
-    
+    _listeDocumentsSaved = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self getStringPath] error:&error];
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,7 +58,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _listeDocuments.count;
+    return _listeDocumentsSaved.count;
 }
 
 
@@ -63,12 +67,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"documentCell" forIndexPath:indexPath];
     
     // Update cell content
-    NSDictionary *document = [_listeDocuments objectAtIndex:indexPath.row];
-    cell.textLabel.text = [document objectForKey:kName];
-    
+    NSString *document = [_listeDocumentsSaved objectAtIndex:indexPath.row];
+    cell.textLabel.text = document;
     
     return cell;
-    
 }
 
 
@@ -90,7 +92,7 @@
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     
     PBShowPDFViewController *vc = [segue destinationViewController];
-    vc.document = [_listeDocuments objectAtIndex:indexPath.row];
+    vc.document = [_listeDocumentsSaved objectAtIndex:indexPath.row];
 
 }
 
@@ -117,7 +119,7 @@
         NSError *error = nil;
         id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
             
-        NSLog(@"%@", jsonObjects);
+        //NSLog(@"%@", jsonObjects);
             
         // Recuperation de la table "fichiers"
         listeTemporaire = [jsonObjects objectForKey:kFichiers];
@@ -132,8 +134,58 @@
         
     }
     
-    _listeDocuments = listeTemporaire;
-    [self.tableView reloadData];
+    _listeDocumentsDownloaded = listeTemporaire;
+    [self compareDocsToDownloadedDocs];
+}
+
+
+- (void)compareDocsToDownloadedDocs {
+    for (NSDictionary *dicoDownloaded in _listeDocumentsDownloaded) {
+        NSString *nameDownloaded = [dicoDownloaded objectForKey:kName];
+        bool exists = false;
+        for (NSString *nameSaved in _listeDocumentsSaved) {
+            if ([nameDownloaded isEqualToString:nameSaved]) {
+                exists = true;
+            }
+        }
+        // Si le document telecharge n'a pas ete trouve dans les saved ones
+        if (!exists) {
+            NSLog(@"Existe pas");
+            NSData *pdfData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:[dicoDownloaded objectForKey:kLink]]];
+            if ([pdfData writeToFile:[[self getStringPath] stringByAppendingPathComponent:nameDownloaded] atomically:YES]) {
+                // Actualisation de la vue au fur et a mesure
+                _listeDocumentsSaved = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self getStringPath] error:nil];
+                [self.tableView reloadData];
+            }
+        }
+    }
+    
+    //NSLog(@"\n");
+    //for (NSString *doc in _listeDocumentsSaved) {
+    //    NSLog(@"%@", doc);
+    //}
+    //NSLog(@"\n\n\n");
+    
+}
+
+
+#pragma mark - Methods related to directory url/string
+
+/**
+ Returns the URL to the application's Documents directory.
+ */
+- (NSURL *)applicationDocumentsDirectory {
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
+                                                   inDomains:NSUserDomainMask] lastObject];
+}
+
+
+- (NSString *)getStringPath {
+    return [self applicationDocumentsDirectory].path;
+}
+
+- (NSURL *)getURLPath {
+    return [self applicationDocumentsDirectory];
 }
 
 

@@ -33,41 +33,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self downloadPDF];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-//    NSString *path = [[self applicationDocumentsDirectory].path
-//                      stringByAppendingPathComponent:[_document objectForKey:kName]];
-//    NSError *error;
-//    [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
-//    NSLog(@"%@", path);
-//    NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
-    [super viewDidDisappear:animated];
-}
-
-
-- (void) downloadPDF
-{
-    NSString *path = [[self applicationDocumentsDirectory].path
-                      stringByAppendingPathComponent:[_document objectForKey:kName]];
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        NSLog(@"%s : Existe deja", __func__);
-    }
-    else {
-        NSData *pdfData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:[_document objectForKey:kLink]]];
-        bool good = [pdfData writeToFile:path atomically:YES];
-        NSLog(@"%s : Good : %i", __func__, good);
-    }
-    
-}
 
 #pragma mark -
 #pragma mark Actions
 - (IBAction)previewDocument:(id)sender {
-    NSURL *URL = [NSURL fileURLWithPath:[[self applicationDocumentsDirectory].path
-                                         stringByAppendingPathComponent:[_document objectForKey:kName]]];
+    NSURL *URL = [self getUrlPath];
     
     if (URL) {
         // Initialize Document Interaction Controller
@@ -83,8 +55,7 @@
 
 - (IBAction)openDocument:(id)sender {
     UIButton *button = (UIButton *)sender;
-    NSURL *URL = [NSURL fileURLWithPath:[[self applicationDocumentsDirectory].path
-                                         stringByAppendingPathComponent:[_document objectForKey:kName]]];
+    NSURL *URL = [self getUrlPath];
     
     if (URL) {
         // Initialize Document Interaction Controller
@@ -111,5 +82,14 @@
 - (NSURL *)applicationDocumentsDirectory {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
                                                    inDomains:NSUserDomainMask] lastObject];
+}
+
+- (NSURL *)getUrlPath {
+    return [NSURL fileURLWithPath:[self getStringPath]];
+}
+
+- (NSString *)getStringPath {
+    return [[self applicationDocumentsDirectory].path
+     stringByAppendingPathComponent:_document];
 }
 @end

@@ -22,8 +22,8 @@
 #define keyTachesLRArrayForUserDefault  @"listeDesTachesLR"
 
 //URL ou envoyer la data
-//#define destinationUrl @"http://ahmed-bacha.fr/json_get_all.php"
-#define destinationUrl @"http://ahmed-bacha.fr/roma.php"
+//#define destinationUrl @"http://graniou-rail-project.fr/WebService/json_get_all.php"
+#define destinationUrl @"http://graniou-rail-project.fr/WebService/roma.php"
 
 #define keyChantiersJSON    @"chantiers"
 #define keyTachesJSON       @"taches"

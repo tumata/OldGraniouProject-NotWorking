@@ -13,8 +13,8 @@
 #import "PBTacheMonteurLeveeReserve.h"
 #import "PBTacheMonteurChantier.h"
 
-#define urlToSendTacheChantier  @"http://ahmed-bacha.fr/send_tache_ios.php"
-#define urlToSendTacheLR        @"http://ahmed-bacha.fr/send_ldr_ios.php"
+#define urlToSendTacheChantier  @"http://graniou-rail-project.fr/WebService/send_tache_ios.php"
+#define urlToSendTacheLR        @"http://graniou-rail-project.fr/WebService/send_ldr_ios.php"
 
 @interface PBNetworkingSendTaches()
 

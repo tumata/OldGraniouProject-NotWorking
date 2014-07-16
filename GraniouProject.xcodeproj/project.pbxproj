@@ -6,23 +6,10 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		90F5B99A192C9FC300E1C9F6 /* Documentation */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 90F5B99B192C9FC300E1C9F6 /* Build configuration list for PBXAggregateTarget "Documentation" */;
-			buildPhases = (
-				90F5B99E192C9FE300E1C9F6 /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = Documentation;
-			productName = Documentation;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		90306E111926B326002F90C8 /* PBTacheMonteurChantier.m in Sources */ = {isa = PBXBuildFile; fileRef = 90306E101926B326002F90C8 /* PBTacheMonteurChantier.m */; };
 		90306E141926C019002F90C8 /* PBDetailedTacheMonteurChantierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90306E131926C019002F90C8 /* PBDetailedTacheMonteurChantierViewController.m */; };
+		904A8C5C19410FFF0044253F /* LogoGraniou.png in Resources */ = {isa = PBXBuildFile; fileRef = 904A8C5B19410FFF0044253F /* LogoGraniou.png */; };
 		90B94BF2191BD87C0062F7CA /* PBChantier.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B94BF1191BD87C0062F7CA /* PBChantier.m */; };
 		90BEBE251924A30C00F72C3B /* PBPresentationChantierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BEBE241924A30C00F72C3B /* PBPresentationChantierViewController.m */; };
 		90C6F1D4192B6D98003E4A36 /* PBListeDocumentsTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C6F1D3192B6D98003E4A36 /* PBListeDocumentsTableTableViewController.m */; };
@@ -52,7 +39,6 @@
 		90CA1EF319333AFF00E335F4 /* PBNetworkingSendTaches.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CA1EF219333AFF00E335F4 /* PBNetworkingSendTaches.m */; };
 		90CB2CBA191A2253006AA73A /* PBDetailedTacheMonteurLeveeReserveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB2CB9191A2253006AA73A /* PBDetailedTacheMonteurLeveeReserveViewController.m */; };
 		90CB2CBE191A653E006AA73A /* fond-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90CB2CBC191A653E006AA73A /* fond-1.jpg */; };
-		90CB2CBF191A653E006AA73A /* LogoGraniou.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CB2CBD191A653E006AA73A /* LogoGraniou.png */; };
 		90CD2B22192759950018DF16 /* PBTacheMonteurChantierTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CD2B21192759950018DF16 /* PBTacheMonteurChantierTableViewController.m */; };
 		90CD2B25192764AB0018DF16 /* PBTacheMonteurLeveeReserveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CD2B24192764AB0018DF16 /* PBTacheMonteurLeveeReserveTableViewController.m */; };
 		90D00BEF19236091002817BC /* PBNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D00BEE19236091002817BC /* PBNetworking.m */; };
@@ -63,6 +49,7 @@
 		90306E101926B326002F90C8 /* PBTacheMonteurChantier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTacheMonteurChantier.m; sourceTree = "<group>"; };
 		90306E121926C019002F90C8 /* PBDetailedTacheMonteurChantierViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBDetailedTacheMonteurChantierViewController.h; sourceTree = "<group>"; };
 		90306E131926C019002F90C8 /* PBDetailedTacheMonteurChantierViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBDetailedTacheMonteurChantierViewController.m; sourceTree = "<group>"; };
+		904A8C5B19410FFF0044253F /* LogoGraniou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoGraniou.png; sourceTree = "<group>"; };
 		90B94BF0191BD87C0062F7CA /* PBChantier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBChantier.h; sourceTree = "<group>"; };
 		90B94BF1191BD87C0062F7CA /* PBChantier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBChantier.m; sourceTree = "<group>"; };
 		90BEBE231924A30C00F72C3B /* PBPresentationChantierViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBPresentationChantierViewController.h; sourceTree = "<group>"; };
@@ -116,14 +103,12 @@
 		90CB2CB8191A2253006AA73A /* PBDetailedTacheMonteurLeveeReserveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBDetailedTacheMonteurLeveeReserveViewController.h; sourceTree = "<group>"; };
 		90CB2CB9191A2253006AA73A /* PBDetailedTacheMonteurLeveeReserveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBDetailedTacheMonteurLeveeReserveViewController.m; sourceTree = "<group>"; };
 		90CB2CBC191A653E006AA73A /* fond-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fond-1.jpg"; sourceTree = "<group>"; };
-		90CB2CBD191A653E006AA73A /* LogoGraniou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoGraniou.png; sourceTree = "<group>"; };
 		90CD2B20192759950018DF16 /* PBTacheMonteurChantierTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTacheMonteurChantierTableViewController.h; sourceTree = "<group>"; };
 		90CD2B21192759950018DF16 /* PBTacheMonteurChantierTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTacheMonteurChantierTableViewController.m; sourceTree = "<group>"; };
 		90CD2B23192764AB0018DF16 /* PBTacheMonteurLeveeReserveTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTacheMonteurLeveeReserveTableViewController.h; sourceTree = "<group>"; };
 		90CD2B24192764AB0018DF16 /* PBTacheMonteurLeveeReserveTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTacheMonteurLeveeReserveTableViewController.m; sourceTree = "<group>"; };
 		90D00BED19236091002817BC /* PBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBNetworking.h; sourceTree = "<group>"; };
 		90D00BEE19236091002817BC /* PBNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBNetworking.m; sourceTree = "<group>"; };
-		90F5B99F192CA12B00E1C9F6 /* readme.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.markdown; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,7 +190,6 @@
 		90C765991917FA5700FD58C0 = {
 			isa = PBXGroup;
 			children = (
-				90F5B99F192CA12B00E1C9F6 /* readme.markdown */,
 				90C765AB1917FA5700FD58C0 /* GraniouProject */,
 				90C765A41917FA5700FD58C0 /* Frameworks */,
 				90C765A31917FA5700FD58C0 /* Products */,
@@ -362,8 +346,8 @@
 		90CB2CBB191A64DC006AA73A /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				904A8C5B19410FFF0044253F /* LogoGraniou.png */,
 				90CB2CBC191A653E006AA73A /* fond-1.jpg */,
-				90CB2CBD191A653E006AA73A /* LogoGraniou.png */,
 			);
 			name = Ressources;
 			sourceTree = "<group>";
@@ -428,7 +412,6 @@
 			projectRoot = "";
 			targets = (
 				90C765A11917FA5700FD58C0 /* GraniouProject */,
-				90F5B99A192C9FC300E1C9F6 /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -440,30 +423,14 @@
 			files = (
 				90C765BC1917FA5700FD58C0 /* Main_iPad.storyboard in Resources */,
 				90C765C11917FA5700FD58C0 /* Images.xcassets in Resources */,
-				90CB2CBF191A653E006AA73A /* LogoGraniou.png in Resources */,
 				90C765B91917FA5700FD58C0 /* Main_iPhone.storyboard in Resources */,
 				90C765B01917FA5700FD58C0 /* InfoPlist.strings in Resources */,
+				904A8C5C19410FFF0044253F /* LogoGraniou.png in Resources */,
 				90CB2CBE191A653E006AA73A /* fond-1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		90F5B99E192C9FE300E1C9F6 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"Telecom\";\ncompanyID=\"com.telecom\";\ncompanyURL=\"http://graniou-rail-project.fr\";\ntarget=\"iphoneos\";\n#target=\"macosx\";\noutputPath=\"~/help\";\n# End constants\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--docset-atom-filename \"${company}.atom\" \\\n--docset-feed-url \"${companyURL}/${company}/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"${companyURL}/${company}/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"${companyURL}/${company}\" \\\n--output \"${outputPath}\" \\\n--publish-docset \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--exit-threshold 2 \\\n\"${PROJECT_DIR}\"";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		90C7659E1917FA5700FD58C0 /* Sources */ = {
@@ -545,7 +512,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pierre Grisiglione (KCX343CWAJ)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -563,6 +530,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = Graniou;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -584,7 +552,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Pierre Grisiglione (FX5DHFP49L)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -595,6 +563,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = Graniou;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -637,20 +606,6 @@
 			};
 			name = Release;
 		};
-		90F5B99C192C9FC300E1C9F6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		90F5B99D192C9FC300E1C9F6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -668,15 +623,6 @@
 			buildConfigurations = (
 				90C765D81917FA5700FD58C0 /* Debug */,
 				90C765D91917FA5700FD58C0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		90F5B99B192C9FC300E1C9F6 /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				90F5B99C192C9FC300E1C9F6 /* Debug */,
-				90F5B99D192C9FC300E1C9F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

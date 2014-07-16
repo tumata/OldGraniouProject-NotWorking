@@ -10,6 +10,6 @@
 
 @interface PBShowPDFViewController : UIViewController <UIDocumentInteractionControllerDelegate>
 
-@property (nonatomic, weak) NSDictionary *document;
+@property (nonatomic, weak) NSString *document;
 
 @end

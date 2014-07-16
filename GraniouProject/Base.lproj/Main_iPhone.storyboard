@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="bSi-9m-9Zh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="bSi-9m-9Zh">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -26,7 +26,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSq-2Q-pRq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4070" y="422"/>
+            <point key="canvasLocation" x="2818" y="395"/>
         </scene>
         <!--Saisie Commentaire View Controller-->
         <scene sceneID="8N7-PN-nra">
@@ -84,7 +84,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipP-eG-zF9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4973" y="573"/>
+            <point key="canvasLocation" x="3439" y="395"/>
         </scene>
         <!--Take Photo View Controller-->
         <scene sceneID="I9c-cR-UhR">
@@ -154,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qS6-hc-Hxq" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5109" y="-269"/>
+            <point key="canvasLocation" x="3439" y="-296"/>
         </scene>
         <!--Tache Monteur Levee Reserve Table View Controller-->
         <scene sceneID="mHf-ji-fz3">
@@ -186,7 +186,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Fk-Vv-Fdw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3372" y="422"/>
+            <point key="canvasLocation" x="2308" y="395"/>
         </scene>
         <!--viewFirstPage-->
         <scene sceneID="pTw-n8-IM2">
@@ -234,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TdV-m7-FWy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-700" y="110"/>
+            <point key="canvasLocation" x="1133" y="-640"/>
         </scene>
         <!--viewControllerLoginPage-->
         <scene sceneID="EVF-t3-cS6">
@@ -403,7 +403,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MfI-pU-7Wg" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-700" y="-627"/>
+            <point key="canvasLocation" x="212" y="-640"/>
         </scene>
         <!--Presentation Chantier View Controller-->
         <scene sceneID="YKW-Vc-swz">
@@ -572,7 +572,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p0X-Og-37U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="299" y="110"/>
+            <point key="canvasLocation" x="687" y="99"/>
         </scene>
         <!--Menu Principal View Controller - menuMonteurConducteur-->
         <scene sceneID="AYm-Dh-7AW">
@@ -651,7 +651,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qx8-CH-J6q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="745" y="110"/>
+            <point key="canvasLocation" x="1133" y="99"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xkD-Bh-vch">
@@ -669,7 +669,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Znv-Z4-5ns" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-176" y="110"/>
+            <point key="canvasLocation" x="212" y="99"/>
         </scene>
         <!--Menu Monteur View Controller - menuMonteur-->
         <scene sceneID="JqC-wW-k3U">
@@ -773,7 +773,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="27L-Ih-yxS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1649" y="-489"/>
+            <point key="canvasLocation" x="1681" y="-257"/>
         </scene>
         <!--Menu Chantier View Controller - Chantier-->
         <scene sceneID="GKd-0S-AA2">
@@ -849,7 +849,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="THV-JK-y8i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2191" y="-1031"/>
+            <point key="canvasLocation" x="1675" y="-919"/>
         </scene>
         <!--Menu Conducteur View Controller - Conducteur de travaux-->
         <scene sceneID="UJn-7Q-3ls">
@@ -919,7 +919,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPt-sJ-1g3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1649" y="999"/>
+            <point key="canvasLocation" x="1681" y="409"/>
         </scene>
         <!--Detailed Tache Monteur Chantier View Controller-->
         <scene sceneID="BOv-IN-356">
@@ -943,7 +943,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tg5-Aa-B4P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4070" y="-269"/>
+            <point key="canvasLocation" x="2818" y="-296"/>
         </scene>
         <!--Liste Documents Table Table View Controller - Documents-->
         <scene sceneID="9vM-bR-mH5">
@@ -984,7 +984,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ev-T2-Oad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2981" y="-372"/>
+            <point key="canvasLocation" x="2308" y="-919"/>
         </scene>
         <!--ShowPDF View Controller-->
         <scene sceneID="Y3u-fR-UeL">
@@ -1033,7 +1033,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U3R-bw-wbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3372" y="-372"/>
+            <point key="canvasLocation" x="2818" y="-919"/>
         </scene>
         <!--Tache Monteur Chantier Table View Controller - Tâches-->
         <scene sceneID="g6D-Jd-HJJ">
@@ -1074,11 +1074,11 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOg-M7-21y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3372" y="-1031"/>
+            <point key="canvasLocation" x="2308" y="-296"/>
         </scene>
     </scenes>
     <resources>
-        <image name="LogoGraniou.png" width="681" height="472"/>
+        <image name="LogoGraniou.png" width="680" height="466"/>
         <image name="fond-1.jpg" width="641" height="1008"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -1087,8 +1087,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="8Zf-IT-wVe"/>
+        <segue reference="4v0-QF-BCd"/>
         <segue reference="eie-Fa-FWl"/>
-        <segue reference="qbc-xS-egT"/>
+        <segue reference="Mfn-ZQ-1TO"/>
     </inferredMetricsTieBreakers>
 </document>
